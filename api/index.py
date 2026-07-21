@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import os
 import requests
+import time
 
 app = Flask(__name__)
 
@@ -29,7 +30,32 @@ def webhook_handler(path):
         
         # Meta CAPI Integration
         if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
-            pass # TODO: Implement Meta API call
+            timestamp = int(time.time())
+            fbc = f"fb.1.{timestamp}.{fbclid}"
+            
+            payload = {
+                "data": [
+                    {
+                        "event_name": "Purchase",
+                        "event_time": timestamp,
+                        "action_source": "website",
+                        "user_data": {
+                            "fbc": fbc
+                        },
+                        "custom_data": {
+                            "value": float(data.get("transaction_value", 0)),
+                            "currency": data.get("currency", "EUR")
+                        }
+                    }
+                ]
+            }
+            
+            url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
+            try:
+                response = requests.post(url, json=payload)
+                response.raise_for_status()
+            except requests.exceptions.RequestException as e:
+                print(f"Error sending Meta CAPI event: {e}")
             
         # Google API Integration
         if gclid and GOOGLE_DEV_TOKEN:
