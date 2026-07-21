@@ -43,7 +43,7 @@ def webhook_handler(path):
                             "fbc": fbc
                         },
                         "custom_data": {
-                            "value": float(data.get("transaction_value", 0)),
+                            "value": float(data.get("commission", data.get("transaction_value", 0))),
                             "currency": data.get("currency", "EUR")
                         }
                     }
