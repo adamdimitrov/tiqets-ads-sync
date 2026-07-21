@@ -50,6 +50,10 @@ def webhook_handler(path):
                 ]
             }
             
+            test_code = data.get("test_event_code")
+            if test_code:
+                payload["test_event_code"] = test_code
+            
             url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
             try:
                 response = requests.post(url, json=payload)
