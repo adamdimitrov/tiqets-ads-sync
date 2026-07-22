@@ -21,7 +21,7 @@ def cron_handler(path):
         return jsonify({"error": "Missing Tiqets API Key"}), 500
         
     try:
-        tiqets_url = 'https://api.tiqets.com/v2/orders'
+        tiqets_url = 'https://api.tiqets.com/v2/reports/orders'
         headers = {
             'Authorization': f'Token {TIQETS_API_KEY}'
         }
@@ -37,10 +37,10 @@ def cron_handler(path):
     processed_orders = 0
     
     for order in orders:
-        campaign_name = order.get('campaign_name', '')
-        if campaign_name and 'fbclid:' in campaign_name:
+        click_id = order.get('click_id') or ''
+        if click_id and 'fbclid:' in click_id:
             fbclid = None
-            for part in campaign_name.split('|'):
+            for part in click_id.split('|'):
                 if part.startswith('fbclid:'):
                     fbclid = part.split(':')[1]
                     break
@@ -59,7 +59,7 @@ def cron_handler(path):
                                 "fbc": fbc
                             },
                             "custom_data": {
-                                "value": float(order.get("total_price", order.get("amount", 0))),
+                                "value": float(order.get("commission_excl_vat") or order.get("sale_order_value_incl_vat") or 0),
                                 "currency": order.get("currency", "EUR")
                             },
                             "event_id": order.get("order_reference_id")
