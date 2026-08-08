@@ -122,7 +122,7 @@ def webhook_handler(path):
                     if e.response is not None:
                         print(e.response.text)
             
-        return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid}), 200
+        return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid, "pixel_id": META_PIXEL_ID}), 200
         
     return jsonify({"message": "Tiqets Ads Sync Webhook is running."}), 200
 
