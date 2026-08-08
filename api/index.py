@@ -9,6 +9,27 @@ TIQETS_API_KEY = os.environ.get("TIQETS_API_KEY")
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID")
 GOOGLE_DEV_TOKEN = os.environ.get("GOOGLE_DEV_TOKEN")
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET")
+GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN")
+GOOGLE_CUSTOMER_ID = os.environ.get("GOOGLE_CUSTOMER_ID")
+GOOGLE_CONVERSION_ACTION_ID = os.environ.get("GOOGLE_CONVERSION_ACTION_ID")
+
+def get_google_access_token():
+    token_url = "https://oauth2.googleapis.com/token"
+    payload = {
+        "client_id": GOOGLE_CLIENT_ID,
+        "client_secret": GOOGLE_CLIENT_SECRET,
+        "refresh_token": GOOGLE_REFRESH_TOKEN,
+        "grant_type": "refresh_token"
+    }
+    try:
+        resp = requests.post(token_url, data=payload)
+        resp.raise_for_status()
+        return resp.json()["access_token"]
+    except Exception as e:
+        print(f"Error fetching Google Access Token: {e}")
+        return None
 
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>', methods=['GET', 'POST'])
@@ -59,11 +80,47 @@ def webhook_handler(path):
                 response = requests.post(url, json=payload)
                 response.raise_for_status()
             except requests.exceptions.RequestException as e:
-                print(f"Error sending Meta CAPI event: {e}")
+                error_msg = str(e)
+                if e.response is not None:
+                    error_msg += " | " + e.response.text
+                return jsonify({"status": "error", "message": error_msg}), 400
             
         # Google API Integration
-        if gclid and GOOGLE_DEV_TOKEN:
-            pass # TODO: Implement Google API call
+        if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
+            access_token = get_google_access_token()
+            if access_token:
+                from datetime import datetime, timezone
+                conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
+                value = float(data.get("commission", data.get("transaction_value", 0)))
+                currency = data.get("currency", "EUR")
+                
+                url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
+                headers = {
+                    "Authorization": f"Bearer {access_token}",
+                    "developer-token": GOOGLE_DEV_TOKEN,
+                    "login-customer-id": GOOGLE_CUSTOMER_ID,
+                    "Content-Type": "application/json"
+                }
+                payload = {
+                    "conversions": [
+                        {
+                            "gclid": gclid,
+                            "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
+                            "conversionDateTime": conversion_time,
+                            "conversionValue": value,
+                            "currencyCode": currency
+                        }
+                    ],
+                    "partialFailure": True
+                }
+                
+                try:
+                    g_res = requests.post(url, headers=headers, json=payload)
+                    g_res.raise_for_status()
+                except requests.exceptions.RequestException as e:
+                    print(f"Error sending Google Ads conversion: {e}")
+                    if e.response is not None:
+                        print(e.response.text)
             
         return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid}), 200
         
