@@ -9,6 +9,28 @@ TIQETS_API_KEY = os.environ.get("TIQETS_API_KEY")
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID")
 CRON_SECRET = os.environ.get("CRON_SECRET")
+GOOGLE_DEV_TOKEN = os.environ.get("GOOGLE_DEV_TOKEN")
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET")
+GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN")
+GOOGLE_CUSTOMER_ID = os.environ.get("GOOGLE_CUSTOMER_ID")
+GOOGLE_CONVERSION_ACTION_ID = os.environ.get("GOOGLE_CONVERSION_ACTION_ID")
+
+def get_google_access_token():
+    token_url = "https://oauth2.googleapis.com/token"
+    payload = {
+        "client_id": GOOGLE_CLIENT_ID,
+        "client_secret": GOOGLE_CLIENT_SECRET,
+        "refresh_token": GOOGLE_REFRESH_TOKEN,
+        "grant_type": "refresh_token"
+    }
+    try:
+        resp = requests.post(token_url, data=payload)
+        resp.raise_for_status()
+        return resp.json()["access_token"]
+    except Exception as e:
+        print(f"Error fetching Google Access Token: {e}")
+        return None
 
 @app.route('/', defaults={'path': ''}, methods=['GET'])
 @app.route('/<path:path>', methods=['GET'])
@@ -36,14 +58,18 @@ def cron_handler(path):
         
     processed_orders = 0
     
+    cached_google_access_token = None
+
     for order in orders:
         click_id = order.get('click_id') or ''
-        if click_id and 'fbclid:' in click_id:
+        if click_id and ('fbclid:' in click_id or 'gclid:' in click_id):
             fbclid = None
+            gclid = None
             for part in click_id.split('|'):
                 if part.startswith('fbclid:'):
                     fbclid = part.split(':')[1]
-                    break
+                elif part.startswith('gclid:'):
+                    gclid = part.split(':')[1]
                     
             if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
                 timestamp = int(time.time())
@@ -59,7 +85,7 @@ def cron_handler(path):
                                 "fbc": fbc
                             },
                             "custom_data": {
-                                "value": float(order.get("commission_excl_vat") or order.get("sale_order_value_incl_vat") or 0),
+                                "value": float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0),
                                 "currency": order.get("currency", "EUR")
                             },
                             "event_id": order.get("order_reference_id")
@@ -74,6 +100,43 @@ def cron_handler(path):
                     processed_orders += 1
                 except requests.exceptions.RequestException as e:
                     print(f"Error sending Meta CAPI event for order {order.get('order_reference_id')}: {e}")
+                    
+            if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
+                if not cached_google_access_token:
+                    cached_google_access_token = get_google_access_token()
+                
+                if cached_google_access_token:
+                    from datetime import datetime, timezone
+                    conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
+                    value = float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0)
+                    currency = order.get("currency", "EUR")
+                    
+                    url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
+                    headers = {
+                        "Authorization": f"Bearer {cached_google_access_token}",
+                        "developer-token": GOOGLE_DEV_TOKEN,
+                        "login-customer-id": GOOGLE_CUSTOMER_ID,
+                        "Content-Type": "application/json"
+                    }
+                    payload = {
+                        "conversions": [
+                            {
+                                "gclid": gclid,
+                                "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
+                                "conversionDateTime": conversion_time,
+                                "conversionValue": value,
+                                "currencyCode": currency
+                            }
+                        ],
+                        "partialFailure": True
+                    }
+                    try:
+                        g_res = requests.post(url, headers=headers, json=payload)
+                        g_res.raise_for_status()
+                    except requests.exceptions.RequestException as e:
+                        print(f"Error sending Google Ads conversion for order {order.get('order_reference_id')}: {e}")
+                        if e.response is not None:
+                            print(e.response.text)
                     
     return jsonify({"status": "success", "processed_orders": processed_orders}), 200
 
