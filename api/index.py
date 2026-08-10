@@ -85,6 +85,9 @@ def webhook_handler(path):
                     error_msg += " | " + e.response.text
                 return jsonify({"status": "error", "message": error_msg}), 400
             
+        # Debug block for Google Ads variables
+        print(f"DEBUG - gclid: {bool(gclid)}, DEV_TOKEN: {bool(GOOGLE_DEV_TOKEN)}, CLIENT_ID: {bool(GOOGLE_CLIENT_ID)}, CUSTOMER_ID: {bool(GOOGLE_CUSTOMER_ID)}")
+        
         # Google API Integration
         if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
             access_token = get_google_access_token()
