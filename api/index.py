@@ -108,9 +108,11 @@ def webhook_handler(path):
                 payload["test_event_code"] = test_code
             
             url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
+            meta_result = {}
             try:
                 response = requests.post(url, json=payload)
                 response.raise_for_status()
+                meta_result = response.json()
             except requests.exceptions.RequestException as e:
                 error_msg = str(e)
                 if e.response is not None:
@@ -157,7 +159,7 @@ def webhook_handler(path):
                     if e.response is not None:
                         print(e.response.text)
             
-        return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid, "pixel_id": META_PIXEL_ID}), 200
+        return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid, "pixel_id": META_PIXEL_ID, "meta_result": meta_result}), 200
         
     return jsonify({"message": "Tiqets Ads Sync Webhook is running."}), 200
 
