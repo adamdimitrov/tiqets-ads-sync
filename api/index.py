@@ -36,14 +36,14 @@ def get_google_access_token():
 def webhook_handler(path):
     if request.method == 'POST':
         data = request.get_json() or {}
-        # Tiqets payload parsing for subid
-        subid = data.get("subid", "")
+        # Tiqets payload parsing for subid or click_id
+        subid = data.get("subid") or data.get("click_id") or data.get("sub_id") or data.get("campaign_name") or ""
         
         fbclid = None
         gclid = None
         
         if subid:
-            for part in subid.split('|'):
+            for part in str(subid).split('|'):
                 if part.startswith('fbclid:'):
                     fbclid = part.split(':')[1]
                 elif part.startswith('gclid:'):
@@ -54,21 +54,53 @@ def webhook_handler(path):
             timestamp = int(time.time())
             fbc = f"fb.1.{timestamp}.{fbclid}"
             
+            order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
+            value = float(data.get("commission") or data.get("commission_excl_vat") or data.get("transaction_value") or data.get("sale_order_value_incl_vat") or 0)
+            currency = data.get("currency", "EUR")
+
+            user_data = {
+                "fbc": fbc
+            }
+            client_ip = request.headers.get("x-forwarded-for", request.remote_addr)
+            if client_ip:
+                user_data["client_ip_address"] = client_ip.split(",")[0].strip()
+            client_ua = request.headers.get("user-agent")
+            if client_ua:
+                user_data["client_user_agent"] = client_ua
+
+            # If Tiqets forwards customer details, hash with SHA-256 for better Event Match Quality
+            email = data.get("customer_email") or data.get("email")
+            if email:
+                import hashlib
+                user_data["em"] = hashlib.sha256(email.strip().lower().encode('utf-8')).hexdigest()
+
+            country = data.get("customer_country_code") or data.get("customer_ip_country")
+            if country:
+                import hashlib
+                user_data["country"] = hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()
+
+            custom_data = {
+                "value": value,
+                "currency": currency,
+                "content_type": "product"
+            }
+            if order_id:
+                custom_data["order_id"] = order_id
+            if data.get("product_id"):
+                custom_data["content_ids"] = [str(data.get("product_id"))]
+
+            event_payload = {
+                "event_name": "Purchase",
+                "event_time": timestamp,
+                "action_source": "website",
+                "user_data": user_data,
+                "custom_data": custom_data
+            }
+            if order_id:
+                event_payload["event_id"] = order_id
+            
             payload = {
-                "data": [
-                    {
-                        "event_name": "Purchase",
-                        "event_time": timestamp,
-                        "action_source": "website",
-                        "user_data": {
-                            "fbc": fbc
-                        },
-                        "custom_data": {
-                            "value": float(data.get("commission", data.get("transaction_value", 0))),
-                            "currency": data.get("currency", "EUR")
-                        }
-                    }
-                ]
+                "data": [event_payload]
             }
             
             test_code = data.get("test_event_code")

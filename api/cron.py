@@ -74,21 +74,34 @@ def cron_handler(path):
             if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
                 timestamp = int(time.time())
                 fbc = f"fb.1.{timestamp}.{fbclid}"
+
+                user_data = {
+                    "fbc": fbc
+                }
+                country = order.get("customer_country_code") or order.get("customer_ip_country")
+                if country:
+                    import hashlib
+                    user_data["country"] = hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()
                 
+                custom_data = {
+                    "value": float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0),
+                    "currency": order.get("currency", "EUR"),
+                    "content_type": "product"
+                }
+                if order.get("order_reference_id"):
+                    custom_data["order_id"] = str(order.get("order_reference_id"))
+                if order.get("product_id"):
+                    custom_data["content_ids"] = [str(order.get("product_id"))]
+
                 payload = {
                     "data": [
                         {
                             "event_name": "Purchase",
                             "event_time": timestamp,
                             "action_source": "website",
-                            "user_data": {
-                                "fbc": fbc
-                            },
-                            "custom_data": {
-                                "value": float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0),
-                                "currency": order.get("currency", "EUR")
-                            },
-                            "event_id": order.get("order_reference_id")
+                            "user_data": user_data,
+                            "custom_data": custom_data,
+                            "event_id": str(order.get("order_reference_id"))
                         }
                     ]
                 }
