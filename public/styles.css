@@ -1047,6 +1047,14 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+.itinerary-illustrated-map {
+    width: 100%;
+    min-width: 540px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
 .seine-route-svg {
     width: 100%;
     min-width: 520px;
@@ -1055,6 +1063,7 @@ body {
 }
 
 @media (min-width: 600px) {
+    .itinerary-illustrated-map,
     .seine-route-svg {
         min-width: 100%;
     }
