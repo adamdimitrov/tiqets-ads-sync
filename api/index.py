@@ -164,7 +164,7 @@ def webhook_handler(path):
     # GET requests: Serve landing page or assets
     public_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public')
     clean_path = (path or '').strip('/')
-    if not clean_path or clean_path in ['family-cruise', 'paris-family-cruise']:
+    if not clean_path or clean_path in ['family-bateaux-parisiens-sightseeing-cruise', 'family-cruise', 'paris-family-cruise']:
         index_file = os.path.join(public_dir, 'index.html')
         if os.path.exists(index_file):
             return send_from_directory(public_dir, 'index.html')

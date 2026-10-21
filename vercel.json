@@ -33,7 +33,15 @@
       "dest": "/public/script.js"
     },
     {
-      "src": "/",
+      "src": "/family-bateaux-parisiens-sightseeing-cruise/styles.css",
+      "dest": "/public/styles.css"
+    },
+    {
+      "src": "/family-bateaux-parisiens-sightseeing-cruise/script.js",
+      "dest": "/public/script.js"
+    },
+    {
+      "src": "/family-bateaux-parisiens-sightseeing-cruise/?",
       "dest": "/public/index.html"
     },
     {
@@ -42,6 +50,10 @@
     },
     {
       "src": "/paris-family-cruise",
+      "dest": "/public/index.html"
+    },
+    {
+      "src": "/",
       "dest": "/public/index.html"
     },
     {
