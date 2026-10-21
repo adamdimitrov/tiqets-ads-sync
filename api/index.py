@@ -55,7 +55,39 @@ def webhook_handler(path):
             fbc = f"fb.1.{timestamp}.{fbclid}"
             
             order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
-            value = float(data.get("commission") or data.get("commission_excl_vat") or data.get("transaction_value") or data.get("sale_order_value_incl_vat") or 0)
+            
+            # Ensure Meta conversion value is NET COMMISSION, not gross revenue
+            value = 0.0
+            financials = data.get("financials") if isinstance(data.get("financials"), dict) else {}
+            raw_commission = (
+                data.get("commission") or 
+                data.get("commission_excl_vat") or 
+                data.get("commission_incl_vat") or
+                financials.get("commission_amount") or
+                financials.get("commission") or
+                financials.get("commission_excl_vat")
+            )
+            if raw_commission is not None:
+                try:
+                    value = float(raw_commission)
+                except (ValueError, TypeError):
+                    value = 0.0
+
+            # If Tiqets only provided gross revenue, calculate 41.9% net commission
+            if value <= 0:
+                raw_gross = (
+                    data.get("transaction_value") or 
+                    data.get("sale_order_value_incl_vat") or 
+                    data.get("sale_order_value_excl_vat") or
+                    financials.get("total_price") or
+                    financials.get("total_amount")
+                )
+                if raw_gross is not None:
+                    try:
+                        value = round(float(raw_gross) * 0.419, 2)
+                    except (ValueError, TypeError):
+                        value = 0.0
+
             currency = data.get("currency", "EUR")
 
             user_data = {

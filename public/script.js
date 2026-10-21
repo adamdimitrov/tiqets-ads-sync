@@ -370,11 +370,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetBtn) {
             const total = calculateTotal();
             const totalTickets = adultCount + childCount + infantCount;
+            const netCommission = Math.round(total * 0.419 * 100) / 100;
             if (typeof window.fbq === 'function') {
                 window.fbq('track', 'InitiateCheckout', {
                     content_name: 'Paris Family Seine Cruise (Bateaux Parisiens)',
                     content_category: 'Family River Cruise',
-                    value: total,
+                    value: netCommission,
                     currency: 'EUR',
                     num_items: totalTickets
                 });
