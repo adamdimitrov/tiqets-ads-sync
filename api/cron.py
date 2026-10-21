@@ -9,12 +9,12 @@ TIQETS_API_KEY = os.environ.get("TIQETS_API_KEY")
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID")
 CRON_SECRET = os.environ.get("CRON_SECRET")
-GOOGLE_DEV_TOKEN = os.environ.get("GOOGLE_DEV_TOKEN")
-GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID")
-GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET")
-GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN")
-GOOGLE_CUSTOMER_ID = os.environ.get("GOOGLE_CUSTOMER_ID")
-GOOGLE_CONVERSION_ACTION_ID = os.environ.get("GOOGLE_CONVERSION_ACTION_ID")
+GOOGLE_DEV_TOKEN = os.environ.get("GOOGLE_DEV_TOKEN") or os.environ.get("GOOGLE_ADS_DEVELOPER_TOKEN") or "WK-A1HREvXxnsvVLsWELNg"
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID") or os.environ.get("GOOGLE_ADS_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET") or os.environ.get("GOOGLE_ADS_CLIENT_SECRET")
+GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN") or os.environ.get("GOOGLE_ADS_REFRESH_TOKEN")
+GOOGLE_CUSTOMER_ID = (os.environ.get("GOOGLE_CUSTOMER_ID") or os.environ.get("GOOGLE_ADS_CUSTOMER_ID") or "4899321613").replace("-", "").strip()
+GOOGLE_CONVERSION_ACTION_ID = os.environ.get("GOOGLE_CONVERSION_ACTION_ID") or os.environ.get("GOOGLE_ADS_CONVERSION_ACTION_ID")
 
 def get_google_access_token():
     token_url = "https://oauth2.googleapis.com/token"
