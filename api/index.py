@@ -49,46 +49,48 @@ def webhook_handler(path):
                 elif part.startswith('gclid:'):
                     gclid = part.split(':')[1]
         
+        meta_result = None
+        google_result = None
+
+        # Ensure conversion value is NET COMMISSION, not gross revenue
+        value = 0.0
+        financials = data.get("financials") if isinstance(data.get("financials"), dict) else {}
+        raw_commission = (
+            data.get("commission") or 
+            data.get("commission_excl_vat") or 
+            data.get("commission_incl_vat") or
+            financials.get("commission_amount") or
+            financials.get("commission") or
+            financials.get("commission_excl_vat")
+        )
+        if raw_commission is not None:
+            try:
+                value = float(raw_commission)
+            except (ValueError, TypeError):
+                value = 0.0
+
+        # If Tiqets only provided gross revenue, calculate 41.9% net commission
+        if value <= 0:
+            raw_gross = (
+                data.get("transaction_value") or 
+                data.get("sale_order_value_incl_vat") or 
+                data.get("sale_order_value_excl_vat") or
+                financials.get("total_price") or
+                financials.get("total_amount")
+            )
+            if raw_gross is not None:
+                try:
+                    value = round(float(raw_gross) * 0.419, 2)
+                except (ValueError, TypeError):
+                    value = 0.0
+
+        currency = data.get("currency", "EUR")
+        order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
+
         # Meta CAPI Integration
         if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
             timestamp = int(time.time())
             fbc = f"fb.1.{timestamp}.{fbclid}"
-            
-            order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
-            
-            # Ensure Meta conversion value is NET COMMISSION, not gross revenue
-            value = 0.0
-            financials = data.get("financials") if isinstance(data.get("financials"), dict) else {}
-            raw_commission = (
-                data.get("commission") or 
-                data.get("commission_excl_vat") or 
-                data.get("commission_incl_vat") or
-                financials.get("commission_amount") or
-                financials.get("commission") or
-                financials.get("commission_excl_vat")
-            )
-            if raw_commission is not None:
-                try:
-                    value = float(raw_commission)
-                except (ValueError, TypeError):
-                    value = 0.0
-
-            # If Tiqets only provided gross revenue, calculate 41.9% net commission
-            if value <= 0:
-                raw_gross = (
-                    data.get("transaction_value") or 
-                    data.get("sale_order_value_incl_vat") or 
-                    data.get("sale_order_value_excl_vat") or
-                    financials.get("total_price") or
-                    financials.get("total_amount")
-                )
-                if raw_gross is not None:
-                    try:
-                        value = round(float(raw_gross) * 0.419, 2)
-                    except (ValueError, TypeError):
-                        value = 0.0
-
-            currency = data.get("currency", "EUR")
 
             user_data = {
                 "fbc": fbc
@@ -140,7 +142,6 @@ def webhook_handler(path):
                 payload["test_event_code"] = test_code
             
             url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
-            meta_result = {}
             try:
                 response = requests.post(url, json=payload)
                 response.raise_for_status()
@@ -151,47 +152,79 @@ def webhook_handler(path):
                     error_msg += " | " + e.response.text
                 return jsonify({"status": "error", "message": error_msg}), 400
             
-        # Debug block for Google Ads variables
-        print(f"DEBUG - gclid: {bool(gclid)}, DEV_TOKEN: {bool(GOOGLE_DEV_TOKEN)}, CLIENT_ID: {bool(GOOGLE_CLIENT_ID)}, CUSTOMER_ID: {bool(GOOGLE_CUSTOMER_ID)}")
-        
-        # Google API Integration
-        if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
-            access_token = get_google_access_token()
-            if access_token:
-                from datetime import datetime, timezone
-                conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
-                value = float(data.get("commission", data.get("transaction_value", 0)))
-                currency = data.get("currency", "EUR")
-                
-                url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
-                headers = {
-                    "Authorization": f"Bearer {access_token}",
-                    "developer-token": GOOGLE_DEV_TOKEN,
-                    "login-customer-id": GOOGLE_CUSTOMER_ID,
-                    "Content-Type": "application/json"
+        # Google Ads API Integration
+        if gclid:
+            google_config = {
+                "GOOGLE_DEV_TOKEN": bool(GOOGLE_DEV_TOKEN),
+                "GOOGLE_CLIENT_ID": bool(GOOGLE_CLIENT_ID),
+                "GOOGLE_CLIENT_SECRET": bool(GOOGLE_CLIENT_SECRET),
+                "GOOGLE_REFRESH_TOKEN": bool(GOOGLE_REFRESH_TOKEN),
+                "GOOGLE_CUSTOMER_ID": bool(GOOGLE_CUSTOMER_ID),
+                "GOOGLE_CONVERSION_ACTION_ID": bool(GOOGLE_CONVERSION_ACTION_ID)
+            }
+            missing_google = [k for k, v in google_config.items() if not v]
+            if missing_google:
+                google_result = {
+                    "status": "config_missing",
+                    "missing_variables": missing_google,
+                    "message": "Google Ads API requires developer token, OAuth credentials, customer ID, and conversion action ID."
                 }
-                payload = {
-                    "conversions": [
-                        {
-                            "gclid": gclid,
-                            "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
-                            "conversionDateTime": conversion_time,
-                            "conversionValue": value,
-                            "currencyCode": currency
+            else:
+                access_token = get_google_access_token()
+                if not access_token:
+                    google_result = {
+                        "status": "auth_error",
+                        "message": "Failed to obtain Google OAuth access token from refresh token."
+                    }
+                else:
+                    from datetime import datetime, timezone
+                    conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
+                    
+                    url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
+                    headers = {
+                        "Authorization": f"Bearer {access_token}",
+                        "developer-token": GOOGLE_DEV_TOKEN,
+                        "login-customer-id": GOOGLE_CUSTOMER_ID,
+                        "Content-Type": "application/json"
+                    }
+                    payload = {
+                        "conversions": [
+                            {
+                                "gclid": gclid,
+                                "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
+                                "conversionDateTime": conversion_time,
+                                "conversionValue": value,
+                                "currencyCode": currency
+                            }
+                        ],
+                        "partialFailure": True
+                    }
+                    
+                    try:
+                        g_res = requests.post(url, headers=headers, json=payload)
+                        google_result = {
+                            "status": "submitted",
+                            "http_status": g_res.status_code,
+                            "response": g_res.json() if g_res.content else {}
                         }
-                    ],
-                    "partialFailure": True
-                }
-                
-                try:
-                    g_res = requests.post(url, headers=headers, json=payload)
-                    g_res.raise_for_status()
-                except requests.exceptions.RequestException as e:
-                    print(f"Error sending Google Ads conversion: {e}")
-                    if e.response is not None:
-                        print(e.response.text)
+                    except requests.exceptions.RequestException as e:
+                        err_text = e.response.text if (hasattr(e, 'response') and e.response is not None) else str(e)
+                        google_result = {
+                            "status": "error",
+                            "message": str(e),
+                            "details": err_text
+                        }
             
-        return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid, "pixel_id": META_PIXEL_ID, "meta_result": meta_result}), 200
+        return jsonify({
+            "status": "success",
+            "fbclid": fbclid,
+            "gclid": gclid,
+            "commission_value": value,
+            "currency": currency,
+            "pixel_id": META_PIXEL_ID,
+            "meta_result": meta_result,
+            "google_result": google_result
+        }), 200
 
     # GET requests: Serve landing page or assets
     public_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public')
