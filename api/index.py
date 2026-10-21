@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import os
 import requests
 import time
@@ -160,7 +160,19 @@ def webhook_handler(path):
                         print(e.response.text)
             
         return jsonify({"status": "success", "fbclid": fbclid, "gclid": gclid, "pixel_id": META_PIXEL_ID, "meta_result": meta_result}), 200
-        
+
+    # GET requests: Serve landing page or assets
+    public_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public')
+    clean_path = (path or '').strip('/')
+    if not clean_path or clean_path in ['family-cruise', 'paris-family-cruise']:
+        index_file = os.path.join(public_dir, 'index.html')
+        if os.path.exists(index_file):
+            return send_from_directory(public_dir, 'index.html')
+    elif clean_path in ['styles.css', 'script.js']:
+        asset_file = os.path.join(public_dir, clean_path)
+        if os.path.exists(asset_file):
+            return send_from_directory(public_dir, clean_path)
+
     return jsonify({"message": "Tiqets Ads Sync Webhook is running."}), 200
 
 if __name__ == '__main__':
