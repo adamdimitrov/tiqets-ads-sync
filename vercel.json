@@ -25,6 +25,14 @@
       "dest": "api/index.py"
     },
     {
+      "src": "/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/family-bateaux-parisiens-sightseeing-cruise/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
       "src": "/styles.css",
       "dest": "/public/styles.css"
     },
