@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Interactive Family Quantity & Price Calculator
     // -------------------------------------------------------------
     const ADULT_PRICE = 18.00;
-    const CHILD_PRICE = 9.50;
+    const CHILD_PRICE = 9.00;
     const INFANT_PRICE = 0.00;
 
     let adultCount = 2; // Default to Family of 4 (Highest AOV & margin)
