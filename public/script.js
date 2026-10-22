@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Attach Meta Pixel InitiateCheckout on CTA click
+    // Attach Meta Pixel InitiateCheckout + Microsoft Clarity Custom Events on CTA click
     document.addEventListener('click', (e) => {
         const targetBtn = e.target.closest('#main-checkout-btn, #secondary-checkout-btn, #sticky-checkout-btn');
         if (targetBtn) {
@@ -380,8 +380,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     num_items: totalTickets
                 });
             }
+            if (typeof window.clarity === 'function') {
+                window.clarity('event', 'tiqets_outbound_click');
+                window.clarity('set', 'checkout_button', targetBtn.id);
+                window.clarity('set', 'basket_composition', `${adultCount}A_${childCount}C_${infantCount}I`);
+                window.clarity('set', 'basket_eur', total.toFixed(2));
+            }
         }
     });
+
+    // Tag session traffic source in Microsoft Clarity (Meta Ads vs Google Ads vs Direct)
+    if (typeof window.clarity === 'function') {
+        const sourceType = clickId && clickId.type ? clickId.type : 'direct_or_organic';
+        window.clarity('set', 'ad_click_type', sourceType);
+    }
 
     // -------------------------------------------------------------
     // 5. Sticky Bottom Bar Scroll Visibility Handler
