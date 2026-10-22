@@ -281,7 +281,25 @@ def webhook_handler(path):
     # GET requests: Serve landing page or assets
     public_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public')
     clean_path = (path or '').strip('/')
-    if not clean_path or clean_path in ['family-bateaux-parisiens-sightseeing-cruise', 'family-cruise', 'paris-family-cruise']:
+
+    # Sightseeing routes
+    if clean_path in ['bateaux-parisiens-sightseeing-cruise', 'paris-sightseeing-cruise', 'sightseeing-cruise', 'sightseeing']:
+        return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'index.html')
+    elif clean_path in ['bateaux-parisiens-sightseeing-cruise/styles.css', 'sightseeing/styles.css']:
+        return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'styles.css')
+    elif clean_path in ['bateaux-parisiens-sightseeing-cruise/script.js', 'sightseeing/script.js']:
+        return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'script.js')
+
+    # Dinner cruise routes
+    elif clean_path in ['bateaux-mouches-dinner-cruise', 'paris-dinner-cruise-bateaux-mouches', 'paris-dinner-cruise', 'dinner-cruise', 'dinner']:
+        return send_from_directory(os.path.join(public_dir, 'dinner'), 'index.html')
+    elif clean_path in ['bateaux-mouches-dinner-cruise/styles.css', 'paris-dinner-cruise-bateaux-mouches/styles.css', 'dinner/styles.css']:
+        return send_from_directory(os.path.join(public_dir, 'dinner'), 'styles.css')
+    elif clean_path in ['bateaux-mouches-dinner-cruise/script.js', 'paris-dinner-cruise-bateaux-mouches/script.js', 'dinner/script.js']:
+        return send_from_directory(os.path.join(public_dir, 'dinner'), 'script.js')
+
+    # Family cruise routes & root
+    elif not clean_path or clean_path in ['family-bateaux-parisiens-sightseeing-cruise', 'family-cruise', 'paris-family-cruise']:
         index_file = os.path.join(public_dir, 'index.html')
         if os.path.exists(index_file):
             return send_from_directory(public_dir, 'index.html')

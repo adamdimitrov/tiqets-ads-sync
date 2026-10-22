@@ -61,6 +61,82 @@
       "dest": "/public/index.html"
     },
     {
+      "src": "/bateaux-parisiens-sightseeing-cruise/styles.css",
+      "dest": "/public/sightseeing/styles.css"
+    },
+    {
+      "src": "/bateaux-parisiens-sightseeing-cruise/script.js",
+      "dest": "/public/sightseeing/script.js"
+    },
+    {
+      "src": "/bateaux-parisiens-sightseeing-cruise/?",
+      "dest": "/public/sightseeing/index.html"
+    },
+    {
+      "src": "/paris-sightseeing-cruise/?",
+      "dest": "/public/sightseeing/index.html"
+    },
+    {
+      "src": "/sightseeing-cruise/?",
+      "dest": "/public/sightseeing/index.html"
+    },
+    {
+      "src": "/sightseeing/styles.css",
+      "dest": "/public/sightseeing/styles.css"
+    },
+    {
+      "src": "/sightseeing/script.js",
+      "dest": "/public/sightseeing/script.js"
+    },
+    {
+      "src": "/sightseeing/?",
+      "dest": "/public/sightseeing/index.html"
+    },
+    {
+      "src": "/bateaux-mouches-dinner-cruise/styles.css",
+      "dest": "/public/dinner/styles.css"
+    },
+    {
+      "src": "/bateaux-mouches-dinner-cruise/script.js",
+      "dest": "/public/dinner/script.js"
+    },
+    {
+      "src": "/bateaux-mouches-dinner-cruise/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/paris-dinner-cruise-bateaux-mouches/styles.css",
+      "dest": "/public/dinner/styles.css"
+    },
+    {
+      "src": "/paris-dinner-cruise-bateaux-mouches/script.js",
+      "dest": "/public/dinner/script.js"
+    },
+    {
+      "src": "/paris-dinner-cruise-bateaux-mouches/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/paris-dinner-cruise/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/dinner-cruise/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/dinner/styles.css",
+      "dest": "/public/dinner/styles.css"
+    },
+    {
+      "src": "/dinner/script.js",
+      "dest": "/public/dinner/script.js"
+    },
+    {
+      "src": "/dinner/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
       "src": "/",
       "dest": "/public/index.html"
     },
