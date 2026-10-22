@@ -73,6 +73,14 @@
       "dest": "/public/family-pass/index.html"
     },
     {
+      "src": "/paris-family-pass/styles.css",
+      "dest": "/public/family-pass/styles.css"
+    },
+    {
+      "src": "/paris-family-pass/script.js",
+      "dest": "/public/family-pass/script.js"
+    },
+    {
       "src": "/paris-family-pass/?",
       "dest": "/public/family-pass/index.html"
     },
