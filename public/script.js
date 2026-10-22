@@ -409,29 +409,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // 5. Sticky Bottom Bar Scroll Visibility Handler
+    // 5. Sticky Bottom Bar Handler (Always Visible on Mobile)
     // -------------------------------------------------------------
     const stickyBar = document.getElementById('sticky-bar');
-    const mainBtn = document.getElementById('main-checkout-btn');
 
-    if (stickyBar && mainBtn) {
-        window.addEventListener('scroll', () => {
-            const rect = mainBtn.getBoundingClientRect();
-            if (rect.bottom < 0) {
-                stickyBar.style.transform = 'translateY(0)';
-                stickyBar.style.opacity = '1';
-                stickyBar.style.pointerEvents = 'auto';
-            } else {
-                stickyBar.style.transform = 'translateY(100%)';
-                stickyBar.style.opacity = '0';
-                stickyBar.style.pointerEvents = 'none';
-            }
-        }, { passive: true });
-
-        stickyBar.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
-        stickyBar.style.transform = 'translateY(100%)';
-        stickyBar.style.opacity = '0';
-        stickyBar.style.pointerEvents = 'none';
+    if (stickyBar) {
+        stickyBar.style.transform = 'translateY(0)';
+        stickyBar.style.opacity = '1';
+        stickyBar.style.pointerEvents = 'auto';
     }
 
     // Initial run + delayed re-run after async Meta Pixel sets _fbp cookie
