@@ -61,6 +61,22 @@
       "dest": "/public/index.html"
     },
     {
+      "src": "/family-pass/styles.css",
+      "dest": "/public/family-pass/styles.css"
+    },
+    {
+      "src": "/family-pass/script.js",
+      "dest": "/public/family-pass/script.js"
+    },
+    {
+      "src": "/family-pass/?",
+      "dest": "/public/family-pass/index.html"
+    },
+    {
+      "src": "/paris-family-pass/?",
+      "dest": "/public/family-pass/index.html"
+    },
+    {
       "src": "/general-bateaux-parisiens-sightseeing-cruise/styles.css",
       "dest": "/public/sightseeing/styles.css"
     },
