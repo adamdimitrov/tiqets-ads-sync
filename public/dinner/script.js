@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         targetLinks.forEach(link => {
             if (!link) return;
 
-            let campaignTag = `bm-dinner-${selectedTier}`;
+            let campaignTag = `couples-bm-dinner-${selectedTier}`;
             if (link.id.includes('bottom') || link.id.includes('secondary')) {
                 campaignTag += '-bottom';
             } else if (link.id.includes('sticky')) {

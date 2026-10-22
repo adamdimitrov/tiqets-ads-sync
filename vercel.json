@@ -113,6 +113,34 @@
       "dest": "/public/sightseeing/index.html"
     },
     {
+      "src": "/couples-bateaux-mouches-dinner-cruise/styles.css",
+      "dest": "/public/dinner/styles.css"
+    },
+    {
+      "src": "/couples-bateaux-mouches-dinner-cruise/script.js",
+      "dest": "/public/dinner/script.js"
+    },
+    {
+      "src": "/couples-bateaux-mouches-dinner-cruise/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/couples-paris-dinner-cruise-bateaux-mouches/styles.css",
+      "dest": "/public/dinner/styles.css"
+    },
+    {
+      "src": "/couples-paris-dinner-cruise-bateaux-mouches/script.js",
+      "dest": "/public/dinner/script.js"
+    },
+    {
+      "src": "/couples-paris-dinner-cruise-bateaux-mouches/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
+      "src": "/couples-dinner-cruise/?",
+      "dest": "/public/dinner/index.html"
+    },
+    {
       "src": "/bateaux-mouches-dinner-cruise/styles.css",
       "dest": "/public/dinner/styles.css"
     },

@@ -291,11 +291,11 @@ def webhook_handler(path):
         return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'script.js')
 
     # Dinner cruise routes
-    elif clean_path in ['bateaux-mouches-dinner-cruise', 'paris-dinner-cruise-bateaux-mouches', 'paris-dinner-cruise', 'dinner-cruise', 'dinner']:
+    elif clean_path in ['couples-bateaux-mouches-dinner-cruise', 'couples-paris-dinner-cruise-bateaux-mouches', 'couples-dinner-cruise', 'bateaux-mouches-dinner-cruise', 'paris-dinner-cruise-bateaux-mouches', 'paris-dinner-cruise', 'dinner-cruise', 'dinner']:
         return send_from_directory(os.path.join(public_dir, 'dinner'), 'index.html')
-    elif clean_path in ['bateaux-mouches-dinner-cruise/styles.css', 'paris-dinner-cruise-bateaux-mouches/styles.css', 'dinner/styles.css']:
+    elif clean_path in ['couples-bateaux-mouches-dinner-cruise/styles.css', 'couples-paris-dinner-cruise-bateaux-mouches/styles.css', 'bateaux-mouches-dinner-cruise/styles.css', 'paris-dinner-cruise-bateaux-mouches/styles.css', 'dinner/styles.css']:
         return send_from_directory(os.path.join(public_dir, 'dinner'), 'styles.css')
-    elif clean_path in ['bateaux-mouches-dinner-cruise/script.js', 'paris-dinner-cruise-bateaux-mouches/script.js', 'dinner/script.js']:
+    elif clean_path in ['couples-bateaux-mouches-dinner-cruise/script.js', 'couples-paris-dinner-cruise-bateaux-mouches/script.js', 'bateaux-mouches-dinner-cruise/script.js', 'paris-dinner-cruise-bateaux-mouches/script.js', 'dinner/script.js']:
         return send_from_directory(os.path.join(public_dir, 'dinner'), 'script.js')
 
     # Family cruise routes & root
