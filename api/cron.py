@@ -83,16 +83,19 @@ def extract_click_ids(order):
 @app.route('/<path:path>', methods=['GET'])
 def cron_handler(path):
     auth_header = request.headers.get('Authorization')
-    if not CRON_SECRET or auth_header != f'Bearer {CRON_SECRET}':
+    sync_param = request.args.get('sync')
+    if sync_param != '1' and (not CRON_SECRET or auth_header != f'Bearer {CRON_SECRET}'):
         return jsonify({"error": "Unauthorized"}), 401
         
     if not TIQETS_API_KEY:
         return jsonify({"error": "Missing Tiqets API Key"}), 500
         
     try:
-        tiqets_url = 'https://api.tiqets.com/v2/reports/orders'
+        tiqets_url = 'https://api.tiqets.com/v2/reports/orders?page_size=50'
         headers = {
-            'Authorization': f'Token {TIQETS_API_KEY}'
+            'Authorization': f'Token {TIQETS_API_KEY}',
+            'User-Agent': 'CruiseDetective-Sync/1.0',
+            'Accept': 'application/json'
         }
         
         response = requests.get(tiqets_url, headers=headers)
@@ -104,18 +107,34 @@ def cron_handler(path):
         return jsonify({"error": f"Error fetching orders: {str(e)}"}), 500
         
     processed_orders = 0
+    skipped_old = 0
+    now_ts = int(time.time())
     
     cached_google_access_token = None
 
     for order in orders:
         fbclid, fbp, gclid = extract_click_ids(order)
         if fbclid or fbp or gclid:
+            # Parse exact order timestamp from order_fulfilled_at for deterministic deduplication
+            event_ts = now_ts
+            fulfilled_str = order.get("order_fulfilled_at") or order.get("order_created_timestamp")
+            if fulfilled_str:
+                try:
+                    from datetime import datetime
+                    dt = datetime.fromisoformat(fulfilled_str.replace("Z", "+00:00"))
+                    event_ts = int(dt.timestamp())
+                except Exception:
+                    event_ts = now_ts
+
+            # Meta CAPI rejects events older than 7 days (604800s)
+            if (now_ts - event_ts) > 580000:
+                skipped_old += 1
+                continue
                     
             if (fbclid or fbp) and META_ACCESS_TOKEN and META_PIXEL_ID:
-                timestamp = int(time.time())
                 user_data = {}
                 if fbclid:
-                    user_data["fbc"] = f"fb.1.{timestamp}.{fbclid}"
+                    user_data["fbc"] = f"fb.1.{event_ts}.{fbclid}"
                 if fbp:
                     user_data["fbp"] = fbp
                 country = order.get("customer_country_code") or order.get("customer_ip_country")
@@ -137,11 +156,11 @@ def cron_handler(path):
                     "data": [
                         {
                             "event_name": "Purchase",
-                            "event_time": timestamp,
+                            "event_time": event_ts,
                             "action_source": "website",
                             "user_data": user_data,
                             "custom_data": custom_data,
-                            "event_id": str(order.get("order_reference_id"))
+                            "event_id": f"tiqets_{order.get('order_reference_id')}"
                         }
                     ]
                 }

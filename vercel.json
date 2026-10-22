@@ -68,5 +68,11 @@
       "src": "/(.*)",
       "dest": "api/index.py"
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron?sync=1",
+      "schedule": "0 20 * * *"
+    }
   ]
 }
