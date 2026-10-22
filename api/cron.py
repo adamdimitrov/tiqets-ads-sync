@@ -124,7 +124,7 @@ def cron_handler(path):
                     value = float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0)
                     currency = order.get("currency", "EUR")
                     
-                    url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
+                    url = f"https://googleads.googleapis.com/v26/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
                     headers = {
                         "Authorization": f"Bearer {cached_google_access_token}",
                         "developer-token": GOOGLE_DEV_TOKEN,
