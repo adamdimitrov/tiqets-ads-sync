@@ -124,6 +124,19 @@ body {
     letter-spacing: -0.02em;
 }
 
+.bridge-operator-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: var(--accent-green-dark);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    margin-bottom: 0.65rem;
+}
+
 .bridge-rating-row {
     display: flex;
     align-items: center;
