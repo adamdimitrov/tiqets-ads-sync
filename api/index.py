@@ -34,14 +34,17 @@ def get_google_access_token():
         return None
 
 def extract_click_ids(data):
-    """Extract fbclid and gclid from all possible Tiqets webhook/order fields."""
+    """Extract fbclid, fbp, and gclid from all possible Tiqets webhook/order fields."""
     import re
     fbclid = None
+    fbp = None
     gclid = None
 
     # 1. Direct fields
     if isinstance(data.get("fbclid"), str) and data.get("fbclid").strip():
         fbclid = data.get("fbclid").strip()
+    if isinstance(data.get("fbp"), str) and data.get("fbp").strip():
+        fbp = data.get("fbp").strip()
     for g_key in ("gclid", "wbraid", "gbraid"):
         if isinstance(data.get(g_key), str) and data.get(g_key).strip():
             gclid = data.get(g_key).strip()
@@ -62,33 +65,40 @@ def extract_click_ids(data):
             continue
         s = raw.strip()
 
-        # Pipe-delimited format: fbclid:<val>|gclid:<val>
+        # Pipe-delimited format: fbclid:<val>|fbp:<val>|gclid:<val>
         for part in s.split("|"):
             part = part.strip()
             if part.startswith("fbclid:") and not fbclid:
                 fbclid = part.split(":", 1)[1].strip()
+            elif part.startswith("fbp:") and not fbp:
+                fbp = part.split(":", 1)[1].strip()
             elif (part.startswith("gclid:") or part.startswith("wbraid:") or part.startswith("gbraid:")) and not gclid:
                 gclid = part.split(":", 1)[1].strip()
 
-        # Composite tq_campaign format: <base>--fbclid-<val> or <base>--gclid-<val>
+        # Composite tq_campaign format: <base>--fbclid-<val>--fbp-<val>--gclid-<val>
         if not fbclid:
             m_fb = re.search(r"(?:--|^)fbclid-([a-zA-Z0-9_.-]+)", s)
             if m_fb:
                 fbclid = m_fb.group(1).split("--")[0].strip()
+
+        if not fbp:
+            m_fbp = re.search(r"(?:--|^)fbp-(fb\.[0-9]+\.[0-9]+\.[a-zA-Z0-9_.-]+)", s)
+            if m_fbp:
+                fbp = m_fbp.group(1).split("--")[0].strip()
 
         if not gclid:
             m_g = re.search(r"(?:--|^)(?:gclid|wbraid|gbraid)-([a-zA-Z0-9_.-]+)", s)
             if m_g:
                 gclid = m_g.group(1).split("--")[0].strip()
 
-    return fbclid, gclid
+    return fbclid, fbp, gclid
 
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def webhook_handler(path):
     if request.method == 'POST':
         data = request.get_json() or {}
-        fbclid, gclid = extract_click_ids(data)
+        fbclid, fbp, gclid = extract_click_ids(data)
         
         meta_result = None
         google_result = None
@@ -128,14 +138,14 @@ def webhook_handler(path):
         currency = data.get("currency", "EUR")
         order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
 
-        # Meta CAPI Integration
-        if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
+        # Meta CAPI Integration (supports paid fbclid AND organic SEO fbp cookie)
+        if (fbclid or fbp) and META_ACCESS_TOKEN and META_PIXEL_ID:
             timestamp = int(time.time())
-            fbc = f"fb.1.{timestamp}.{fbclid}"
-
-            user_data = {
-                "fbc": fbc
-            }
+            user_data = {}
+            if fbclid:
+                user_data["fbc"] = f"fb.1.{timestamp}.{fbclid}"
+            if fbp:
+                user_data["fbp"] = fbp
             client_ip = request.headers.get("x-forwarded-for", request.remote_addr)
             if client_ip:
                 user_data["client_ip_address"] = client_ip.split(",")[0].strip()

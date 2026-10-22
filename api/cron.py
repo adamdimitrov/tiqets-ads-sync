@@ -33,9 +33,10 @@ def get_google_access_token():
         return None
 
 def extract_click_ids(order):
-    """Extract fbclid and gclid from Tiqets order report fields (campaign_name, click_id, subid)."""
+    """Extract fbclid, fbp, and gclid from Tiqets order report fields (campaign_name, click_id, subid)."""
     import re
     fbclid = None
+    fbp = None
     gclid = None
 
     candidates = [
@@ -56,6 +57,8 @@ def extract_click_ids(order):
             part = part.strip()
             if part.startswith("fbclid:") and not fbclid:
                 fbclid = part.split(":", 1)[1].strip()
+            elif part.startswith("fbp:") and not fbp:
+                fbp = part.split(":", 1)[1].strip()
             elif (part.startswith("gclid:") or part.startswith("wbraid:") or part.startswith("gbraid:")) and not gclid:
                 gclid = part.split(":", 1)[1].strip()
 
@@ -64,12 +67,17 @@ def extract_click_ids(order):
             if m_fb:
                 fbclid = m_fb.group(1).split("--")[0].strip()
 
+        if not fbp:
+            m_fbp = re.search(r"(?:--|^)fbp-(fb\.[0-9]+\.[0-9]+\.[a-zA-Z0-9_.-]+)", s)
+            if m_fbp:
+                fbp = m_fbp.group(1).split("--")[0].strip()
+
         if not gclid:
             m_g = re.search(r"(?:--|^)(?:gclid|wbraid|gbraid)-([a-zA-Z0-9_.-]+)", s)
             if m_g:
                 gclid = m_g.group(1).split("--")[0].strip()
 
-    return fbclid, gclid
+    return fbclid, fbp, gclid
 
 @app.route('/', defaults={'path': ''}, methods=['GET'])
 @app.route('/<path:path>', methods=['GET'])
@@ -100,16 +108,16 @@ def cron_handler(path):
     cached_google_access_token = None
 
     for order in orders:
-        fbclid, gclid = extract_click_ids(order)
-        if fbclid or gclid:
+        fbclid, fbp, gclid = extract_click_ids(order)
+        if fbclid or fbp or gclid:
                     
-            if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
+            if (fbclid or fbp) and META_ACCESS_TOKEN and META_PIXEL_ID:
                 timestamp = int(time.time())
-                fbc = f"fb.1.{timestamp}.{fbclid}"
-
-                user_data = {
-                    "fbc": fbc
-                }
+                user_data = {}
+                if fbclid:
+                    user_data["fbc"] = f"fb.1.{timestamp}.{fbclid}"
+                if fbp:
+                    user_data["fbp"] = fbp
                 country = order.get("customer_country_code") or order.get("customer_ip_country")
                 if country:
                     import hashlib

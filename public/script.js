@@ -326,9 +326,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const BASE_TIQETS_URL = 'https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/';
     const PARTNER_ID = 'thecruisedetective.com-176436';
 
+    function getFbpCookie() {
+        try {
+            const m = document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/);
+            return m ? decodeURIComponent(m[1]).trim() : '';
+        } catch (e) {
+            return '';
+        }
+    }
+
     function updateCheckoutLinks() {
         const total = calculateTotal();
         const totalTickets = adultCount + childCount + infantCount;
+        const fbpVal = getFbpCookie();
 
         const targetLinks = [
             document.getElementById('main-checkout-btn'),
@@ -348,6 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (clickId && clickId.value) {
                 campaignTag += `--${clickId.type}-${clickId.value}`;
+            }
+            if (fbpVal) {
+                campaignTag += `--fbp-${fbpVal}`;
             }
 
             const url = new URL(BASE_TIQETS_URL);
@@ -421,6 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stickyBar.style.pointerEvents = 'none';
     }
 
-    // Initial run
+    // Initial run + delayed re-run after async Meta Pixel sets _fbp cookie
     updateDisplay();
+    setTimeout(updateCheckoutLinks, 1500);
 });
