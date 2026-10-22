@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/sightseeing/styles.css">
 
     <!-- Meta Pixel Tracking -->
     <script>
@@ -75,12 +75,13 @@
             <!-- Section 1: Header / Title -->
             <header class="grid-header">
                 <h1 class="main-title">Bateaux Parisiens Seine River Sightseeing Cruise</h1>
-                <p class="subtitle">Direct boarding at Pier 3 beneath the Eiffel Tower. 70-minute complete panoramic loop past the Louvre, Notre-Dame, and illuminated bridges with free 14-language audio guide.</p>
+                <p class="subtitle">Direct boarding at Pier 3 at the foot of the Eiffel Tower. 70-minute complete panoramic loop past the Louvre, Notre-Dame, and illuminated bridges. 360° open upper deck, sunset & evening departures, and free 14-language audio guide.</p>
                 <div class="header-meta-row">
                     <span class="stars-gold">★★★★☆</span>
                     <span class="score-strong"><strong>4.3 / 5.0</strong></span>
                     <span class="meta-sub">(10,001 Verified Tiqets Reviews)</span>
-                    <span class="instant-chip">⚡ Instant Mobile Voucher</span>
+                    <span class="instant-chip">⚡ Instant Mobile Pass</span>
+                    <span class="instant-chip" style="background: #fef3c7; color: #92400e;">🗼 Pier 3 Eiffel Tower</span>
                 </div>
             </header>
 
@@ -142,9 +143,9 @@
 
                         <!-- Slide 8 -->
                         <div class="slide">
-                            <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d9a538afbed4e0d93b420ee4c113cb0.jpeg" alt="Travelers and families enjoying the open deck view" loading="lazy">
-                            <span class="slide-badge">👨‍👩‍👧 Family & Stroller Friendly</span>
-                            <span class="slide-caption">Spacious seating for couples, solo travelers & families (infants free)</span>
+                            <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d9a538afbed4e0d93b420ee4c113cb0.jpeg" alt="Travelers enjoying the open deck view" loading="lazy">
+                            <span class="slide-badge">📸 360° Open Upper Sun Deck</span>
+                            <span class="slide-caption">Spacious panoramic outdoor seating with unobstructed Eiffel Tower and river views</span>
                         </div>
 
                         <!-- Slide 9 -->
@@ -202,8 +203,8 @@
                         <span>Sunset</span>
                     </button>
                     <button type="button" class="thumb-chip" data-index="7">
-                        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d9a538afbed4e0d93b420ee4c113cb0.jpeg" alt="Family">
-                        <span>Family</span>
+                        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d9a538afbed4e0d93b420ee4c113cb0.jpeg" alt="Panoramic Deck">
+                        <span>360° Views</span>
                     </button>
                     <button type="button" class="thumb-chip" data-index="8">
                         <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a4486ad58854c723f3a49_1-bateaux-parisiens-sighteeing-cruise%20(38).webp" alt="Audio Guide">
@@ -241,8 +242,9 @@
                         <!-- Adult Row -->
                         <div class="ticket-row">
                             <div class="ticket-info">
-                                <strong class="ticket-name">Adult (12+ years)</strong>
+                                <strong class="ticket-name">Adult Ticket (12+ years)</strong>
                                 <span class="ticket-price">€18.00 / person</span>
+                                <span class="ticket-subnote">Full 70-min panoramic cruise & audio guide</span>
                             </div>
                             <div class="counter-wrap">
                                 <button type="button" class="counter-btn" id="btn-minus-adult" aria-label="Decrease adults">−</button>
@@ -254,9 +256,9 @@
                         <!-- Child Row -->
                         <div class="ticket-row">
                             <div class="ticket-info">
-                                <strong class="ticket-name">Child (4–11 years)</strong>
+                                <strong class="ticket-name">Child Ticket (4–11 years)</strong>
                                 <span class="ticket-price">€9.00 / child (50% OFF)</span>
-                                <span class="ticket-subnote">Infants (0–3) are free</span>
+                                <span class="ticket-subnote">Children under 4 ride free</span>
                             </div>
                             <div class="counter-wrap">
                                 <button type="button" class="counter-btn" id="btn-minus-child" aria-label="Decrease children">−</button>
@@ -270,7 +272,7 @@
                     <div class="total-summary-card">
                         <div class="summary-left">
                             <span class="summary-label">Total to Pay Online:</span>
-                            <span class="summary-comparison">Dock ticket booth: same price + 45m wait</span>
+                            <span class="summary-comparison" id="summary-general-desc">2 Adults • Pier 3 Skip-the-Line Pass</span>
                         </div>
                         <div class="summary-right">
                             <span class="summary-amount" id="total-price-display">€36.00</span>
@@ -278,7 +280,7 @@
                     </div>
 
                     <!-- PRIMARY 2-CLICK CTA BUTTON -->
-                    <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=paris-fast-booking" 
+                    <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=general-bateaux-parisiens" 
                        id="main-checkout-btn" 
                        class="fast-checkout-btn pulse-anim" 
                        target="_blank" 
@@ -354,7 +356,7 @@
                     </div>
                     <div class="qf-row">
                         <span class="qf-label">♿ Accessibility</span>
-                        <span class="qf-value">Wheelchair accessible (ramp down to Pier 3) • Stroller storage aboard</span>
+                        <span class="qf-value">Wheelchair accessible (gentle ramp down to Pier 3) • Heated indoor panoramic salon</span>
                     </div>
                     <div class="qf-row">
                         <span class="qf-label">🔄 Cancellation</span>
@@ -552,7 +554,7 @@
 
             <!-- Section 11: Secondary Bottom CTA (Mobile only) -->
             <section class="grid-bottomcta">
-                <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=paris-fast-booking-bottom" 
+                <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=general-bateaux-parisiens-bottom" 
                    id="secondary-checkout-btn" 
                    class="fast-checkout-btn pulse-anim" 
                    target="_blank" 
@@ -579,7 +581,7 @@
                 <span class="sticky-tag">Skip Line • Pier 3</span>
                 <span class="sticky-price" id="sticky-price-display">€36.00 (2 Adults)</span>
             </div>
-            <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=paris-fast-booking-sticky" 
+            <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=general-bateaux-parisiens-sticky" 
                id="sticky-checkout-btn" 
                class="sticky-action-btn" 
                target="_blank" 
@@ -589,6 +591,6 @@
         </div>
     </aside>
 
-    <script src="script.js"></script>
+    <script src="/sightseeing/script.js"></script>
 </body>
 </html>

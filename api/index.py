@@ -283,11 +283,11 @@ def webhook_handler(path):
     clean_path = (path or '').strip('/')
 
     # Sightseeing routes
-    if clean_path in ['bateaux-parisiens-sightseeing-cruise', 'paris-sightseeing-cruise', 'sightseeing-cruise', 'sightseeing']:
+    if clean_path in ['general-bateaux-parisiens-sightseeing-cruise', 'general-paris-sightseeing-cruise', 'general-sightseeing-cruise', 'bateaux-parisiens-sightseeing-cruise', 'paris-sightseeing-cruise', 'sightseeing-cruise', 'sightseeing']:
         return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'index.html')
-    elif clean_path in ['bateaux-parisiens-sightseeing-cruise/styles.css', 'sightseeing/styles.css']:
+    elif clean_path in ['general-bateaux-parisiens-sightseeing-cruise/styles.css', 'bateaux-parisiens-sightseeing-cruise/styles.css', 'sightseeing/styles.css']:
         return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'styles.css')
-    elif clean_path in ['bateaux-parisiens-sightseeing-cruise/script.js', 'sightseeing/script.js']:
+    elif clean_path in ['general-bateaux-parisiens-sightseeing-cruise/script.js', 'bateaux-parisiens-sightseeing-cruise/script.js', 'sightseeing/script.js']:
         return send_from_directory(os.path.join(public_dir, 'sightseeing'), 'script.js')
 
     # Dinner cruise routes

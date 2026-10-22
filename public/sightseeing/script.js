@@ -151,6 +151,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (valChildren) valChildren.textContent = childCount.toString();
         if (totalPriceDisplay) totalPriceDisplay.textContent = formattedTotal;
 
+        // Update summary text
+        const summaryGeneralDesc = document.getElementById('summary-general-desc');
+        let desc = `${adultCount} Adult${adultCount > 1 ? 's' : ''}`;
+        if (childCount > 0) {
+            desc += `, ${childCount} Child${childCount > 1 ? 'ren' : ''}`;
+        }
+        if (summaryGeneralDesc) {
+            summaryGeneralDesc.textContent = `${desc} • Pier 3 Skip-the-Line Pass`;
+        }
+
         // Update button text
         if (mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
@@ -161,10 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update sticky footer
         if (stickyPriceDisplay) {
-            let desc = `${adultCount} Adult${adultCount > 1 ? 's' : ''}`;
-            if (childCount > 0) {
-                desc += `, ${childCount} Child${childCount > 1 ? 'ren' : ''}`;
-            }
             stickyPriceDisplay.textContent = `${formattedTotal} (${desc})`;
         }
 
@@ -318,11 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
         targetLinks.forEach(link => {
             if (!link) return;
 
-            let campaignTag = 'bateaux-parisiens-sightseeing';
+            let campaignTag = 'general-bateaux-parisiens';
             if (link.id.includes('bottom') || link.id.includes('secondary')) {
-                campaignTag = 'bateaux-parisiens-sightseeing-bottom';
+                campaignTag = 'general-bateaux-parisiens-bottom';
             } else if (link.id.includes('sticky')) {
-                campaignTag = 'bateaux-parisiens-sightseeing-sticky';
+                campaignTag = 'general-bateaux-parisiens-sticky';
             }
 
             if (clickId && clickId.value) {
@@ -356,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (typeof window.fbq === 'function') {
                 window.fbq('track', 'InitiateCheckout', {
-                    content_name: 'Bateaux Parisiens Sightseeing Cruise',
+                    content_name: 'Bateaux Parisiens Sightseeing Cruise (General Pass)',
                     content_category: 'Seine River Cruise',
                     value: netCommission,
                     currency: 'EUR',
