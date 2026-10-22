@@ -709,10 +709,11 @@ body {
 
 /* Total Summary Card */
 .total-summary-card {
-    background: #0f172a;
-    color: #fff;
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
     border-radius: var(--radius-md);
-    padding: 12px 14px;
+    padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -728,16 +729,17 @@ body {
 .summary-label {
     display: block;
     font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
+    letter-spacing: 0.04em;
+    color: #475569;
     white-space: nowrap;
 }
 
 .summary-comparison {
     display: block;
-    font-size: 10.5px;
-    color: #cbd5e1;
+    font-size: 11px;
+    color: #64748b;
     margin-top: 1px;
     line-height: 1.3;
 }
@@ -747,9 +749,9 @@ body {
 }
 
 .summary-amount {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 800;
-    color: #38bdf8;
+    color: #0f172a;
     white-space: nowrap;
 }
 
