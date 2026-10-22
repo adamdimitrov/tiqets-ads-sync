@@ -33,23 +33,62 @@ def get_google_access_token():
         print(f"Error fetching Google Access Token: {e}")
         return None
 
+def extract_click_ids(data):
+    """Extract fbclid and gclid from all possible Tiqets webhook/order fields."""
+    import re
+    fbclid = None
+    gclid = None
+
+    # 1. Direct fields
+    if isinstance(data.get("fbclid"), str) and data.get("fbclid").strip():
+        fbclid = data.get("fbclid").strip()
+    for g_key in ("gclid", "wbraid", "gbraid"):
+        if isinstance(data.get(g_key), str) and data.get(g_key).strip():
+            gclid = data.get(g_key).strip()
+            break
+
+    # 2. Candidate strings (subid, click_id, tq_campaign, campaign_name, campaign)
+    candidates = [
+        data.get("subid"),
+        data.get("sub_id"),
+        data.get("click_id"),
+        data.get("tq_campaign"),
+        data.get("campaign_name"),
+        data.get("campaign"),
+    ]
+
+    for raw in candidates:
+        if not raw or not isinstance(raw, str):
+            continue
+        s = raw.strip()
+
+        # Pipe-delimited format: fbclid:<val>|gclid:<val>
+        for part in s.split("|"):
+            part = part.strip()
+            if part.startswith("fbclid:") and not fbclid:
+                fbclid = part.split(":", 1)[1].strip()
+            elif (part.startswith("gclid:") or part.startswith("wbraid:") or part.startswith("gbraid:")) and not gclid:
+                gclid = part.split(":", 1)[1].strip()
+
+        # Composite tq_campaign format: <base>--fbclid-<val> or <base>--gclid-<val>
+        if not fbclid:
+            m_fb = re.search(r"(?:--|^)fbclid-([a-zA-Z0-9_.-]+)", s)
+            if m_fb:
+                fbclid = m_fb.group(1).split("--")[0].strip()
+
+        if not gclid:
+            m_g = re.search(r"(?:--|^)(?:gclid|wbraid|gbraid)-([a-zA-Z0-9_.-]+)", s)
+            if m_g:
+                gclid = m_g.group(1).split("--")[0].strip()
+
+    return fbclid, gclid
+
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def webhook_handler(path):
     if request.method == 'POST':
         data = request.get_json() or {}
-        # Tiqets payload parsing for subid or click_id
-        subid = data.get("subid") or data.get("click_id") or data.get("sub_id") or data.get("campaign_name") or ""
-        
-        fbclid = None
-        gclid = None
-        
-        if subid:
-            for part in str(subid).split('|'):
-                if part.startswith('fbclid:'):
-                    fbclid = part.split(':')[1]
-                elif part.startswith('gclid:'):
-                    gclid = part.split(':')[1]
+        fbclid, gclid = extract_click_ids(data)
         
         meta_result = None
         google_result = None

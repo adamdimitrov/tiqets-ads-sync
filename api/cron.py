@@ -32,6 +32,45 @@ def get_google_access_token():
         print(f"Error fetching Google Access Token: {e}")
         return None
 
+def extract_click_ids(order):
+    """Extract fbclid and gclid from Tiqets order report fields (campaign_name, click_id, subid)."""
+    import re
+    fbclid = None
+    gclid = None
+
+    candidates = [
+        order.get("click_id"),
+        order.get("subid"),
+        order.get("sub_id"),
+        order.get("tq_campaign"),
+        order.get("campaign_name"),
+        order.get("campaign"),
+    ]
+
+    for raw in candidates:
+        if not raw or not isinstance(raw, str):
+            continue
+        s = raw.strip()
+
+        for part in s.split("|"):
+            part = part.strip()
+            if part.startswith("fbclid:") and not fbclid:
+                fbclid = part.split(":", 1)[1].strip()
+            elif (part.startswith("gclid:") or part.startswith("wbraid:") or part.startswith("gbraid:")) and not gclid:
+                gclid = part.split(":", 1)[1].strip()
+
+        if not fbclid:
+            m_fb = re.search(r"(?:--|^)fbclid-([a-zA-Z0-9_.-]+)", s)
+            if m_fb:
+                fbclid = m_fb.group(1).split("--")[0].strip()
+
+        if not gclid:
+            m_g = re.search(r"(?:--|^)(?:gclid|wbraid|gbraid)-([a-zA-Z0-9_.-]+)", s)
+            if m_g:
+                gclid = m_g.group(1).split("--")[0].strip()
+
+    return fbclid, gclid
+
 @app.route('/', defaults={'path': ''}, methods=['GET'])
 @app.route('/<path:path>', methods=['GET'])
 def cron_handler(path):
@@ -61,15 +100,8 @@ def cron_handler(path):
     cached_google_access_token = None
 
     for order in orders:
-        click_id = order.get('click_id') or ''
-        if click_id and ('fbclid:' in click_id or 'gclid:' in click_id):
-            fbclid = None
-            gclid = None
-            for part in click_id.split('|'):
-                if part.startswith('fbclid:'):
-                    fbclid = part.split(':')[1]
-                elif part.startswith('gclid:'):
-                    gclid = part.split(':')[1]
+        fbclid, gclid = extract_click_ids(order)
+        if fbclid or gclid:
                     
             if fbclid and META_ACCESS_TOKEN and META_PIXEL_ID:
                 timestamp = int(time.time())
