@@ -150,12 +150,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (button.href.includes('p974358') || text.includes('Parisiens')) {
                         boatName = 'Bateaux Parisiens Gourmet Dinner Cruise';
                         priceVal = 236.00;
+                    } else if (button.href.includes('p1023747') || text.includes('City Vision') || text.includes('Marina')) {
+                        boatName = 'Paris City Vision La Marina Dinner Cruise';
+                        priceVal = 200.00;
                     } else if (button.href.includes('p1052475') || text.includes('Scène') || text.includes('Scene')) {
                         boatName = 'Paris en Scène Dinner Cruise';
                         priceVal = 138.00;
-                    } else if (button.href.includes('p1071588') || text.includes('Trattoria') || text.includes('Théo')) {
-                        boatName = 'Le Théo Paris Trattoria Dinner Cruise';
-                        priceVal = 150.00;
+                    } else if (button.href.includes('p1049009') || text.includes('Diamant')) {
+                        boatName = 'Le Diamant Bleu Gourmet Dinner Cruise';
+                        priceVal = 218.00;
                     }
                     
                     window.fbq('track', 'InitiateCheckout', {
