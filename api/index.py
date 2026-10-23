@@ -221,10 +221,9 @@ def webhook_handler(path):
                     error_msg += " | " + e.response.text
                 return jsonify({"status": "error", "message": error_msg}), 400
             
-        # Google Ads API Integration
+        # Google Ads API Integration (Google Data Manager API)
         if gclid:
             google_config = {
-                "GOOGLE_DEV_TOKEN": bool(GOOGLE_DEV_TOKEN),
                 "GOOGLE_CLIENT_ID": bool(GOOGLE_CLIENT_ID),
                 "GOOGLE_CLIENT_SECRET": bool(GOOGLE_CLIENT_SECRET),
                 "GOOGLE_REFRESH_TOKEN": bool(GOOGLE_REFRESH_TOKEN),
@@ -236,7 +235,7 @@ def webhook_handler(path):
                 google_result = {
                     "status": "config_missing",
                     "missing_variables": missing_google,
-                    "message": "Google Ads API requires developer token, OAuth credentials, customer ID, and conversion action ID."
+                    "message": "Google Data Manager API requires OAuth credentials, customer ID, and conversion action ID."
                 }
             else:
                 access_token, token_err = get_google_access_token()
@@ -248,31 +247,39 @@ def webhook_handler(path):
                     }
                 else:
                     from datetime import datetime, timezone
-                    conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
+                    conversion_time_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
                     
-                    url = f"https://googleads.googleapis.com/v26/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
-                    headers = {
+                    dm_url = "https://datamanager.googleapis.com/v1/events:ingest"
+                    dm_headers = {
                         "Authorization": f"Bearer {access_token}",
-                        "developer-token": GOOGLE_DEV_TOKEN,
-                        "login-customer-id": GOOGLE_CUSTOMER_ID,
                         "Content-Type": "application/json"
                     }
-                    conversion_item = {
-                        gclid_type: gclid,
-                        "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
-                        "conversionDateTime": conversion_time,
-                        "conversionValue": value,
-                        "currencyCode": currency
-                    }
-                    if order_id:
-                        conversion_item["orderId"] = str(order_id)
-                    payload = {
-                        "conversions": [conversion_item],
-                        "partialFailure": True
+                    dm_payload = {
+                        "destinations": [
+                            {
+                                "operatingAccount": {
+                                    "accountType": "GOOGLE_ADS",
+                                    "accountId": str(GOOGLE_CUSTOMER_ID)
+                                },
+                                "productDestinationId": str(GOOGLE_CONVERSION_ACTION_ID)
+                            }
+                        ],
+                        "events": [
+                            {
+                                "eventSource": "WEB",
+                                "eventTimestamp": conversion_time_iso,
+                                "transactionId": str(order_id) if order_id else f"TQ-{int(time.time())}",
+                                "conversionValue": value,
+                                "currency": currency,
+                                "adIdentifiers": {
+                                    gclid_type: gclid
+                                }
+                            }
+                        ]
                     }
                     
                     try:
-                        g_res = requests.post(url, headers=headers, json=payload)
+                        g_res = requests.post(dm_url, headers=dm_headers, json=dm_payload)
                         google_result = {
                             "status": "submitted",
                             "http_status": g_res.status_code,

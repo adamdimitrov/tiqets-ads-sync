@@ -197,37 +197,45 @@ def cron_handler(path):
             except requests.exceptions.RequestException as e:
                 print(f"Error sending Meta CAPI event for order {order_id}: {e}")
                 
-        if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID and GOOGLE_CONVERSION_ACTION_ID:
+        if gclid and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID and GOOGLE_CONVERSION_ACTION_ID:
             if not cached_google_access_token:
                 cached_google_access_token = get_google_access_token()
             
             if cached_google_access_token:
                 from datetime import datetime, timezone
-                conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
+                conversion_time_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
                 currency = order.get("currency", "EUR")
                 
-                url = f"https://googleads.googleapis.com/v26/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
-                headers = {
+                dm_url = "https://datamanager.googleapis.com/v1/events:ingest"
+                dm_headers = {
                     "Authorization": f"Bearer {cached_google_access_token}",
-                    "developer-token": GOOGLE_DEV_TOKEN,
-                    "login-customer-id": GOOGLE_CUSTOMER_ID,
                     "Content-Type": "application/json"
                 }
-                conversion_item = {
-                    gclid_type: gclid,
-                    "conversionAction": f"customers/{GOOGLE_CUSTOMER_ID}/conversionActions/{GOOGLE_CONVERSION_ACTION_ID}",
-                    "conversionDateTime": conversion_time,
-                    "conversionValue": val,
-                    "currencyCode": currency
-                }
-                if order_id:
-                    conversion_item["orderId"] = str(order_id)
-                payload = {
-                    "conversions": [conversion_item],
-                    "partialFailure": True
+                dm_payload = {
+                    "destinations": [
+                        {
+                            "operatingAccount": {
+                                "accountType": "GOOGLE_ADS",
+                                "accountId": str(GOOGLE_CUSTOMER_ID)
+                            },
+                            "productDestinationId": str(GOOGLE_CONVERSION_ACTION_ID)
+                        }
+                    ],
+                    "events": [
+                        {
+                            "eventSource": "WEB",
+                            "eventTimestamp": conversion_time_iso,
+                            "transactionId": str(order_id) if order_id else f"TQ-{int(time.time())}",
+                            "conversionValue": val,
+                            "currency": currency,
+                            "adIdentifiers": {
+                                gclid_type: gclid
+                            }
+                        }
+                    ]
                 }
                 try:
-                    g_res = requests.post(url, headers=headers, json=payload)
+                    g_res = requests.post(dm_url, headers=dm_headers, json=dm_payload)
                     g_res.raise_for_status()
                 except requests.exceptions.RequestException as e:
                     print(f"Error sending Google Ads conversion for order {order.get('order_reference_id')}: {e}")
