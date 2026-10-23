@@ -10,6 +10,16 @@ META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID")
 CRON_SECRET = os.environ.get("CRON_SECRET")
 
+PRODUCT_COMMISSION_RATES = {
+    973977: 0.419,   # Bateaux Parisiens Sightseeing (41.9% locked rate)
+    982823: 0.3815,  # Bateaux Mouches Sightseeing (38.15%)
+    982924: 0.158,   # Bateaux Mouches Dinner Cruise (~15.8%)
+    1071588: 0.146,  # Theo Trattoria Dinner Cruise (~14.6%)
+    1052475: 0.182,  # Paris en Scène Dinner Cruise (~18.2%)
+    974358: 0.107,   # Bateaux Parisiens Dinner Cruise (~10.7%)
+    1049009: 0.145,  # Le Diamant Bleu Dinner Cruise (~14.5%)
+}
+
 def clean_env(val):
     if not val or not isinstance(val, str):
         return None
@@ -164,7 +174,9 @@ def cron_handler(path):
             val = float(order.get("commission_excl_vat") or order.get("commission") or 0.0)
             if val <= 0:
                 gross = float(order.get("sale_order_value_incl_vat") or order.get("transaction_value") or 0.0)
-                val = round(gross * 0.419, 2)
+                pid = int(order.get("product_id") or 0)
+                rate = PRODUCT_COMMISSION_RATES.get(pid, 0.419)
+                val = round(gross * rate, 2)
             
             custom_data = {
                 "value": val,

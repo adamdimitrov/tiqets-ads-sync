@@ -9,6 +9,16 @@ TIQETS_API_KEY = os.environ.get("TIQETS_API_KEY")
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID")
 
+PRODUCT_COMMISSION_RATES = {
+    973977: 0.419,   # Bateaux Parisiens Sightseeing (41.9% locked rate)
+    982823: 0.3815,  # Bateaux Mouches Sightseeing (38.15%)
+    982924: 0.158,   # Bateaux Mouches Dinner Cruise (~15.8%)
+    1071588: 0.146,  # Theo Trattoria Dinner Cruise (~14.6%)
+    1052475: 0.182,  # Paris en Scène Dinner Cruise (~18.2%)
+    974358: 0.107,   # Bateaux Parisiens Dinner Cruise (~10.7%)
+    1049009: 0.145,  # Le Diamant Bleu Dinner Cruise (~14.5%)
+}
+
 def clean_env(val):
     if not val or not isinstance(val, str):
         return None
@@ -134,7 +144,7 @@ def webhook_handler(path):
             except (ValueError, TypeError):
                 value = 0.0
 
-        # If Tiqets only provided gross revenue, calculate 41.9% net commission
+        # If Tiqets only provided gross revenue, calculate exact product commission or default to 41.9%
         if value <= 0:
             raw_gross = (
                 data.get("transaction_value") or 
@@ -145,7 +155,9 @@ def webhook_handler(path):
             )
             if raw_gross is not None:
                 try:
-                    value = round(float(raw_gross) * 0.419, 2)
+                    pid = int(data.get("product_id") or 0)
+                    rate = PRODUCT_COMMISSION_RATES.get(pid, 0.419)
+                    value = round(float(raw_gross) * rate, 2)
                 except (ValueError, TypeError):
                     value = 0.0
 
