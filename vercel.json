@@ -85,6 +85,30 @@
       "dest": "/public/family-compare/index.html"
     },
     {
+      "src": "/couples-pass/styles.css",
+      "dest": "/public/couples-pass/styles.css"
+    },
+    {
+      "src": "/couples-pass/script.js",
+      "dest": "/public/couples-pass/script.js"
+    },
+    {
+      "src": "/couples-pass/?",
+      "dest": "/public/couples-pass/index.html"
+    },
+    {
+      "src": "/paris-couples-pass/styles.css",
+      "dest": "/public/couples-pass/styles.css"
+    },
+    {
+      "src": "/paris-couples-pass/script.js",
+      "dest": "/public/couples-pass/script.js"
+    },
+    {
+      "src": "/paris-couples-pass/?",
+      "dest": "/public/couples-pass/index.html"
+    },
+    {
       "src": "/paris-family-compare/styles.css",
       "dest": "/public/family-compare/styles.css"
     },
