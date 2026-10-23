@@ -133,6 +133,114 @@
       "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-2/index.html"
     },
     {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-1/script.js",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-1/script.js"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-1/?",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-1/index.html"
+    },
+    {
+      "src": "/de/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-1/index.html"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-2/script.js",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-2/script.js"
+    },
+    {
+      "src": "/de/bateaux-parisiens-tickets-seine-rundfahrt-2/?",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-2/index.html"
+    },
+    {
+      "src": "/de/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/de/bateaux-parisiens-tickets-seine-rundfahrt-2/index.html"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-1/script.js",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-1/script.js"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-1/?",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-1/index.html"
+    },
+    {
+      "src": "/it/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-1/index.html"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-2/script.js",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-2/script.js"
+    },
+    {
+      "src": "/it/bateaux-parisiens-biglietti-crociera-senna-2/?",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-2/index.html"
+    },
+    {
+      "src": "/it/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/it/bateaux-parisiens-biglietti-crociera-senna-2/index.html"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-1/script.js",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-1/script.js"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-1/?",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-1/index.html"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-1/index.html"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-2/script.js",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-2/script.js"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-tickets-rondvaart-seine-2/?",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-2/index.html"
+    },
+    {
+      "src": "/nl/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/nl/bateaux-parisiens-tickets-rondvaart-seine-2/index.html"
+    },
+    {
       "src": "/styles.css",
       "dest": "/public/styles.css"
     },
