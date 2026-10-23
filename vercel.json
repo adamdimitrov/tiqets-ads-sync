@@ -61,6 +61,78 @@
       "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/index.html"
     },
     {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-1/script.js",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-1/script.js"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-1/?",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-1/index.html"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-1/index.html"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-2/script.js",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-2/script.js"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-billets-croisiere-seine-2/?",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-2/index.html"
+    },
+    {
+      "src": "/fr/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-2/index.html"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-1/script.js",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-1/script.js"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-1/?",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-1/index.html"
+    },
+    {
+      "src": "/es/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-1/index.html"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-2/script.js",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-2/script.js"
+    },
+    {
+      "src": "/es/bateaux-parisiens-entradas-crucero-sena-2/?",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-2/index.html"
+    },
+    {
+      "src": "/es/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/es/bateaux-parisiens-entradas-crucero-sena-2/index.html"
+    },
+    {
       "src": "/styles.css",
       "dest": "/public/styles.css"
     },
