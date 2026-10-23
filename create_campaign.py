@@ -188,7 +188,7 @@ bp_headlines = [
     {"text": "Children Under 4 Free"},
     {"text": "Skip The Ticket Line"},
     {"text": "Boats Depart Every 30 Min"},
-    {"text": "70-Min Seine River Cruise"},
+    {"text": "60-Min Seine River Cruise"},
     {"text": "Direct Eiffel Tower Boarding"},
     {"text": "100% Flexible Instant Tickets"},
     {"text": "Instant Booking Confirmation"},
@@ -202,7 +202,7 @@ bp_descriptions = [
     {"text": "Board at Pier 3 under the Eiffel Tower. Instant mobile QR ticket sent right to your phone."},
     {"text": "Avoid ticket counter lines. Boats depart every 30 minutes from Port de la Bourdonnais."},
     {"text": "Guaranteed boarding with digital barcode tickets. Flexible departures throughout the day."},
-    {"text": "Adults €18, Kids 4–11 €9 (50% off), Under 4 Free. Panoramic 70-min Seine river cruise."}
+    {"text": "Adults €18, Kids 4–11 €9 (50% off), Under 4 Free. Panoramic 60-min Seine river cruise."}
 ]
 
 mutate_operations.append({
