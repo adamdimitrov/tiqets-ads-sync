@@ -75,18 +75,8 @@ mutate_operations.append({
     }
 })
 
-# 3. Location Targeting: Paris (City: 1006094, Department: 9040871, Île-de-France: 20340)
-for geo_id in ["1006094", "9040871"]:
-    mutate_operations.append({
-        "campaignCriterionOperation": {
-            "create": {
-                "campaign": CAMPAIGN_TEMP,
-                "location": {
-                    "geoTargetConstant": f"geoTargetConstants/{geo_id}"
-                }
-            }
-        }
-    })
+# 3. Location Targeting: All Countries & Territories (Worldwide)
+# High-intent BOF keywords inherently carry geographic intent.
 
 # 4. Language Targeting: English (1000)
 mutate_operations.append({
