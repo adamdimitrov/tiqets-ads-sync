@@ -61,7 +61,7 @@
         </div>
     </aside>
 
-    <!-- Main Single-Screen Pass Card -->
+    <!-- Main Pass Card Container -->
     <main class="bridge-wrapper">
         <article class="bridge-card">
             
@@ -84,67 +84,78 @@
                 <span class="pier-tag">📍 Pier 3 • Eiffel Tower</span>
             </div>
 
-            <!-- Hero Image with Live Pill -->
-            <figure class="bridge-hero">
-                <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/699480970fd56c513a2749e0_bateaux-parisiens-sighteeing-cruise-00002.avif" alt="Bateaux Parisiens boat departing under the Eiffel Tower" class="hero-photo" loading="eager">
-                <span class="hero-floating-pill">⚡ Official Bateaux Parisiens Mobile Ticket • Instant QR</span>
-            </figure>
+            <!-- Responsive 2-Column Split on Desktop, Natural Conversion Stack on Mobile -->
+            <div class="bridge-grid-split">
+                
+                <!-- Visual & Social Proof Column (Left on Desktop) -->
+                <div class="grid-col-left">
+                    <!-- Hero Image with Live Pill -->
+                    <figure class="bridge-hero">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/699480970fd56c513a2749e0_bateaux-parisiens-sighteeing-cruise-00002.avif" alt="Bateaux Parisiens boat departing under the Eiffel Tower" class="hero-photo" loading="eager">
+                        <span class="hero-floating-pill">⚡ Official Bateaux Parisiens Mobile Ticket • Instant QR</span>
+                    </figure>
 
-            <!-- Official Price Row -->
-            <section class="bridge-price-row">
-                <div class="price-item">
-                    <span class="price-type">ADULT</span>
-                    <strong class="price-val">€18.00</strong>
+                    <!-- Single Real Verified Customer Review Quote -->
+                    <blockquote class="bridge-quote">
+                        <p>“We booked our Bateaux Parisiens tickets on my phone while walking down from Trocadéro. The ticket booth queue at Pier 3 stretched back across the dock (~45 mins), but we walked straight to the electronic turnstiles, scanned the barcodes on my iPhone, and boarded immediately. The open deck views of Paris and Notre-Dame from the water were stunning.”</p>
+                        <cite>— David R., Verified Traveler (Visited Oct 2026)</cite>
+                    </blockquote>
                 </div>
-                <div class="price-sep"></div>
-                <div class="price-item highlight-kids">
-                    <span class="price-type">KIDS (4–11) <small class="pill-disc">-50% OFF</small></span>
-                    <strong class="price-val green-val">€9.00</strong>
-                </div>
-                <div class="price-sep"></div>
-                <div class="price-item">
-                    <span class="price-type">INFANT (0–3)</span>
-                    <strong class="price-val blue-val">FREE</strong>
-                </div>
-            </section>
 
-            <!-- 4 Punchy Direct-Response Checkmarks -->
-            <ul class="bridge-checkmarks">
-                <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Official Bateaux Parisiens Admission:</strong> Scan digital QR passes directly at Pier 3 turnstiles (foot of Eiffel Tower).</span>
-                </li>
-                <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Flexible All-Day Boarding:</strong> Departures every 30–45 mins daily (13:00 to 22:30). Hop on whenever you arrive today.</span>
-                </li>
-                <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>70-Minute Panoramic Paris Loop:</strong> 360° open upper sun deck + heated glass salon past Louvre, Musée d'Orsay &amp; Notre-Dame.</span>
-                </li>
-                <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Free Cancellation:</strong> 100% refund up to 24h before departure.</span>
-                </li>
-            </ul>
+                <!-- Commercial Action Column (Right on Desktop) -->
+                <div class="grid-col-right">
+                    <!-- Official Price Row -->
+                    <section class="bridge-price-row">
+                        <div class="price-item">
+                            <span class="price-type">ADULT</span>
+                            <strong class="price-val">€18.00</strong>
+                        </div>
+                        <div class="price-sep"></div>
+                        <div class="price-item highlight-kids">
+                            <span class="price-type">KIDS (4–11) <small class="pill-disc">-50% OFF</small></span>
+                            <strong class="price-val green-val">€9.00</strong>
+                        </div>
+                        <div class="price-sep"></div>
+                        <div class="price-item">
+                            <span class="price-type">INFANT (0–3)</span>
+                            <strong class="price-val blue-val">FREE</strong>
+                        </div>
+                    </section>
 
-            <!-- Dominant One-Tap Action CTA Button -->
-            <div class="bridge-cta-wrap">
-                <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=bateaux-parisiens-ticket-2" 
-                   id="main-checkout-btn" 
-                   class="btn-bridge pulse-anim" 
-                   target="_blank" 
-                   rel="noopener">
-                    <span class="btn-title">BOOK BATEAUX PARISIENS PASSES →</span>
-                    <span class="btn-subtitle">Official Tiqets Partner • Instant Delivery • Scan at Pier 3</span>
-                </a>
+                    <!-- 4 Punchy Direct-Response Checkmarks -->
+                    <ul class="bridge-checkmarks">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Official Bateaux Parisiens Admission:</strong> Scan digital QR passes directly at Pier 3 turnstiles (foot of Eiffel Tower).</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Flexible All-Day Boarding:</strong> Departures every 30–45 mins daily (13:00 to 22:30). Hop on whenever you arrive today.</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>70-Minute Panoramic Paris Loop:</strong> 360° open upper sun deck + heated glass salon past Louvre, Musée d'Orsay &amp; Notre-Dame.</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Free Cancellation:</strong> 100% refund up to 24h before departure.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Dominant One-Tap Action CTA Button -->
+                    <div class="bridge-cta-wrap">
+                        <a href="https://www.tiqets.com/checkout/tickets-for-seine-river-cruise-by-bateaux-parisiens-p973977/booking_details/?partner=thecruisedetective.com-176436&tq_campaign=bateaux-parisiens-ticket-2" 
+                           id="main-checkout-btn" 
+                           class="btn-bridge pulse-anim" 
+                           target="_blank" 
+                           rel="noopener">
+                            <span class="btn-title">BOOK BATEAUX PARISIENS PASSES →</span>
+                            <span class="btn-subtitle">Official Tiqets Partner • Instant Delivery • Scan at Pier 3</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Single Real Verified Customer Review Quote -->
-            <blockquote class="bridge-quote">
-                <p>“We booked our Bateaux Parisiens tickets on my phone while walking down from Trocadéro. The ticket booth queue at Pier 3 stretched back across the dock (~45 mins), but we walked straight to the electronic turnstiles, scanned the barcodes on my iPhone, and boarded immediately. The open deck views of Paris and Notre-Dame from the water were stunning.”</p>
-                <cite>— David R., Verified Traveler (Visited Oct 2026)</cite>
-            </blockquote>
 
             <!-- Trust Footer -->
             <footer class="bridge-footer">
