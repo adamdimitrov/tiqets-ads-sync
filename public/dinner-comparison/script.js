@@ -204,17 +204,96 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // -------------------------------------------------------------
-    // 4. Sticky Mobile Bar Scroll Logic
+    // 4. Dynamic Floating Bar: Tracks Current Cruise In View
     // -------------------------------------------------------------
     const stickyBar = document.getElementById('sticky-bar');
-    if (stickyBar) {
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            if (scrollPos > 550) {
-                stickyBar.classList.add('visible');
-            } else {
-                stickyBar.classList.remove('visible');
+    const boatCards = document.querySelectorAll('.boat-card');
+    const stickyThumb = document.getElementById('sticky-thumb');
+    const stickyRank = document.getElementById('sticky-rank');
+    const stickyName = document.getElementById('sticky-name');
+    const stickyPrice = document.getElementById('sticky-price');
+    const stickyDesc = document.getElementById('sticky-desc');
+    const stickyBtn = document.getElementById('sticky-cta-btn');
+
+    let currentActiveBoatId = null;
+
+    function updateFloatingBar() {
+        if (!stickyBar || boatCards.length === 0) return;
+
+        const scrollY = window.scrollY;
+        // Show only after scrolling past the comparison table (~420px)
+        if (scrollY < 420) {
+            stickyBar.classList.remove('visible');
+            return;
+        }
+
+        // Detect which cruise card is currently centered/in reading focus
+        const targetLine = window.innerHeight * 0.42;
+        let activeCard = null;
+
+        for (let i = 0; i < boatCards.length; i++) {
+            const card = boatCards[i];
+            const rect = card.getBoundingClientRect();
+            if (rect.top <= targetLine && rect.bottom >= targetLine) {
+                activeCard = card;
+                break;
             }
-        });
+        }
+
+        // If between cards or at start/end of cards section
+        if (!activeCard) {
+            for (let i = 0; i < boatCards.length; i++) {
+                const card = boatCards[i];
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.75 && rect.bottom > 0) {
+                    activeCard = card;
+                }
+            }
+        }
+
+        // Fallback to #1 winner if beyond all cards (e.g. at final verdict)
+        if (!activeCard) {
+            activeCard = boatCards[0];
+        }
+
+        stickyBar.classList.add('visible');
+
+        const boatId = activeCard.dataset.boatId;
+        if (boatId && boatId !== currentActiveBoatId) {
+            currentActiveBoatId = boatId;
+
+            if (stickyThumb && activeCard.dataset.boatThumb) {
+                stickyThumb.src = activeCard.dataset.boatThumb;
+            }
+            if (stickyRank && activeCard.dataset.boatRank) {
+                stickyRank.textContent = activeCard.dataset.boatRank;
+                stickyRank.className = `sticky-rank-badge pill-${boatId}`;
+            }
+            if (stickyName && activeCard.dataset.boatName) {
+                stickyName.textContent = activeCard.dataset.boatName;
+            }
+            if (stickyPrice && activeCard.dataset.boatPrice) {
+                stickyPrice.textContent = activeCard.dataset.boatPrice;
+            }
+            if (stickyDesc && activeCard.dataset.boatDesc) {
+                stickyDesc.textContent = activeCard.dataset.boatDesc;
+            }
+            if (stickyBtn) {
+                if (activeCard.dataset.boatBtn) {
+                    stickyBtn.textContent = activeCard.dataset.boatBtn;
+                }
+                if (activeCard.dataset.boatBtnClass) {
+                    stickyBtn.className = `btn-sticky-cta ${activeCard.dataset.boatBtnClass}`;
+                }
+                if (activeCard.dataset.boatUrl) {
+                    stickyBtn.href = activeCard.dataset.boatUrl;
+                    decorateLink(stickyBtn, getClickId());
+                }
+            }
+        }
     }
+
+    window.addEventListener('scroll', updateFloatingBar, { passive: true });
+    window.addEventListener('resize', updateFloatingBar, { passive: true });
+    updateFloatingBar();
 });
