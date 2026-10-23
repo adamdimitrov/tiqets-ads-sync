@@ -33,6 +33,34 @@
       "dest": "/public/itinerary-route-map.png"
     },
     {
+      "src": "/bateaux-parisiens-river-cruise-ticket-1/itinerary-route-map.png",
+      "dest": "/public/itinerary-route-map.png"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-1/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/styles.css"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-1/script.js",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/script.js"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-1/?",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-1/index.html"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-2/styles.css",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/styles.css"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-2/script.js",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/script.js"
+    },
+    {
+      "src": "/bateaux-parisiens-river-cruise-ticket-2/?",
+      "dest": "/public/bateaux-parisiens-river-cruise-ticket-2/index.html"
+    },
+    {
       "src": "/styles.css",
       "dest": "/public/styles.css"
     },
