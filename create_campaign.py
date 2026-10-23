@@ -133,15 +133,14 @@ mutate_operations.append({
     }
 })
 
-# 7. Keywords for Bateaux Parisiens
+# 7. Keywords for Bateaux Parisiens (Pure Exact Match)
 bp_keywords = [
     ("bateaux parisiens tickets", "EXACT"),
-    ("bateaux parisiens tickets", "PHRASE"),
     ("bateaux parisiens ticket", "EXACT"),
     ("buy bateaux parisiens tickets", "EXACT"),
     ("bateaux parisiens booking", "EXACT"),
-    ("bateaux parisiens price", "PHRASE"),
-    ("bateaux parisiens prices", "PHRASE")
+    ("bateaux parisiens price", "EXACT"),
+    ("bateaux parisiens prices", "EXACT")
 ]
 for text, match in bp_keywords:
     mutate_operations.append({
@@ -157,15 +156,14 @@ for text, match in bp_keywords:
         }
     })
 
-# 8. Keywords for Bateaux Mouches
+# 8. Keywords for Bateaux Mouches (Pure Exact Match)
 bm_keywords = [
     ("bateaux mouches tickets", "EXACT"),
-    ("bateaux mouches tickets", "PHRASE"),
     ("bateaux mouches ticket", "EXACT"),
     ("buy bateaux mouches tickets", "EXACT"),
     ("bateaux mouches booking", "EXACT"),
-    ("bateaux mouches price", "PHRASE"),
-    ("bateaux mouches prices", "PHRASE")
+    ("bateaux mouches price", "EXACT"),
+    ("bateaux mouches prices", "EXACT")
 ]
 for text, match in bm_keywords:
     mutate_operations.append({
