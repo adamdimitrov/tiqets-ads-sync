@@ -114,66 +114,77 @@ def cron_handler(path):
 
     for order in orders:
         fbclid, fbp, gclid = extract_click_ids(order)
-        if fbclid or fbp or gclid:
-            # Parse exact order timestamp from order_fulfilled_at for deterministic deduplication
-            event_ts = now_ts
-            fulfilled_str = order.get("order_fulfilled_at") or order.get("order_created_timestamp")
-            if fulfilled_str:
-                try:
-                    from datetime import datetime
-                    dt = datetime.fromisoformat(fulfilled_str.replace("Z", "+00:00"))
-                    event_ts = int(dt.timestamp())
-                except Exception:
-                    event_ts = now_ts
+        
+        # Parse exact order timestamp from order_fulfilled_at for deterministic deduplication
+        event_ts = now_ts
+        fulfilled_str = order.get("order_fulfilled_at") or order.get("order_created_timestamp")
+        if fulfilled_str:
+            try:
+                from datetime import datetime
+                dt = datetime.fromisoformat(fulfilled_str.replace("Z", "+00:00"))
+                event_ts = int(dt.timestamp())
+            except Exception:
+                event_ts = now_ts
 
-            # Meta CAPI rejects events older than 7 days (604800s)
-            if (now_ts - event_ts) > 580000:
-                skipped_old += 1
-                continue
-                    
-            if (fbclid or fbp) and META_ACCESS_TOKEN and META_PIXEL_ID:
-                user_data = {}
-                if fbclid:
-                    user_data["fbc"] = f"fb.1.{event_ts}.{fbclid}"
-                if fbp:
-                    user_data["fbp"] = fbp
-                country = order.get("customer_country_code") or order.get("customer_ip_country")
-                if country:
-                    import hashlib
-                    user_data["country"] = hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()
+        # Meta CAPI rejects events older than 7 days (604800s)
+        if (now_ts - event_ts) > 580000:
+            skipped_old += 1
+            continue
                 
-                custom_data = {
-                    "value": float(order.get("commission") or order.get("commission_excl_vat") or order.get("transaction_value") or order.get("sale_order_value_incl_vat") or 0),
-                    "currency": order.get("currency", "EUR"),
-                    "content_type": "product"
-                }
-                if order.get("order_reference_id"):
-                    custom_data["order_id"] = str(order.get("order_reference_id"))
-                if order.get("product_id"):
-                    custom_data["content_ids"] = [str(order.get("product_id"))]
+        # Send to Meta CAPI (paid ads with fbclid/fbp OR organic sales with country/external_id)
+        if META_ACCESS_TOKEN and META_PIXEL_ID:
+            import hashlib
+            user_data = {}
+            if fbclid:
+                user_data["fbc"] = f"fb.1.{event_ts}.{fbclid}"
+            if fbp:
+                user_data["fbp"] = fbp
+            
+            country = order.get("customer_country_code") or order.get("customer_ip_country")
+            if country:
+                user_data["country"] = [hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()]
+            
+            order_id = str(order.get("order_reference_id") or "")
+            if order_id:
+                user_data["external_id"] = [hashlib.sha256(order_id.encode('utf-8')).hexdigest()]
+            
+            val = float(order.get("commission_excl_vat") or order.get("commission") or 0.0)
+            if val <= 0:
+                gross = float(order.get("sale_order_value_incl_vat") or order.get("transaction_value") or 0.0)
+                val = round(gross * 0.419, 2)
+            
+            custom_data = {
+                "value": val,
+                "currency": order.get("currency", "EUR"),
+                "content_type": "product"
+            }
+            if order_id:
+                custom_data["order_id"] = order_id
+            if order.get("product_id"):
+                custom_data["content_ids"] = [str(order.get("product_id"))]
 
-                payload = {
-                    "data": [
-                        {
-                            "event_name": "Purchase",
-                            "event_time": event_ts,
-                            "action_source": "website",
-                            "user_data": user_data,
-                            "custom_data": custom_data,
-                            "event_id": f"tiqets_{order.get('order_reference_id')}"
-                        }
-                    ]
-                }
+            payload = {
+                "data": [
+                    {
+                        "event_name": "Purchase",
+                        "event_time": event_ts,
+                        "action_source": "website",
+                        "user_data": user_data,
+                        "custom_data": custom_data,
+                        "event_id": f"tiqets_{order_id}"
+                    }
+                ]
+            }
+            
+            url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
+            try:
+                meta_res = requests.post(url, json=payload)
+                meta_res.raise_for_status()
+                processed_orders += 1
+            except requests.exceptions.RequestException as e:
+                print(f"Error sending Meta CAPI event for order {order_id}: {e}")
                 
-                url = f"https://graph.facebook.com/v20.0/{META_PIXEL_ID}/events?access_token={META_ACCESS_TOKEN}"
-                try:
-                    meta_res = requests.post(url, json=payload)
-                    meta_res.raise_for_status()
-                    processed_orders += 1
-                except requests.exceptions.RequestException as e:
-                    print(f"Error sending Meta CAPI event for order {order.get('order_reference_id')}: {e}")
-                    
-            if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
+        if gclid and GOOGLE_DEV_TOKEN and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID:
                 if not cached_google_access_token:
                     cached_google_access_token = get_google_access_token()
                 

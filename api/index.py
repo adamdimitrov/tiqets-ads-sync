@@ -138,8 +138,8 @@ def webhook_handler(path):
         currency = data.get("currency", "EUR")
         order_id = str(data.get("order_reference_id") or data.get("order_id") or data.get("basket_reference_id") or "")
 
-        # Meta CAPI Integration (supports paid fbclid AND organic SEO fbp cookie)
-        if (fbclid or fbp) and META_ACCESS_TOKEN and META_PIXEL_ID:
+        # Meta CAPI Integration (supports paid fbclid, organic SEO fbp cookie, and general organic sales)
+        if META_ACCESS_TOKEN and META_PIXEL_ID:
             timestamp = int(time.time())
             user_data = {}
             if fbclid:
@@ -157,12 +157,16 @@ def webhook_handler(path):
             email = data.get("customer_email") or data.get("email")
             if email:
                 import hashlib
-                user_data["em"] = hashlib.sha256(email.strip().lower().encode('utf-8')).hexdigest()
+                user_data["em"] = [hashlib.sha256(email.strip().lower().encode('utf-8')).hexdigest()]
 
             country = data.get("customer_country_code") or data.get("customer_ip_country")
             if country:
                 import hashlib
-                user_data["country"] = hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()
+                user_data["country"] = [hashlib.sha256(country.strip().lower().encode('utf-8')).hexdigest()]
+
+            if order_id:
+                import hashlib
+                user_data["external_id"] = [hashlib.sha256(order_id.encode('utf-8')).hexdigest()]
 
             custom_data = {
                 "value": value,
