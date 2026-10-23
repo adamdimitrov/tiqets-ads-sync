@@ -445,6 +445,30 @@
       "dest": "/public/dinner/index.html"
     },
     {
+      "src": "/dinner-comparison/styles.css",
+      "dest": "/public/dinner-comparison/styles.css"
+    },
+    {
+      "src": "/dinner-comparison/script.js",
+      "dest": "/public/dinner-comparison/script.js"
+    },
+    {
+      "src": "/dinner-comparison/?",
+      "dest": "/public/dinner-comparison/index.html"
+    },
+    {
+      "src": "/paris-dinner-cruise-comparison/?",
+      "dest": "/public/dinner-comparison/index.html"
+    },
+    {
+      "src": "/best-dinner-cruise-paris/?",
+      "dest": "/public/dinner-comparison/index.html"
+    },
+    {
+      "src": "/dinner-cruise-paris/?",
+      "dest": "/public/dinner-comparison/index.html"
+    },
+    {
       "src": "/paris-dinner-cruise/?",
       "dest": "/public/dinner/index.html"
     },
