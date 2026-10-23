@@ -206,7 +206,7 @@ def cron_handler(path):
                 conversion_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
                 currency = order.get("currency", "EUR")
                 
-                url = f"https://googleads.googleapis.com/v17/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
+                url = f"https://googleads.googleapis.com/v26/customers/{GOOGLE_CUSTOMER_ID}:uploadClickConversions"
                 headers = {
                     "Authorization": f"Bearer {cached_google_access_token}",
                     "developer-token": GOOGLE_DEV_TOKEN,
