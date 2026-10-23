@@ -1,0 +1,633 @@
+/* ==========================================================================
+   BATEAUX PARISIENS FAMILY COMPARISON MATRIX STYLES
+   Optimized for High-Converting Direct Response & Mobile Impulse Tourists
+   ========================================================================== */
+
+:root {
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --border-light: #e2e8f0;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.5;
+    font-size: 15px;
+    padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+}
+
+.container-narrow {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* 1. Urgency Top Status Bar */
+.top-status-bar {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.status-content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* 2. Main Header */
+.compare-wrapper {
+    padding: 24px 0 32px;
+}
+
+.compare-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.operator-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.main-headline {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.sub-headline {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.rating-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.stars {
+    color: #f59e0b;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.rating-score {
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.rating-count {
+    color: #64748b;
+}
+
+/* 3. Comparison Matrix Layout */
+.matrix-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+    .matrix-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        align-items: stretch;
+    }
+}
+
+.matrix-col {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.col-bad {
+    border: 1.5px solid #fee2e2;
+    background: #fffafa;
+}
+
+.col-good {
+    border: 2px solid #10b981;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+}
+
+.badge-recommended {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #10b981;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+}
+
+.col-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.col-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.pill-bad {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.pill-good {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.col-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    margin-bottom: 2px;
+}
+
+.col-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 1;
+}
+
+.compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.4;
+}
+
+.icon-mark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.mark-bad {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.mark-good {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.list-text strong {
+    display: block;
+    color: #0f172a;
+    font-size: 13.5px;
+    margin-bottom: 1px;
+}
+
+.list-text span {
+    color: #475569;
+    font-size: 13px;
+}
+
+/* 4. Price Banner */
+.price-banner {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.price-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.price-pill-official {
+    font-size: 11px;
+    font-weight: 800;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+}
+
+.price-pill-discount {
+    font-size: 11px;
+    font-weight: 800;
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.price-breakdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.price-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-type {
+    font-size: 11.5px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.price-val {
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.price-item.highlight .price-val {
+    color: #10b981;
+}
+
+.price-item.free .price-val {
+    color: #2563eb;
+}
+
+.price-divider {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+.price-footnote {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* 5. CTA Section */
+.cta-section {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.btn-primary-action {
+    display: block;
+    background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary-action:hover, .btn-primary-action:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-primary-action:active {
+    transform: translateY(1px);
+}
+
+.pulse-anim {
+    animation: gentle-pulse 2.5s infinite;
+}
+
+@keyframes gentle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+    100% { transform: scale(1); }
+}
+
+.btn-headline {
+    display: block;
+    font-size: 16.5px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.btn-subtext {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #d1fae5;
+    margin-top: 3px;
+    letter-spacing: 0.01em;
+}
+
+.trust-icons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 6. Pier 3 Boarding Instructions */
+.pier-info-box {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.pier-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.pier-pin {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.pier-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.pier-location {
+    font-size: 12.5px;
+    color: var(--text-muted);
+}
+
+.steps-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+}
+
+.step-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    position: relative;
+}
+
+.step-num {
+    width: 22px;
+    height: 22px;
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.step-card h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+}
+
+.step-card p {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+/* 7. Review Proof Card */
+.review-proof-card {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    margin-bottom: 24px;
+}
+
+.review-stars {
+    color: #f59e0b;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.review-quote {
+    font-size: 13.5px;
+    color: #1e293b;
+    font-style: italic;
+    line-height: 1.45;
+    margin-bottom: 8px;
+}
+
+.reviewer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #475569;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.verified-tag {
+    color: #059669;
+    font-weight: 700;
+}
+
+/* 8. Footer */
+.compare-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* 9. Floating Sticky Bottom Bar (Mobile) */
+.sticky-footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    z-index: 999;
+}
+
+.sticky-inner {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.sticky-price-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-tag {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.sticky-price {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.sticky-action-btn {
+    background: #10b981;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 800;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sticky-action-btn:active {
+    background: #059669;
+}
+
+@media (min-width: 900px) {
+    .sticky-footer-bar {
+        display: none !important;
+    }
+}

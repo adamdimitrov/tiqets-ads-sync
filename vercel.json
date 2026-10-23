@@ -73,6 +73,30 @@
       "dest": "/public/family-pass/index.html"
     },
     {
+      "src": "/family-compare/styles.css",
+      "dest": "/public/family-compare/styles.css"
+    },
+    {
+      "src": "/family-compare/script.js",
+      "dest": "/public/family-compare/script.js"
+    },
+    {
+      "src": "/family-compare/?",
+      "dest": "/public/family-compare/index.html"
+    },
+    {
+      "src": "/paris-family-compare/styles.css",
+      "dest": "/public/family-compare/styles.css"
+    },
+    {
+      "src": "/paris-family-compare/script.js",
+      "dest": "/public/family-compare/script.js"
+    },
+    {
+      "src": "/paris-family-compare/?",
+      "dest": "/public/family-compare/index.html"
+    },
+    {
       "src": "/paris-family-pass/styles.css",
       "dest": "/public/family-pass/styles.css"
     },
