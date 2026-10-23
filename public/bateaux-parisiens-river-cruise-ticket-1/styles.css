@@ -1722,6 +1722,7 @@ body {
             "description widget"
             "steps widget"
             "dock widget"
+            "bottomcta widget"
             "footer widget";
         column-gap: 36px;
         row-gap: 24px;
@@ -1799,7 +1800,8 @@ body {
     }
 
     .grid-bottomcta {
-        display: none !important;
+        display: block !important;
+        margin-top: 8px;
     }
 
     .sticky-footer-bar {
