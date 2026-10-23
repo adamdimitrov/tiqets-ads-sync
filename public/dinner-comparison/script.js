@@ -97,39 +97,46 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!link) return;
         try {
             const rawHref = link.getAttribute('href');
-            if (!rawHref || !rawHref.includes('tiqets.com')) return;
+            if (!rawHref) return;
 
-            const url = new URL(rawHref, window.location.href);
-            url.searchParams.set('partner', 'deals.cruisedetective.com');
+            if (rawHref.includes('tiqets.com')) {
+                const url = new URL(rawHref, window.location.href);
+                url.searchParams.set('partner', 'deals.cruisedetective.com');
 
-            if (clickIdObj && clickIdObj.value) {
-                const { type, value } = clickIdObj;
-                const existingCampaign = url.searchParams.get('tq_campaign') || 'dinner-comparison-bm';
-                
-                let newCampaign = existingCampaign;
-                const match = existingCampaign.match(/--(fbclid|gclid|wbraid|gbraid)-/);
-                if (match) {
-                    const baseTag = existingCampaign.substring(0, match.index);
-                    newCampaign = baseTag ? `${baseTag}--${type}-${value}` : `${type}-${value}`;
-                } else {
-                    newCampaign = `${existingCampaign}--${type}-${value}`;
+                if (clickIdObj && clickIdObj.value) {
+                    const { type, value } = clickIdObj;
+                    const existingCampaign = url.searchParams.get('tq_campaign') || 'dinner-comparison-bm';
+                    
+                    let newCampaign = existingCampaign;
+                    const match = existingCampaign.match(/--(fbclid|gclid|wbraid|gbraid)-/);
+                    if (match) {
+                        const baseTag = existingCampaign.substring(0, match.index);
+                        newCampaign = baseTag ? `${baseTag}--${type}-${value}` : `${type}-${value}`;
+                    } else {
+                        newCampaign = `${existingCampaign}--${type}-${value}`;
+                    }
+
+                    url.searchParams.set('tq_campaign', newCampaign);
+                    url.searchParams.set(type, value);
+                    url.searchParams.set('click_id', value);
+                    url.searchParams.set('subid', `${type}:${value}`);
                 }
 
-                url.searchParams.set('tq_campaign', newCampaign);
-                url.searchParams.set(type, value);
-                url.searchParams.set('click_id', value);
-                url.searchParams.set('subid', `${type}:${value}`);
+                link.href = url.toString();
+            } else if (rawHref.includes('getyourguide.com') && clickIdObj && clickIdObj.value) {
+                const url = new URL(rawHref, window.location.href);
+                const { type, value } = clickIdObj;
+                url.searchParams.set('utm_content', `${type}:${value}`);
+                link.href = url.toString();
             }
-
-            link.href = url.toString();
         } catch (e) {
-            console.warn('Failed to decorate Tiqets link:', e);
+            console.warn('Failed to decorate link:', e);
         }
     }
 
     function scanAndDecorateLinks() {
         const activeClickId = getClickId();
-        const links = document.querySelectorAll('a[href*="tiqets.com"]');
+        const links = document.querySelectorAll('a[href*="tiqets.com"], a[href*="getyourguide.com"]');
         links.forEach(link => decorateLink(link, activeClickId));
     }
 
