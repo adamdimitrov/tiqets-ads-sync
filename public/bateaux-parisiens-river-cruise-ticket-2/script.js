@@ -123,6 +123,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         mainBtn.href = url.toString();
+
+        const reviewLinks = document.querySelectorAll('.tiqets-review-link');
+        reviewLinks.forEach(link => {
+            if (!link) return;
+            try {
+                const u = new URL(link.href);
+                let cTag = 'bateaux-parisiens-ticket-2-reviews';
+                if (clickId && clickId.value) cTag += `--${clickId.type}-${clickId.value}`;
+                if (fbpVal) cTag += `--fbp-${fbpVal}`;
+                u.searchParams.set('tq_campaign', cTag);
+                if (clickId && clickId.value) {
+                    u.searchParams.set(clickId.type, clickId.value);
+                    u.searchParams.set('click_id', clickId.value);
+                    u.searchParams.set('subid', `${clickId.type}:${clickId.value}`);
+                }
+                link.href = u.toString();
+            } catch(e) {}
+        });
     }
 
     // Track button click
