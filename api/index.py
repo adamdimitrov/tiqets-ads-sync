@@ -48,10 +48,7 @@ def get_google_access_token():
         return resp.json().get("access_token"), None
     except Exception as e:
         err_detail = resp.text if ('resp' in locals() and hasattr(resp, 'text') and resp is not None) else str(e)
-        cid_str = str(GOOGLE_CLIENT_ID or '')
-        sec_str = str(GOOGLE_CLIENT_SECRET or '')
-        debug_info = f"client_id={cid_str[:16]}...{cid_str[-12:]}, secret_len={len(sec_str)}, secret_prefix={sec_str[:10]}"
-        return None, f"{err_detail} | {debug_info}"
+        return None, err_detail
         print(f"Error fetching Google Access Token: {e}")
         return None
 
