@@ -1453,6 +1453,35 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.85rem;
+    margin: 1.25rem 0 0.5rem 0;
+}
+
+.tier-grid.tier-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 860px) {
+    .tier-grid.tier-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tier-child-note {
+    font-size: 0.82rem;
+    color: #57534e;
+    background: #fdfbf7;
+    border: 1px dashed #d6d3d1;
+    border-radius: 8px;
+    padding: 0.55rem 0.85rem;
+    margin: 0.5rem 0 1.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
     margin: 1.25rem 0;
 }
 
