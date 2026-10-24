@@ -1300,4 +1300,425 @@ body {
     .filter-pill {
         white-space: nowrap;
     }
+    .dress-code-grid {
+        grid-template-columns: 1fr;
+    }
+    .tier-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
+/* ========================================================
+   ENRICHED EDITORIAL COMPONENTS (MENUS, TIERS, ITINERARY, FAQ)
+   ======================================================== */
+
+/* Interactive Menu Accordion */
+.menu-accordion {
+    margin: 1.25rem 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background: var(--bg-card-warm);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-accordion[open] {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 16px rgba(180, 83, 9, 0.08);
+}
+
+.menu-summary {
+    padding: 0.85rem 1.15rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    background: #faf7f2;
+    list-style: none;
+}
+
+.menu-summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-summary-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-summary-arrow {
+    font-size: 0.8rem;
+    color: var(--bronze);
+    transition: transform 0.2s ease;
+}
+
+.menu-accordion[open] .menu-summary-arrow {
+    transform: rotate(90deg);
+}
+
+.menu-content {
+    padding: 1.15rem 1.25rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.88rem;
+}
+
+.menu-course-block {
+    margin-bottom: 1.15rem;
+}
+
+.menu-course-block:last-child {
+    margin-bottom: 0;
+}
+
+.menu-course-heading {
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bronze-dark);
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.menu-item-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.menu-item-list li {
+    padding: 0.28rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.25rem;
+    line-height: 1.5;
+}
+
+.menu-item-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.35rem;
+    color: var(--bronze);
+    font-weight: bold;
+}
+
+.menu-dietary-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--border-subtle);
+}
+
+.dietary-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #eef2f6;
+    color: #1e3a5f;
+}
+
+.dietary-tag.vegan {
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.dietary-tag.chef-note {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Ticket Tiers & Seating Decoder */
+.tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.85rem;
+    margin: 1.25rem 0;
+}
+
+.tier-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.tier-card.featured-tier {
+    border: 2px solid var(--bronze);
+    background: #fffdfa;
+    box-shadow: 0 4px 14px rgba(180, 83, 9, 0.08);
+}
+
+.tier-badge {
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--bronze);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+}
+
+.tier-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 0.15rem;
+}
+
+.tier-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--bronze-dark);
+    margin-bottom: 0.5rem;
+}
+
+.tier-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin-bottom: 0.6rem;
+}
+
+.tier-perks {
+    list-style: none;
+    padding: 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.tier-perks li {
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.35rem;
+}
+
+/* Insider Verification & Tasting Callout */
+.insider-tip-box {
+    background: #fdfaf4;
+    border-left: 4px solid var(--bronze);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.insider-tip-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 800;
+    font-size: 0.82rem;
+    color: var(--bronze-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+}
+
+/* Seine Cruise Itinerary Timeline */
+.timeline-section-card {
+    background: #ffffff;
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.timeline-section-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+}
+
+.timeline-container {
+    margin: 1.8rem 0 1rem;
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px dashed #f59e0b;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 1.6rem;
+}
+
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.6rem;
+    top: 0.2rem;
+    width: 18px;
+    height: 18px;
+    background: var(--bronze);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.timeline-dot.sparkle-dot {
+    background: #eab308;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.6);
+}
+
+.timeline-time {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: var(--bronze-dark);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.timeline-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0.15rem 0 0.3rem;
+}
+
+.timeline-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Dress Code Visual Matrix */
+.editorial-deepdive-card {
+    background: #ffffff;
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.editorial-deepdive-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+}
+
+.editorial-deepdive-card p.intro-p {
+    font-size: 0.94rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.dress-code-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
+    margin: 1.25rem 0;
+}
+
+.dress-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 0.86rem;
+}
+
+.dress-card.do {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.dress-card.dont {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.dress-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.dress-card.do h4 { color: #166534; }
+.dress-card.dont h4 { color: #991b1b; }
+
+.dress-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dress-list li {
+    margin-bottom: 0.4rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+/* FAQs */
+.faq-block {
+    margin: 2.5rem 0;
+}
+
+.faq-block h2 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+}
+
+.faq-item {
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background: #ffffff;
+    margin-bottom: 0.85rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.faq-item[open] {
+    border-color: #f59e0b;
+}
+
+.faq-summary {
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #faf7f2;
+}
+
+.faq-summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-answer {
+    padding: 1rem 1.25rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    border-top: 1px dashed var(--border-subtle);
+}
+
