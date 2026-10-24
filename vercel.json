@@ -97,6 +97,30 @@
       "dest": "/public/fr/bateaux-parisiens-billets-croisiere-seine-2/index.html"
     },
     {
+      "src": "/fr/croisiere-diner-paris/styles.css",
+      "dest": "/public/dinner-comparison/styles.css"
+    },
+    {
+      "src": "/fr/croisiere-diner-paris/script.js",
+      "dest": "/public/fr/croisiere-diner-paris/script.js"
+    },
+    {
+      "src": "/fr/croisiere-diner-paris/?",
+      "dest": "/public/fr/croisiere-diner-paris/index.html"
+    },
+    {
+      "src": "/fr/diner-croisiere-paris/?",
+      "dest": "/public/fr/croisiere-diner-paris/index.html"
+    },
+    {
+      "src": "/fr/diner-croisiere-seine/?",
+      "dest": "/public/fr/croisiere-diner-paris/index.html"
+    },
+    {
+      "src": "/fr/dinner-cruise-paris/?",
+      "dest": "/public/fr/croisiere-diner-paris/index.html"
+    },
+    {
       "src": "/es/bateaux-parisiens-entradas-crucero-sena-1/itinerary-route-map.png",
       "dest": "/public/itinerary-route-map.png"
     },
