@@ -493,6 +493,30 @@
       "dest": "/public/dinner-comparison/index.html"
     },
     {
+      "src": "/seine-comparison/styles.css",
+      "dest": "/public/seine-comparison/styles.css"
+    },
+    {
+      "src": "/seine-comparison/script.js",
+      "dest": "/public/seine-comparison/script.js"
+    },
+    {
+      "src": "/seine-comparison/?",
+      "dest": "/public/seine-comparison/index.html"
+    },
+    {
+      "src": "/seine-river-cruises-paris/?",
+      "dest": "/public/seine-comparison/index.html"
+    },
+    {
+      "src": "/seine-cruise-paris/?",
+      "dest": "/public/seine-comparison/index.html"
+    },
+    {
+      "src": "/best-seine-river-cruise-paris/?",
+      "dest": "/public/seine-comparison/index.html"
+    },
+    {
       "src": "/paris-dinner-cruise/?",
       "dest": "/public/dinner/index.html"
     },
