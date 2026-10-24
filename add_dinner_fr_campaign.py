@@ -70,7 +70,7 @@ ops.append({
         "create": {
             "resourceName": campaign_temp,
             "name": CAMPAIGN_NAME,
-            "status": "ENABLED",
+            "status": "PAUSED",
             "advertisingChannelType": "SEARCH",
             "campaignBudget": budget_temp,
             "targetSpend": {
@@ -200,24 +200,6 @@ headlines_ad1 = [
     {"text": "5 Compagnies Testées sur Place"}    # 30
 ]
 
-headlines_ad2 = [
-    {"text": "Meilleur Dîner-Croisière Paris", "pinnedField": "HEADLINE_1"}, # 30
-    {"text": "Comparez Menus et Tarifs", "pinnedField": "HEADLINE_2"},       # 24
-    {"text": "Billets Officiels dès 65 €"},       # 26
-    {"text": "Dîner-Croisière Paris 2026"},       # 26
-    {"text": "Top 5 Dîners-Croisières Seine"},    # 29
-    {"text": "Économisez Jusqu'à 30%"},           # 22
-    {"text": "Bateaux-Mouches et Parisiens"},     # 28
-    {"text": "Menus Gastronomiques 3-4 Plats"},   # 30
-    {"text": "Billet Mobile Instantané"},         # 24
-    {"text": "Tour Eiffel Scintillante"},         # 24
-    {"text": "Verrière et Toit Panoramique"},     # 28
-    {"text": "Musique Live et Champagne"},        # 25
-    {"text": "Annulation Gratuite à 24h"},        # 25
-    {"text": "Accès Coupe-File Embarquement"},    # 29
-    {"text": "5 Compagnies Testées sur Place"}    # 30
-]
-
 descriptions = [
     {"text": "Comparez les 5 meilleurs dîners-croisières à Paris : vrais menus, photos et prix 2026."},     # 86
     {"text": "Du bistrot à 65 € aux bateaux de luxe à 130 €. Choisissez votre croisière sur la Seine."},    # 87
@@ -225,7 +207,7 @@ descriptions = [
     {"text": "Réservez en ligne sans file d'attente. Baie vitrée, musique live et vue Tour Eiffel."}        # 84
 ]
 
-for h in headlines_ad1 + headlines_ad2:
+for h in headlines_ad1:
     assert len(h["text"]) <= 30, f"Headline >30 chars: {h['text']} ({len(h['text'])})"
 for d in descriptions:
     assert len(d["text"]) <= 90, f"Description >90 chars: {d['text']} ({len(d['text'])})"
@@ -249,33 +231,14 @@ ops.append({
     }
 })
 
-# Ad 2 (Pinned - Structured Brand & Intent Testing)
-ops.append({
-    "adGroupAdOperation": {
-        "create": {
-            "adGroup": adgroup_temp,
-            "status": "ENABLED",
-            "ad": {
-                "finalUrls": [LANDING_URL],
-                "responsiveSearchAd": {
-                    "path1": "Paris",
-                    "path2": "Diner-Seine",
-                    "headlines": headlines_ad2,
-                    "descriptions": descriptions
-                }
-            }
-        }
-    }
-})
-
 print(f"Total mutate operations prepared: {len(ops)}")
 print(f" - 1 Campaign Budget: €20.00/day")
-print(f" - 1 Campaign: {CAMPAIGN_NAME} (Target Spend Max CPC €0.30, French 1002)")
+print(f" - 1 Campaign: {CAMPAIGN_NAME} (PAUSED, Target Spend Max CPC €0.30, French 1002)")
 print(f" - {len(NEGATIVES)} Negative Keywords")
 print(f" - 1 Official Business Logo Asset ({LOGO_ASSET_ID})")
 print(f" - 1 Ad Group: {AD_GROUP_NAME}")
 print(f" - {len(keywords)} Exact Match French Keywords")
-print(f" - 2 Responsive Search Ads -> {LANDING_URL}")
+print(f" - 1 Responsive Search Ad -> {LANDING_URL}")
 
 url = f"https://googleads.googleapis.com/v26/customers/{CUSTOMER_ID}/googleAds:mutate"
 payload = {
