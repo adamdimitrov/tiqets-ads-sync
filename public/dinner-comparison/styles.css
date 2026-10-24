@@ -776,19 +776,31 @@ body {
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
+    padding-left: 0;
 }
 
 .benefit-list li {
     font-size: 0.92rem;
     color: var(--text-secondary);
     line-height: 1.55;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.benefit-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.05rem;
+    font-weight: 800;
+    color: var(--bronze);
+    font-size: 0.95rem;
 }
 
 .benefit-list strong {
     color: var(--text-primary);
-    display: block;
-    margin-bottom: 0.1rem;
+    display: inline;
 }
 
 /* Harmonious Pros & Cons (Neutral Editorial Containers) */
@@ -1439,9 +1451,15 @@ body {
 /* Ticket Tiers & Seating Decoder */
 .tier-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.85rem;
     margin: 1.25rem 0;
+}
+
+@media (max-width: 640px) {
+    .tier-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .tier-card {
@@ -1722,3 +1740,109 @@ body {
     border-top: 1px dashed var(--border-subtle);
 }
 
+
+/* Visual Menu Showcase Card */
+.menu-card-box {
+    margin: 1.4rem 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    background: #faf7f2;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.menu-card-header {
+    background: #f4ede2;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.menu-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
+
+.menu-header-title strong {
+    font-weight: 700;
+}
+
+.menu-tag-galley {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.menu-tag-catered {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.table-scroll-hint {
+    display: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--bronze-dark);
+    background: var(--bronze-light);
+    padding: 0.45rem 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.6rem;
+    text-align: center;
+    border: 1px solid #fde68a;
+}
+
+@media (max-width: 768px) {
+    .table-scroll-hint {
+        display: block;
+    }
+}
+
+.editorial-feature-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    padding: 0;
+}
+
+.editorial-feature-list li {
+    font-size: 0.91rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.editorial-feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.4rem;
+    top: 0.1rem;
+    color: var(--bronze);
+    font-weight: 800;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.editorial-feature-list strong {
+    color: var(--text-primary);
+}
