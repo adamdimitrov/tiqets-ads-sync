@@ -517,6 +517,66 @@
       "dest": "/public/seine-comparison/index.html"
     },
     {
+      "src": "/fr/croisiere-seine-paris/script.js",
+      "dest": "/public/fr/croisiere-seine-paris/script.js"
+    },
+    {
+      "src": "/fr/croisiere-seine-paris/?",
+      "dest": "/public/fr/croisiere-seine-paris/index.html"
+    },
+    {
+      "src": "/fr/seine-river-cruises-paris/?",
+      "dest": "/public/fr/croisiere-seine-paris/index.html"
+    },
+    {
+      "src": "/es/crucero-sena-paris/script.js",
+      "dest": "/public/es/crucero-sena-paris/script.js"
+    },
+    {
+      "src": "/es/crucero-sena-paris/?",
+      "dest": "/public/es/crucero-sena-paris/index.html"
+    },
+    {
+      "src": "/es/seine-river-cruises-paris/?",
+      "dest": "/public/es/crucero-sena-paris/index.html"
+    },
+    {
+      "src": "/de/seine-rundfahrt-paris/script.js",
+      "dest": "/public/de/seine-rundfahrt-paris/script.js"
+    },
+    {
+      "src": "/de/seine-rundfahrt-paris/?",
+      "dest": "/public/de/seine-rundfahrt-paris/index.html"
+    },
+    {
+      "src": "/de/seine-river-cruises-paris/?",
+      "dest": "/public/de/seine-rundfahrt-paris/index.html"
+    },
+    {
+      "src": "/nl/rondvaart-seine-parijs/script.js",
+      "dest": "/public/nl/rondvaart-seine-parijs/script.js"
+    },
+    {
+      "src": "/nl/rondvaart-seine-parijs/?",
+      "dest": "/public/nl/rondvaart-seine-parijs/index.html"
+    },
+    {
+      "src": "/nl/seine-river-cruises-paris/?",
+      "dest": "/public/nl/rondvaart-seine-parijs/index.html"
+    },
+    {
+      "src": "/it/crociera-senna-parigi/script.js",
+      "dest": "/public/it/crociera-senna-parigi/script.js"
+    },
+    {
+      "src": "/it/crociera-senna-parigi/?",
+      "dest": "/public/it/crociera-senna-parigi/index.html"
+    },
+    {
+      "src": "/it/seine-river-cruises-paris/?",
+      "dest": "/public/it/crociera-senna-parigi/index.html"
+    },
+    {
       "src": "/bateaux-parisiens-mockup/?",
       "dest": "/public/bateaux-parisiens-mockup/index.html"
     },
