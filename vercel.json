@@ -517,6 +517,10 @@
       "dest": "/public/seine-comparison/index.html"
     },
     {
+      "src": "/bateaux-parisiens-mockup/?",
+      "dest": "/public/bateaux-parisiens-mockup/index.html"
+    },
+    {
       "src": "/paris-dinner-cruise/?",
       "dest": "/public/dinner/index.html"
     },

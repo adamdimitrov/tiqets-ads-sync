@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>[MOCKUP] Bateaux Parisiens 1-Click Availability Card (No Fake Counter) | The Cruise Detective</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/6570a893c546e01463861a82_favicon-cruise-detective.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/bateaux-parisiens-river-cruise-ticket-1/styles.css">
+    <style>
+        /* Clean 1-Click Availability Card Styles (Replaces Fake Quantity Selector) */
+        .live-avail-banner {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .live-avail-dot {
+            width: 9px;
+            height: 9px;
+            background: #10b981;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
+        }
+        .clean-fare-table {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: #ffffff;
+        }
+        .clean-fare-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .clean-fare-row:last-child {
+            border-bottom: none;
+        }
+        .clean-fare-row.child-highlight {
+            background: #f0fdf4;
+        }
+        .clean-fare-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .clean-fare-title {
+            font-size: 0.93rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .clean-fare-sub {
+            font-size: 0.76rem;
+            color: #64748b;
+        }
+        .clean-fare-price {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .clean-fare-price.green {
+            color: #15803d;
+        }
+        .clean-fare-price.blue {
+            color: #0369a1;
+            font-size: 0.95rem;
+        }
+        .widget-checklist {
+            list-style: none;
+            padding: 12px 14px;
+            margin: 0 0 16px 0;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .widget-checklist li {
+            font-size: 0.82rem;
+            color: #334155;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+        .widget-checklist li span.chk {
+            color: #16a34a;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .tiqets-embed-section {
+            margin: 18px 0 8px 0;
+            padding: 18px;
+            background: #ffffff;
+            border: 2px solid #0284c7;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+        }
+        .tiqets-embed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .tiqets-embed-title {
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+        }
+        .tiqets-embed-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Urgency Ticker -->
+    <header class="fast-topbar">
+        <div class="topbar-inner">
+            <span class="live-pulse"></span>
+            <span class="topbar-text"><strong>Live at Eiffel Tower:</strong> Skip the 45-min dock ticket line • Departures every 30m from Pier 3</span>
+        </div>
+    </header>
+
+    <!-- Top Navigation Bar -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <div class="brand-logo-wrap">
+                <img src="https://cdn.prod.website-files.com/6369a6904656314914c2bae2/6369a8d295be04a841e17ea5_logo.svg" alt="The Cruise Detective Logo" class="site-logo">
+                <span class="site-logo-text">CRUISE DETECTIVE</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout Container (Desktop Split / Mobile Stack) -->
+    <main class="fast-container">
+        
+        <div class="booking-layout-grid">
+
+            <!-- Section 1: Header / Title -->
+            <header class="grid-header">
+                <h1 class="main-title">Bateaux Parisiens Seine River Cruise (Official Pier 3 Pass)</h1>
+                <p class="subtitle">Direct boarding at Pier 3 at the foot of the Eiffel Tower. 60-minute complete panoramic circular loop past the Louvre, Notre-Dame, and illuminated bridges. 360° open upper sun deck, heated glass salon, and free 14-language audio guide.</p>
+                <div class="header-meta-row">
+                    <span class="stars-gold">★★★★☆</span>
+                    <span class="score-strong"><strong>4.3 / 5.0</strong></span>
+                    <span class="meta-sub">(10,012 Verified <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com" target="_blank" rel="noopener" class="tiqets-review-link">Tiqets Reviews</a>)</span>
+                    <span class="instant-chip">⚡ Instant Mobile Pass</span>
+                    <span class="discount-badge-header">🗼 Pier 3 Eiffel Tower</span>
+                </div>
+            </header>
+
+            <!-- Section 2: TOUCH & INTERACTIVE 10-PHOTO SLIDER -->
+            <section class="grid-gallery">
+                <div class="slider-container" id="hero-slider">
+                    <div class="slider-track" id="slider-track">
+                        <div class="slide active">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/699480970fd56c513a2749e0_bateaux-parisiens-sighteeing-cruise-00002.avif" alt="Bateaux Parisiens boat departing at the foot of the Eiffel Tower" loading="eager">
+                            <span class="slide-badge">🗼 Eiffel Tower Departure</span>
+                            <span class="slide-caption">Direct boarding at Pier 3, Port de la Bourdonnais, at the foot of the Eiffel Tower</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://aws-tiqets-cdn.imgix.net/images/content/06ca12a7686f4aa9be99b70d45e68c2d.jpeg" alt="Double-decker modern trimaran boat on the Seine" loading="lazy">
+                            <span class="slide-badge">🚢 Modern Panoramic Trimaran</span>
+                            <span class="slide-caption">Double-decker vessel with wide open upper deck and glass-enclosed lower deck</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/658343456e576281bed9f072_bateaux-parisiens-sighteeing-cruise%20(11).webp" alt="Spacious top deck with 360 degree panoramic view" loading="lazy">
+                            <span class="slide-badge">📸 360° Open Sun Deck</span>
+                            <span class="slide-caption">High glass railings with unobstructed views for Eiffel Tower and Seine photography</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a4486ad58854c723f3a49_1-bateaux-parisiens-sighteeing-cruise%20(38).webp" alt="Passenger listening to audio commentary on smartphone" loading="lazy">
+                            <span class="slide-badge">🎧 14-Language Audio Guide</span>
+                            <span class="slide-caption">Engaging historical commentary in 14 languages directly on your phone or wired handsets</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://aws-tiqets-cdn.imgix.net/images/content/0dc76737200b4751af785bf6f129cbb7.jpeg" alt="Sailing past Paris historical monuments along the Seine" loading="lazy">
+                            <span class="slide-badge">🏛️ Historic Paris Landmarks</span>
+                            <span class="slide-caption">Cruising past Musée d'Orsay, the Louvre, Conciergerie, and Île de la Cité</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a40c21889f4f91e8b7f7f_1-bateaux-parisiens-sighteeing-cruise%20(10).webp" alt="Heated all-weather indoor glass deck" loading="lazy">
+                            <span class="slide-badge">❄️ Climate-Controlled Interior</span>
+                            <span class="slide-caption">Heated indoor salon, AC, clean restrooms, and panoramic all-weather windows</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://aws-tiqets-cdn.imgix.net/images/content/e6a2ad487dfe46d38df7015a6f0660ac.jpeg" alt="Cruising beneath Pont Alexandre III and historic bridges" loading="lazy">
+                            <span class="slide-badge">🌉 Historic Seine Bridges</span>
+                            <span class="slide-caption">Gliding beneath Pont Alexandre III, Pont Neuf, and romantic Paris stone arches</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/6583443c6e576281beda7395_bateaux-parisiens-sighteeing-cruise%20(4).webp" alt="Panoramic views at golden hour sunset" loading="lazy">
+                            <span class="slide-badge">🌇 Sunset & Evening Illuminations</span>
+                            <span class="slide-caption">Golden hour departures and sparkling Eiffel Tower hourly night light shows</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1555425748-f780612e5634?auto=format&fit=crop&w=1200&q=85" alt="Notre-Dame Cathedral viewed from Seine River cruise" loading="lazy">
+                            <span class="slide-badge">⛪ Notre-Dame Cathedral</span>
+                            <span class="slide-caption">Close-up river views of Notre-Dame Cathedral and Île de la Cité</span>
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a3f5d72ec5dfeaf74d0cc_1-bateaux-parisiens-sighteeing-cruise%20(1).webp" alt="Meeting Point at Pier 3 Eiffel Tower" loading="lazy">
+                            <span class="slide-badge">📍 Meeting Point • Pier 3</span>
+                            <span class="slide-caption">Walk straight to Pier 3 at the foot of the Eiffel Tower — fast digital barcode scan</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="slider-arrow prev" id="slider-prev" aria-label="Previous photo">‹</button>
+                    <button type="button" class="slider-arrow next" id="slider-next" aria-label="Next photo">›</button>
+                    <div class="slider-counter" id="slider-counter">1 / 10</div>
+                </div>
+
+                <div class="thumb-carousel" id="thumb-strip">
+                    <button type="button" class="thumb-chip active" data-index="0">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/699480970fd56c513a2749e0_bateaux-parisiens-sighteeing-cruise-00002.avif" alt="Eiffel Tower">
+                        <span>Eiffel Pier</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="1">
+                        <img src="https://aws-tiqets-cdn.imgix.net/images/content/06ca12a7686f4aa9be99b70d45e68c2d.jpeg" alt="The Ship">
+                        <span>The Ship</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="2">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/658343456e576281bed9f072_bateaux-parisiens-sighteeing-cruise%20(11).webp" alt="Open Deck View">
+                        <span>360° Deck</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="3">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a4486ad58854c723f3a49_1-bateaux-parisiens-sighteeing-cruise%20(38).webp" alt="Audio Guide">
+                        <span>Audio Guide</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="4">
+                        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0dc76737200b4751af785bf6f129cbb7.jpeg" alt="Landmarks">
+                        <span>Landmarks</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="5">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a40c21889f4f91e8b7f7f_1-bateaux-parisiens-sighteeing-cruise%20(10).webp" alt="Glass Canopy">
+                        <span>The Interior</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="6">
+                        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e6a2ad487dfe46d38df7015a6f0660ac.jpeg" alt="Bridges">
+                        <span>Bridges</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="7">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/6583443c6e576281beda7395_bateaux-parisiens-sighteeing-cruise%20(4).webp" alt="Sunset">
+                        <span>Sunset</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="8">
+                        <img src="https://images.unsplash.com/photo-1555425748-f780612e5634?auto=format&fit=crop&w=300&q=80" alt="Notre-Dame">
+                        <span>Notre-Dame</span>
+                    </button>
+                    <button type="button" class="thumb-chip" data-index="9">
+                        <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/653a3f5d72ec5dfeaf74d0cc_1-bateaux-parisiens-sighteeing-cruise%20(1).webp" alt="Meeting Point">
+                        <span>Meeting Point</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Section 3: KEY HIGHLIGHTS + EMBEDDED TIQETS LIVE AVAILABILITY WIDGET -->
+            <section class="grid-highlights">
+                <h3 class="block-title">Key Cruise Highlights:</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <span class="hl-icon">⚡</span>
+                        <div>
+                            <strong>Skip the 45-Min Line</strong>
+                            <span>Walk directly to Pier 3 turnstiles with digital barcodes on your smartphone.</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="hl-icon">🗼</span>
+                        <div>
+                            <strong>Foot of the Eiffel Tower</strong>
+                            <span>Convenient boarding directly at Port de la Bourdonnais, Pier 3 (2-min walk from tower).</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="hl-icon">⏱️</span>
+                        <div>
+                            <strong>60-Minute Non-Stop Loop</strong>
+                            <span>Full 1-hour panoramic circuit past Notre-Dame, the Louvre, Musée d'Orsay, and historic bridges.</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="hl-icon">❄️</span>
+                        <div>
+                            <strong>All-Weather Double-Decker</strong>
+                            <span>Heated indoor salon for breezy or chilly days, plus an open 360° top sun deck.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVE EMBEDDED TIQETS AVAILABILITY WIDGET (Exact widget from Webflow that generated 36 orders) -->
+                <div class="tiqets-embed-section">
+                    <div class="tiqets-embed-header">
+                        <h4 class="tiqets-embed-title">📅 Select Your Date on the Official Tiqets Calendar:</h4>
+                        <span class="tiqets-embed-badge">⚡ Real-Time Pier 3 Availability</span>
+                    </div>
+                    <div data-tiqets-widget="availability"
+                         data-layout="full"
+                         data-orientation="horizontal"
+                         data-product-id="973977"
+                         data-partner="deals.cruisedetective.com"
+                         data-tq-campaign="bateaux-parisiens-av-wid">
+                    </div>
+                    <script defer src="https://widgets.tiqets.com/loader.js"></script>
+                </div>
+            </section>
+
+            <!-- Section 4: THE CLEAN 1-CLICK AVAILABILITY & FARE CARD (No Fake Quantity Counter) -->
+            <aside class="grid-widget">
+                <div class="sticky-booking-card">
+                    
+                    <div class="widget-header">
+                        <div class="widget-price-head">
+                            <span class="widget-label">OFFICIAL ONLINE FARE</span>
+                            <div class="widget-price-row">
+                                <span class="widget-big-price">€18.00</span>
+                                <span class="widget-unit">Adult • €9.00 Child</span>
+                            </div>
+                        </div>
+                        <span class="widget-fast-badge">⚡ Instant QR Code</span>
+                    </div>
+
+                    <!-- Live Today's Departure Banner -->
+                    <div class="live-avail-banner">
+                        <span class="live-avail-dot"></span>
+                        <span>Boats Departing Today Every 30–45 Mins (10:00–22:30)</span>
+                    </div>
+
+                    <!-- Read-Only Official Price Breakdown (Zero Double-Selection Friction) -->
+                    <div class="clean-fare-table">
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Adult Ticket (12+ yrs)</span>
+                                <span class="clean-fare-sub">Open-dated today or any chosen date</span>
+                            </div>
+                            <span class="clean-fare-price">€18.00</span>
+                        </div>
+                        <div class="clean-fare-row child-highlight">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Child (4–11 yrs) <span class="discount-pill">-50% OFF</span></span>
+                                <span class="clean-fare-sub">Half-price official family discount</span>
+                            </div>
+                            <span class="clean-fare-price green">€9.00</span>
+                        </div>
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Under 4 Years <span class="free-pill">100% FREE</span></span>
+                                <span class="clean-fare-sub">Free boarding • Select on next step</span>
+                            </div>
+                            <span class="clean-fare-price blue">FREE</span>
+                        </div>
+                    </div>
+
+                    <!-- 4 High-Converting Value Checkmarks -->
+                    <ul class="widget-checklist">
+                        <li><span class="chk">✓</span> <span><strong>Skip the 45-Min Box Office Line:</strong> Scan mobile QR code directly at Pier 3 turnstiles.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>100% Flexible Time:</strong> Board any boat departure on your selected date (no missed-boat stress).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Audio Guide Included:</strong> Free 14-language commentary via onboard Wi-Fi &amp; handsets.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Free Cancellation:</strong> Full refund up to 24h before your visit.</span></li>
+                    </ul>
+
+                    <!-- 1-CLICK PRIMARY CTA BUTTON -->
+                    <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-ticket-1" 
+                       id="main-checkout-btn" 
+                       class="fast-checkout-btn pulse-anim" 
+                       target="_blank" 
+                       rel="noopener">
+                        <span class="btn-line-main">CHECK TODAY'S AVAILABILITY &amp; TIMESLOTS →</span>
+                        <span class="btn-line-sub">€18 Adult • €9 Child • Instant Smartphone QR Ticket</span>
+                    </a>
+
+                    <!-- Trust Strip Under Button -->
+                    <div class="trust-row">
+                        <span>🔒 Official Tiqets Partner</span>
+                        <span>⚡ Instant Mobile Delivery</span>
+                        <span>🔄 Free 24h Cancel</span>
+                    </div>
+
+                    <!-- Dock Boarding Reminder -->
+                    <div class="widget-dock-notice">
+                        <strong>📍 Boarding Pier:</strong> Port de la Bourdonnais, Pier 3 (Ponton 3) — Right beside the foot of the Eiffel Tower.
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- Section 5: Why Book Online (Comparison Strip) -->
+            <section class="grid-comparison">
+                <div class="comparison-card comp-bad">
+                    <span class="comp-icon">❌</span>
+                    <div class="comp-text">
+                        <strong>The Dock Ticket Line Nightmare:</strong>
+                        <p>Waiting 30 to 50 minutes in line under the sun or rain at the dock ticket booth. Scheduled boats departing full while you queue.</p>
+                    </div>
+                </div>
+                <div class="comparison-card comp-good">
+                    <span class="comp-icon">⚡</span>
+                    <div class="comp-text">
+                        <strong>The Smooth Mobile Pass (This Page):</strong>
+                        <p>Book online in 60s. Bypass the box office queue completely. Stroll right through <strong>Pier 3 turnstiles</strong> and board the boat whenever you are ready.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Floating Sticky Mobile Bottom Bar (Mobile view only) -->
+    <aside class="sticky-footer-bar" id="sticky-bar">
+        <div class="sticky-inner">
+            <div class="sticky-price-block">
+                <span class="sticky-tag">Official Pier 3 Pass • Instant QR</span>
+                <span class="sticky-price">€18 Adult • €9 Child (50% Off)</span>
+            </div>
+            <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-ticket-1-sticky" 
+               id="sticky-checkout-btn" 
+               class="sticky-action-btn" 
+               target="_blank" 
+               rel="noopener">
+                Check Availability →
+            </a>
+        </div>
+    </aside>
+
+    <script src="/bateaux-parisiens-river-cruise-ticket-1/script.js"></script>
+</body>
+</html>
