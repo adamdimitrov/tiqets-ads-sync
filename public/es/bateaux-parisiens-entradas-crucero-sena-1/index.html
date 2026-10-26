@@ -254,101 +254,87 @@
                         </div>
                     </div>
                 </div>
+            
+                <!-- Embedded Official Tiqets Live Availability Calendar Widget -->
+                <div class="tiqets-embed-section">
+                    <div class="tiqets-embed-header">
+                        <h4 class="tiqets-embed-title">📅 Selecciona tu fecha y consulta los horarios en vivo:</h4>
+                        <span class="tiqets-embed-badge">⚡ Entrada QR Oficial Tiqets</span>
+                    </div>
+                    <div data-tiqets-widget="availability" data-layout="full" data-orientation="horizontal" data-product-id="973977" data-partner="deals.cruisedetective.com" data-tq-campaign="bateaux-parisiens-es-t1-av-wid"></div>
+                    <script defer src="https://widgets.tiqets.com/loader.js"></script>
+                </div>
             </section>
 
             <!-- Section 4: THE INTERACTIVE TICKET SELECTOR (Sticky on Desktop) -->
             <aside class="grid-widget">
                 <div class="sticky-booking-card">
-                    
                     <div class="widget-header">
                         <div class="widget-price-head">
-                            <span class="widget-label">TARIFA OFICIAL ONLINE</span>
+                            <span class="widget-label">TARIFA OFICIAL BATEAUX PARISIENS</span>
                             <div class="widget-price-row">
-                                <span class="widget-big-price">Desde 18,00 €</span>
-                                <span class="widget-unit">/ adulto • Niños 9,00 €</span>
+                                <span class="widget-big-price">18,00 €</span>
+                                <span class="widget-unit">/ adulto • Niños 9 €</span>
                             </div>
                         </div>
-                        <span class="widget-fast-badge">⚡ Código QR Inmediato</span>
+                        <span class="widget-fast-badge">⚡ QR Instantáneo</span>
                     </div>
 
-                    <!-- Step 1: Ticket Counters (Default: 2 Adults) -->
-                    <div class="widget-section">
-                        <div class="section-label-row">
-                            <span class="section-title">Selecciona tus entradas:</span>
-                            <span class="badge-guarantee">Tarifa Oficial</span>
-                        </div>
+                    <!-- Live Schedule Status Banner -->
+                    <div class="live-avail-banner">
+                        <span class="live-avail-dot"></span>
+                        <span>Salidas hoy cada 30–45 min (13:00–22:30)</span>
+                    </div>
 
-                        <!-- Adult Row -->
-                        <div class="ticket-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Adulto (12+ años)</strong>
-                                <span class="ticket-price">18,00 € / persona</span>
+                    <!-- Read-Only Official Fare Breakdown (No Fake Counter) -->
+                    <div class="clean-fare-table">
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Adulto (12+ años)</span>
+                                <span class="clean-fare-sub">Crucero panorámico de 60 min + audioguía en 14 idiomas</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-adult" aria-label="Disminuir adultos">−</button>
-                                <span class="counter-val" id="val-adults">2</span>
-                                <button type="button" class="counter-btn" id="btn-plus-adult" aria-label="Aumentar adultos">+</button>
-                            </div>
+                            <span class="clean-fare-price">18,00 €</span>
                         </div>
-
-                        <!-- Child Row (50% Discount) -->
-                        <div class="ticket-row highlight-child-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Niño (4–11 años) <span class="discount-pill">-50% DTO.</span></strong>
-                                <span class="ticket-price">9,00 € / niño</span>
-                                <span class="ticket-subnote">Crucero completo de 60 min + audioguía</span>
+                        <div class="clean-fare-row child-highlight">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Niño (4–11 años) <span class="discount-pill">-50% DTO.</span></span>
+                                <span class="clean-fare-sub">Tarifa oficial infantil a mitad de precio • Crucero y audioguía</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-child" aria-label="Disminuir niños">−</button>
-                                <span class="counter-val" id="val-children">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-child" aria-label="Aumentar niños">+</button>
-                            </div>
+                            <span class="clean-fare-price green">9,00 €</span>
                         </div>
-
-                        <!-- Infant Row (100% Free) -->
-                        <div class="ticket-row infant-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Bebé (0–3 años) <span class="free-pill">100% GRATIS</span></strong>
-                                <span class="ticket-price">0,00 € / bebé</span>
-                                <span class="ticket-subnote">Acceso gratis • No requiere entrada</span>
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Bebé (0–3 años) <span class="free-pill">100% GRATIS</span></span>
+                                <span class="clean-fare-sub">Entrada gratuita • Selecciona entrada de bebé en el siguiente paso</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-infant" aria-label="Disminuir bebés">−</button>
-                                <span class="counter-val" id="val-infants">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-infant" aria-label="Aumentar bebés">+</button>
-                            </div>
+                            <span class="clean-fare-price blue">GRATIS</span>
                         </div>
                     </div>
 
-                    <!-- Total Price Display -->
-                    <div class="total-summary-card">
-                        <div class="summary-left">
-                            <span class="summary-label">Precio Total Online:</span>
-                            <span class="summary-comparison" id="summary-family-desc">2 Adultos • Cola en taquilla evitada</span>
-                        </div>
-                        <div class="summary-right">
-                            <span class="summary-amount" id="total-price-display">36,00 €</span>
-                        </div>
-                    </div>
+                    <!-- Direct-Response Value Checklist -->
+                    <ul class="widget-checklist">
+                        <li><span class="chk">✓</span> <span><strong>Sin colas de 45 min en taquilla:</strong> Escanea tu código QR directamente en los tornos del Muelle 3 (Torre Eiffel).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Pase de Día con Horario Abierto:</strong> Válido para cualquier salida en la fecha elegida (de 13:00 a 22:30).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Cubierta Superior 360° + Salón Acristalado Climatizado:</strong> Más audioguía gratuita en 14 idiomas en tu móvil.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Cancelación Gratuita:</strong> Reembolso del 100% hasta 24 horas antes de la salida.</span></li>
+                    </ul>
 
-                    <!-- PRIMARY 2-CLICK CTA BUTTON -->
+                    <!-- PRIMARY 1-CLICK CTA BUTTON -->
                     <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-es-t1" 
                        id="main-checkout-btn" 
                        class="fast-checkout-btn pulse-anim" 
                        target="_blank" 
                        rel="noopener">
-                        <span class="btn-line-main">RESERVAR ENTRADAS — 36,00 € →</span>
-                        <span class="btn-line-sub">Pago directo en Tiqets • Entrada QR instantánea en tu móvil</span>
+                        <span class="btn-line-main">VER HORARIOS DISPONIBLES HOY →</span>
+                        <span class="btn-line-sub">Elige fecha y cantidad en el siguiente paso • QR móvil al instante</span>
                     </a>
 
-                    <!-- Trust Strip Under Button -->
                     <div class="trust-row">
                         <span>🔒 Socio Oficial</span>
                         <span>⚡ Entrega Inmediata</span>
                         <span>🔄 Cancelación 24h</span>
                     </div>
 
-                    <!-- Dock Boarding Reminder -->
                     <div class="widget-dock-notice">
                         <strong>📍 Muelle de embarque:</strong> Port de la Bourdonnais, Muelle 3 (Ponton 3) — Justo al pie de la Torre Eiffel.
                     </div>
@@ -696,7 +682,7 @@
         <div class="sticky-inner">
             <div class="sticky-price-block">
                 <span class="sticky-tag">Pase Oficial • Muelle 3</span>
-                <span class="sticky-price" id="sticky-price-display">36,00 € (2 Adultos)</span>
+                <span class="sticky-price" id="sticky-price-display">18 € Adulto • 9 € Niño (-50%)</span>
             </div>
             <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-es-t1-sticky" 
                id="sticky-checkout-btn" 

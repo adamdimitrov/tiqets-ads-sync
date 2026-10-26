@@ -172,11 +172,11 @@ body {
     grid-template-areas:
         "header"
         "gallery"
+        "highlights"
         "widget"
         "comparison"
         "quickfacts"
         "description"
-        "highlights"
         "steps"
         "dock"
         "socialproof"
@@ -1352,10 +1352,10 @@ body {
         grid-template-areas:
             "header widget"
             "gallery widget"
+            "highlights widget"
             "comparison widget"
             "quickfacts widget"
             "description widget"
-            "highlights widget"
             "steps widget"
             "dock widget"
             "socialproof widget"
@@ -1442,4 +1442,130 @@ body {
     .sticky-footer-bar {
         display: none !important;
     }
+}
+
+/* Clean 1-Click Availability Card & Embedded Tiqets Widget Styles */
+.live-avail-banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.live-avail-dot {
+    width: 9px;
+    height: 9px;
+    background: #10b981;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
+}
+.clean-fare-table {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    background: #ffffff;
+}
+.clean-fare-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.clean-fare-row:last-child {
+    border-bottom: none;
+}
+.clean-fare-row.child-highlight {
+    background: #f0fdf4;
+}
+.clean-fare-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.clean-fare-title {
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.clean-fare-sub {
+    font-size: 0.76rem;
+    color: #64748b;
+}
+.clean-fare-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+.clean-fare-price.green {
+    color: #15803d;
+}
+.clean-fare-price.blue {
+    color: #0369a1;
+    font-size: 0.95rem;
+}
+.widget-checklist {
+    list-style: none;
+    padding: 12px 14px;
+    margin: 0 0 16px 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.widget-checklist li {
+    font-size: 0.82rem;
+    color: #334155;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+.widget-checklist li span.chk {
+    color: #16a34a;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+.tiqets-embed-section {
+    margin: 18px 0 6px 0;
+    padding: 18px;
+    background: #ffffff;
+    border: 2px solid #0284c7;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+}
+.tiqets-embed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.tiqets-embed-title {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+.tiqets-embed-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 10px;
+    border-radius: 999px;
 }

@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update button text
-        if (mainCheckoutBtn) {
+        if (valAdults && mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
             if (mainLine) {
                 mainLine.textContent = `BOOK FAMILY TICKETS — ${formattedTotal} →`;
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update sticky footer
-        if (stickyPriceDisplay) {
+        if (valAdults && stickyPriceDisplay) {
             stickyPriceDisplay.textContent = `${formattedTotal} (${compText})`;
         }
 

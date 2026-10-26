@@ -254,101 +254,87 @@
                         </div>
                     </div>
                 </div>
+            
+                <!-- Embedded Official Tiqets Live Availability Calendar Widget -->
+                <div class="tiqets-embed-section">
+                    <div class="tiqets-embed-header">
+                        <h4 class="tiqets-embed-title">📅 Datum wählen & verfügbare Abfahrtszeiten prüfen:</h4>
+                        <span class="tiqets-embed-badge">⚡ Offizielles Tiqets QR-Ticket</span>
+                    </div>
+                    <div data-tiqets-widget="availability" data-layout="full" data-orientation="horizontal" data-product-id="973977" data-partner="deals.cruisedetective.com" data-tq-campaign="bateaux-parisiens-de-t1-av-wid"></div>
+                    <script defer src="https://widgets.tiqets.com/loader.js"></script>
+                </div>
             </section>
 
             <!-- Section 4: THE INTERACTIVE TICKET SELECTOR (Sticky on Desktop) -->
             <aside class="grid-widget">
                 <div class="sticky-booking-card">
-                    
                     <div class="widget-header">
                         <div class="widget-price-head">
-                            <span class="widget-label">OFFIZIELLER ONLINE-PREIS</span>
+                            <span class="widget-label">OFFIZIELLER BATEAUX PARISIENS TARIF</span>
                             <div class="widget-price-row">
-                                <span class="widget-big-price">Ab 18,00 €</span>
-                                <span class="widget-unit">/ Erw. • Kinder 9,00 €</span>
+                                <span class="widget-big-price">18,00 €</span>
+                                <span class="widget-unit">/ Erw. • Kinder 9 €</span>
                             </div>
                         </div>
-                        <span class="widget-fast-badge">⚡ Sofortiger QR-Code</span>
+                        <span class="widget-fast-badge">⚡ Sofort-QR-Code</span>
                     </div>
 
-                    <!-- Step 1: Ticket Counters (Default: 2 Adults) -->
-                    <div class="widget-section">
-                        <div class="section-label-row">
-                            <span class="section-title">Wählen Sie Ihre Tickets :</span>
-                            <span class="badge-guarantee">Offizieller Tarif</span>
-                        </div>
+                    <!-- Live Schedule Status Banner -->
+                    <div class="live-avail-banner">
+                        <span class="live-avail-dot"></span>
+                        <span>Abfahrten heute alle 30–45 Min. (13:00–22:30 Uhr)</span>
+                    </div>
 
-                        <!-- Adult Row -->
-                        <div class="ticket-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Erwachsener (12+ Jahre)</strong>
-                                <span class="ticket-price">18,00 € / Person</span>
+                    <!-- Read-Only Official Fare Breakdown (No Fake Counter) -->
+                    <div class="clean-fare-table">
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Erwachsene (ab 12 J.)</span>
+                                <span class="clean-fare-sub">60-Min. Panorama-Rundfahrt + Audioguide in 14 Sprachen</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-adult" aria-label="Erwachsene reduzieren">−</button>
-                                <span class="counter-val" id="val-adults">2</span>
-                                <button type="button" class="counter-btn" id="btn-plus-adult" aria-label="Erwachsene erhöhen">+</button>
-                            </div>
+                            <span class="clean-fare-price">18,00 €</span>
                         </div>
-
-                        <!-- Child Row (50% Discount) -->
-                        <div class="ticket-row highlight-child-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Kind (4–11 Jahre) <span class="discount-pill">-50% RABATT</span></strong>
-                                <span class="ticket-price">9,00 € / Kind</span>
-                                <span class="ticket-subnote">Komplette 60-Min Rundfahrt + Audioguide</span>
+                        <div class="clean-fare-row child-highlight">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Kind (4–11 Jahre) <span class="discount-pill">-50% RABATT</span></span>
+                                <span class="clean-fare-sub">Offizieller Kindertarif zum halben Preis • Inkl. Audioguide</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-child" aria-label="Kinder reduzieren">−</button>
-                                <span class="counter-val" id="val-children">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-child" aria-label="Kinder erhöhen">+</button>
-                            </div>
+                            <span class="clean-fare-price green">9,00 €</span>
                         </div>
-
-                        <!-- Infant Row (100% Free) -->
-                        <div class="ticket-row infant-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Kleinkind (0–3 Jahre) <span class="free-pill">100% KOSTENLOS</span></strong>
-                                <span class="ticket-price">0,00 € / Kleinkind</span>
-                                <span class="ticket-subnote">Kein Ticket erforderlich • Freier Eintritt</span>
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Kleinkind (0–3 Jahre) <span class="free-pill">100% GRATIS</span></span>
+                                <span class="clean-fare-sub">Freier Eintritt • Kleinkind-Ticket im nächsten Schritt wählen</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-infant" aria-label="Kleinkinder reduzieren">−</button>
-                                <span class="counter-val" id="val-infants">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-infant" aria-label="Kleinkinder erhöhen">+</button>
-                            </div>
+                            <span class="clean-fare-price blue">GRATIS</span>
                         </div>
                     </div>
 
-                    <!-- Total Price Display -->
-                    <div class="total-summary-card">
-                        <div class="summary-left">
-                            <span class="summary-label">Online-Gesamtpreis :</span>
-                            <span class="summary-comparison" id="summary-family-desc">2 Erwachsene • Warteschlange umgangen</span>
-                        </div>
-                        <div class="summary-right">
-                            <span class="summary-amount" id="total-price-display">36,00 €</span>
-                        </div>
-                    </div>
+                    <!-- Direct-Response Value Checklist -->
+                    <ul class="widget-checklist">
+                        <li><span class="chk">✓</span> <span><strong>45 Min. Kassenschlange umgehen:</strong> QR-Code direkt an den Drehkreuzen an Pier 3 (Eiffelturm) scannen.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Flexibles Tagesticket (Freie Zeitwahl):</strong> Gültig für jede Abfahrt am gewählten Datum (13:00 bis 22:30 Uhr).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>360°-Sonnendeck + Beheizter Glassalon:</strong> Inklusive kostenlosem 14-sprachigem Smartphone-Audioguide.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Kostenlose Stornierung:</strong> 100 % Rückerstattung bis 24 Stunden vor Abfahrt.</span></li>
+                    </ul>
 
-                    <!-- PRIMARY 2-CLICK CTA BUTTON -->
+                    <!-- PRIMARY 1-CLICK CTA BUTTON -->
                     <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-de-t1" 
                        id="main-checkout-btn" 
                        class="fast-checkout-btn pulse-anim" 
                        target="_blank" 
                        rel="noopener">
-                        <span class="btn-line-main">TICKETS BUCHEN — 36,00 € →</span>
-                        <span class="btn-line-sub">Direkte Tiqets-Abwicklung • Sofortiger QR-Gutschein auf dem Handy</span>
+                        <span class="btn-line-main">HEUTIGE ZEITFENSTER PRÜFEN →</span>
+                        <span class="btn-line-sub">Datum & Ticketanzahl im nächsten Schritt wählen • Sofort-QR</span>
                     </a>
 
-                    <!-- Trust Strip Under Button -->
                     <div class="trust-row">
                         <span>🔒 Offizieller Partner</span>
                         <span>⚡ Sofortige Zustellung</span>
                         <span>🔄 24h Stornierung</span>
                     </div>
 
-                    <!-- Dock Boarding Reminder -->
                     <div class="widget-dock-notice">
                         <strong>📍 Einstiegs-Pier:</strong> Port de la Bourdonnais, Pier 3 (Ponton 3) — Direkt am Fuß des Eiffelturms.
                     </div>
@@ -696,7 +682,7 @@
         <div class="sticky-inner">
             <div class="sticky-price-block">
                 <span class="sticky-tag">Offizieller Pass • Pier 3</span>
-                <span class="sticky-price" id="sticky-price-display">36,00 € (2 Erwachsene)</span>
+                <span class="sticky-price" id="sticky-price-display">18 € Erw. • 9 € Kind (-50%)</span>
             </div>
             <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-de-t1-sticky" 
                id="sticky-checkout-btn" 

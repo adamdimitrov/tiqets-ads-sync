@@ -254,101 +254,87 @@
                         </div>
                     </div>
                 </div>
+            
+                <!-- Embedded Official Tiqets Live Availability Calendar Widget -->
+                <div class="tiqets-embed-section">
+                    <div class="tiqets-embed-header">
+                        <h4 class="tiqets-embed-title">📅 Kies je datum & bekijk beschikbare vertrektijden:</h4>
+                        <span class="tiqets-embed-badge">⚡ Officieel Tiqets QR-Ticket</span>
+                    </div>
+                    <div data-tiqets-widget="availability" data-layout="full" data-orientation="horizontal" data-product-id="973977" data-partner="deals.cruisedetective.com" data-tq-campaign="bateaux-parisiens-nl-t1-av-wid"></div>
+                    <script defer src="https://widgets.tiqets.com/loader.js"></script>
+                </div>
             </section>
 
             <!-- Section 4: THE INTERACTIVE TICKET SELECTOR (Sticky on Desktop) -->
             <aside class="grid-widget">
                 <div class="sticky-booking-card">
-                    
                     <div class="widget-header">
                         <div class="widget-price-head">
-                            <span class="widget-label">OFFICIËLE ONLINE PRIJS</span>
+                            <span class="widget-label">OFFICIEEL BATEAUX PARISIENS TARIEF</span>
                             <div class="widget-price-row">
-                                <span class="widget-big-price">Vanaf 18,00 €</span>
-                                <span class="widget-unit">/ volw. • Kind 9,00 €</span>
+                                <span class="widget-big-price">18,00 €</span>
+                                <span class="widget-unit">/ volw. • Kind 9 €</span>
                             </div>
                         </div>
                         <span class="widget-fast-badge">⚡ Directe QR-Code</span>
                     </div>
 
-                    <!-- Step 1: Ticket Counters (Default: 2 Adults) -->
-                    <div class="widget-section">
-                        <div class="section-label-row">
-                            <span class="section-title">Kies uw tickets :</span>
-                            <span class="badge-guarantee">Officieel Tarief</span>
-                        </div>
+                    <!-- Live Schedule Status Banner -->
+                    <div class="live-avail-banner">
+                        <span class="live-avail-dot"></span>
+                        <span>Vertrek vandaag elke 30–45 min (13:00–22:30 uur)</span>
+                    </div>
 
-                        <!-- Adult Row -->
-                        <div class="ticket-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Volwassene (12+ jaar)</strong>
-                                <span class="ticket-price">18,00 € / persoon</span>
+                    <!-- Read-Only Official Fare Breakdown (No Fake Counter) -->
+                    <div class="clean-fare-table">
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Volwassene (12+ jaar)</span>
+                                <span class="clean-fare-sub">Panoramische rondvaart van 60 min + audiogids in 14 talen</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-adult" aria-label="Verminder volwassenen">−</button>
-                                <span class="counter-val" id="val-adults">2</span>
-                                <button type="button" class="counter-btn" id="btn-plus-adult" aria-label="Verhoog volwassenen">+</button>
-                            </div>
+                            <span class="clean-fare-price">18,00 €</span>
                         </div>
-
-                        <!-- Child Row (50% Discount) -->
-                        <div class="ticket-row highlight-child-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Kind (4–11 jaar) <span class="discount-pill">-50% KORTING</span></strong>
-                                <span class="ticket-price">9,00 € / kind</span>
-                                <span class="ticket-subnote">Volledige 60-min rondvaart + audiogids</span>
+                        <div class="clean-fare-row child-highlight">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Kind (4–11 jaar) <span class="discount-pill">-50% KORTING</span></span>
+                                <span class="clean-fare-sub">Officieel kindertarief voor de halve prijs • Rondvaart & audio</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-child" aria-label="Verminder kinderen">−</button>
-                                <span class="counter-val" id="val-children">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-child" aria-label="Verhoog kinderen">+</button>
-                            </div>
+                            <span class="clean-fare-price green">9,00 €</span>
                         </div>
-
-                        <!-- Infant Row (100% Free) -->
-                        <div class="ticket-row infant-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Baby (0–3 jaar) <span class="free-pill">100% GRATIS</span></strong>
-                                <span class="ticket-price">0,00 € / baby</span>
-                                <span class="ticket-subnote">Geen ticket nodig • Vrije toegang</span>
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Baby/Peuter (0–3 jaar) <span class="free-pill">100% GRATIS</span></span>
+                                <span class="clean-fare-sub">Gratis toegang • Selecteer babyticket in de volgende stap</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-infant" aria-label="Verminder baby's">−</button>
-                                <span class="counter-val" id="val-infants">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-infant" aria-label="Verhoog baby's">+</button>
-                            </div>
+                            <span class="clean-fare-price blue">GRATIS</span>
                         </div>
                     </div>
 
-                    <!-- Total Price Display -->
-                    <div class="total-summary-card">
-                        <div class="summary-left">
-                            <span class="summary-label">Totale Online Prijs :</span>
-                            <span class="summary-comparison" id="summary-family-desc">2 Volwassenen • Kassa-rij vermeden</span>
-                        </div>
-                        <div class="summary-right">
-                            <span class="summary-amount" id="total-price-display">36,00 €</span>
-                        </div>
-                    </div>
+                    <!-- Direct-Response Value Checklist -->
+                    <ul class="widget-checklist">
+                        <li><span class="chk">✓</span> <span><strong>Ontwijk 45 min wachtrij bij de kassa:</strong> Scan je QR-code direct bij de poortjes van Pier 3 (Eiffeltoren).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Flexibele Dagpas (Vrije Tijdkeuze):</strong> Geldig voor elke afvaart op je gekozen datum (13:00 tot 22:30 uur).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>360° Zonnedek + Verwarmde Glazen Salon:</strong> Inclusief gratis smartphone-audiogids in 14 talen.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Gratis Annuleren:</strong> 100% volledige terugbetaling tot 24 uur voor vertrek.</span></li>
+                    </ul>
 
-                    <!-- PRIMARY 2-CLICK CTA BUTTON -->
+                    <!-- PRIMARY 1-CLICK CTA BUTTON -->
                     <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-nl-t1" 
                        id="main-checkout-btn" 
                        class="fast-checkout-btn pulse-anim" 
                        target="_blank" 
                        rel="noopener">
-                        <span class="btn-line-main">TICKETS BOEKEN — 36,00 € →</span>
-                        <span class="btn-line-sub">Directe Tiqets afhandeling • Directe QR-voucher op uw telefoon</span>
+                        <span class="btn-line-main">BEKIJK BESCHIKBARE TIJDSLOTEN →</span>
+                        <span class="btn-line-sub">Kies datum & aantal in de volgende stap • Direct mobiel QR-ticket</span>
                     </a>
 
-                    <!-- Trust Strip Under Button -->
                     <div class="trust-row">
                         <span>🔒 Officiële Partner</span>
                         <span>⚡ Directe Levering</span>
                         <span>🔄 24u Annulering</span>
                     </div>
 
-                    <!-- Dock Boarding Reminder -->
                     <div class="widget-dock-notice">
                         <strong>📍 Instappier:</strong> Port de la Bourdonnais, Pier 3 (Ponton 3) — Vlak aan de voet van de Eiffeltoren.
                     </div>
@@ -696,7 +682,7 @@
         <div class="sticky-inner">
             <div class="sticky-price-block">
                 <span class="sticky-tag">Officiële Pas • Pier 3</span>
-                <span class="sticky-price" id="sticky-price-display">36,00 € (2 Volwassenen)</span>
+                <span class="sticky-price" id="sticky-price-display">18 € Volw. • 9 € Kind (-50%)</span>
             </div>
             <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=bateaux-parisiens-nl-t1-sticky" 
                id="sticky-checkout-btn" 

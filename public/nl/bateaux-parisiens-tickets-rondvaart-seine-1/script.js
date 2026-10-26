@@ -161,14 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryFamilyDesc.textContent = `${compText} • Kassa-rij vermeden`;
         }
 
-        if (mainCheckoutBtn) {
+        if (valAdults && mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
             if (mainLine) {
                 mainLine.textContent = `TICKETS BOEKEN — ${formattedTotal} →`;
             }
         }
 
-        if (stickyPriceDisplay) {
+        if (valAdults && stickyPriceDisplay) {
             stickyPriceDisplay.textContent = `${formattedTotal} (${compText})`;
         }
 

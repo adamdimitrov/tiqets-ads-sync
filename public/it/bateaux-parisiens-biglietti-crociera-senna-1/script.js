@@ -161,14 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryFamilyDesc.textContent = `${compText} • Coda in cassa evitata`;
         }
 
-        if (mainCheckoutBtn) {
+        if (valAdults && mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
             if (mainLine) {
                 mainLine.textContent = `PRENOTA BIGLIETTI — ${formattedTotal} →`;
             }
         }
 
-        if (stickyPriceDisplay) {
+        if (valAdults && stickyPriceDisplay) {
             stickyPriceDisplay.textContent = `${formattedTotal} (${compText})`;
         }
 

@@ -220,83 +220,72 @@
             <!-- Section 3: THE INTERACTIVE 2-CLICK BOOKING WIDGET (Sticky on Desktop) -->
             <aside class="grid-widget">
                 <div class="sticky-booking-card">
-                    
                     <div class="widget-header">
                         <div class="widget-price-head">
-                            <span class="widget-label">OFFICIAL ONLINE FARE</span>
+                            <span class="widget-label">OFFICIAL BATEAUX PARISIENS FARE</span>
                             <div class="widget-price-row">
                                 <span class="widget-big-price">€18.00</span>
-                                <span class="widget-unit">/ adult</span>
+                                <span class="widget-unit">/ adult • Kids €9</span>
                             </div>
                         </div>
-                        <span class="widget-fast-badge">⚡ Instant QR Code</span>
+                        <span class="widget-fast-badge">⚡ Instant QR Pass</span>
                     </div>
 
-                    <!-- Ticket Counters -->
-                    <div class="widget-section">
-                        <div class="section-label-row">
-                            <span class="section-title">Select Number of Tickets:</span>
-                            <span class="badge-guarantee">Best Price Guarantee</span>
-                        </div>
+                    <!-- Live Schedule Status Banner -->
+                    <div class="live-avail-banner">
+                        <span class="live-avail-dot"></span>
+                        <span>Boats Departing Today Every 30–45 Mins (13:00–22:30)</span>
+                    </div>
 
-                        <!-- Adult Row -->
-                        <div class="ticket-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Adult Ticket (12+ years)</strong>
-                                <span class="ticket-price">€18.00 / person</span>
-                                <span class="ticket-subnote">Full 70-min panoramic cruise & audio guide</span>
+                    <!-- Read-Only Official Fare Breakdown (No Fake Counter) -->
+                    <div class="clean-fare-table">
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Adult (12+ years)</span>
+                                <span class="clean-fare-sub">60-min panoramic circular cruise + 14-lang audio guide</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-adult" aria-label="Decrease adults">−</button>
-                                <span class="counter-val" id="val-adults">2</span>
-                                <button type="button" class="counter-btn" id="btn-plus-adult" aria-label="Increase adults">+</button>
-                            </div>
+                            <span class="clean-fare-price">€18.00</span>
                         </div>
-
-                        <!-- Child Row -->
-                        <div class="ticket-row">
-                            <div class="ticket-info">
-                                <strong class="ticket-name">Child Ticket (4–11 years)</strong>
-                                <span class="ticket-price">€9.00 / child (50% OFF)</span>
-                                <span class="ticket-subnote">Children under 4 ride free</span>
+                        <div class="clean-fare-row child-highlight">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Child (4–11 years) <span class="discount-pill">-50% OFF</span></span>
+                                <span class="clean-fare-sub">Half-price official child fare • Full cruise & audio</span>
                             </div>
-                            <div class="counter-wrap">
-                                <button type="button" class="counter-btn" id="btn-minus-child" aria-label="Decrease children">−</button>
-                                <span class="counter-val" id="val-children">0</span>
-                                <button type="button" class="counter-btn" id="btn-plus-child" aria-label="Increase children">+</button>
+                            <span class="clean-fare-price green">€9.00</span>
+                        </div>
+                        <div class="clean-fare-row">
+                            <div class="clean-fare-left">
+                                <span class="clean-fare-title">Infant (0–3 years) <span class="free-pill">100% FREE</span></span>
+                                <span class="clean-fare-sub">Free admission • Select infant ticket at checkout</span>
                             </div>
+                            <span class="clean-fare-price blue">FREE</span>
                         </div>
                     </div>
 
-                    <!-- Total Price Display -->
-                    <div class="total-summary-card">
-                        <div class="summary-left">
-                            <span class="summary-label">Total to Pay Online:</span>
-                            <span class="summary-comparison" id="summary-general-desc">2 Adults • Pier 3 Skip-the-Line Pass</span>
-                        </div>
-                        <div class="summary-right">
-                            <span class="summary-amount" id="total-price-display">€36.00</span>
-                        </div>
-                    </div>
+                    <!-- Direct-Response Value Checklist -->
+                    <ul class="widget-checklist">
+                        <li><span class="chk">✓</span> <span><strong>Skip the 45-Min Box Office Line:</strong> Scan QR code directly at Pier 3 turnstiles (Eiffel Tower).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Open-Time Day Pass:</strong> Valid for any departure on your selected date (13:00 to 22:30).</span></li>
+                        <li><span class="chk">✓</span> <span><strong>360° Rooftop + Heated Glass Salon:</strong> Plus free 14-language smartphone audio commentary.</span></li>
+                        <li><span class="chk">✓</span> <span><strong>Free Cancellation:</strong> 100% full refund up to 24 hours before departure.</span></li>
+                    </ul>
 
-                    <!-- PRIMARY 2-CLICK CTA BUTTON -->
+                    <!-- PRIMARY 1-CLICK CTA BUTTON -->
                     <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=general-bateaux-parisiens" 
                        id="main-checkout-btn" 
                        class="fast-checkout-btn pulse-anim" 
                        target="_blank" 
                        rel="noopener">
-                        <span class="btn-line-main">CONTINUE TO CHECKOUT — €36.00 →</span>
-                        <span class="btn-line-sub">Direct Tiqets Booking • Instant QR Code on Phone</span>
+                        <span class="btn-line-main">CHECK TODAY'S TIMESLOTS →</span>
+                        <span class="btn-line-sub">Select Date & Quantity on Next Step • Instant Mobile QR</span>
                     </a>
 
-                    <!-- Trust Strip Under Button -->
                     <div class="trust-row">
                         <span>🔒 256-bit SSL</span>
                         <span>⚡ Instant Delivery</span>
                         <span>🔄 Free 24h Cancel</span>
                     </div>
 
-                    <!-- Dock Boarding Reminder -->
                     <div class="widget-dock-notice">
                         <strong>📍 Departure Pier:</strong> Port de la Bourdonnais, Pier 3 (Ponton 3), directly beneath Eiffel Tower.
                     </div>
@@ -426,6 +415,16 @@
                             <span>Stream via phone web app or plug into lower-deck wired headsets.</span>
                         </div>
                     </div>
+                </div>
+            
+                <!-- Embedded Official Tiqets Live Availability Calendar Widget -->
+                <div class="tiqets-embed-section">
+                    <div class="tiqets-embed-header">
+                        <h4 class="tiqets-embed-title">📅 Select Your Date & Check Live Timeslots:</h4>
+                        <span class="tiqets-embed-badge">⚡ Official Tiqets Instant QR Pass</span>
+                    </div>
+                    <div data-tiqets-widget="availability" data-layout="full" data-orientation="horizontal" data-product-id="973977" data-partner="deals.cruisedetective.com" data-tq-campaign="general-bateaux-parisiens-av-wid"></div>
+                    <script defer src="https://widgets.tiqets.com/loader.js"></script>
                 </div>
             </section>
 
@@ -579,7 +578,7 @@
         <div class="sticky-inner">
             <div class="sticky-price-block">
                 <span class="sticky-tag">Skip Line • Pier 3</span>
-                <span class="sticky-price" id="sticky-price-display">€36.00 (2 Adults)</span>
+                <span class="sticky-price" id="sticky-price-display">€18 Adult • €9 Child (50% Off)</span>
             </div>
             <a href="https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977?partner=deals.cruisedetective.com&tq_campaign=general-bateaux-parisiens-sticky" 
                id="sticky-checkout-btn" 

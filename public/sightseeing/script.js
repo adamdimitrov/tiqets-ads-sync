@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update button text
-        if (mainCheckoutBtn) {
+        if (valAdults && mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
             if (mainLine) {
                 mainLine.textContent = `CONTINUE TO CHECKOUT — ${formattedTotal} →`;
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update sticky footer
-        if (stickyPriceDisplay) {
+        if (valAdults && stickyPriceDisplay) {
             stickyPriceDisplay.textContent = `${formattedTotal} (${desc})`;
         }
 

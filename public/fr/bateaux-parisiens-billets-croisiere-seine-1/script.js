@@ -161,14 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryFamilyDesc.textContent = `${compText} • File de caisse évitée`;
         }
 
-        if (mainCheckoutBtn) {
+        if (valAdults && mainCheckoutBtn) {
             const mainLine = mainCheckoutBtn.querySelector('.btn-line-main');
             if (mainLine) {
                 mainLine.textContent = `RÉSERVER MES BILLETS — ${formattedTotal} →`;
             }
         }
 
-        if (stickyPriceDisplay) {
+        if (valAdults && stickyPriceDisplay) {
             stickyPriceDisplay.textContent = `${formattedTotal} (${compText})`;
         }
 
