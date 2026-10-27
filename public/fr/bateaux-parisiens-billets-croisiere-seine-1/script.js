@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Dynamic URL Decoration & Conversion Tracking
     // -------------------------------------------------------------
     const clickId = getClickId();
-    const BASE_TIQETS_URL = 'https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977';
+    const BASE_TIQETS_URL = 'https://www.tiqets.com/fr/activites-attractions-paris-c66746/billets-pour-seine-croisiere-en-bateaux-parisiens-p973977/';
     const PARTNER_ID = 'deals.cruisedetective.com';
 
     function getFbpCookie() {
