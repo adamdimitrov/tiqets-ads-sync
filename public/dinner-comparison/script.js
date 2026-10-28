@@ -296,4 +296,33 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateFloatingBar, { passive: true });
     window.addEventListener('resize', updateFloatingBar, { passive: true });
     updateFloatingBar();
+
+    // -------------------------------------------------------------
+    // Auto-open Collapsible Details when Anchor / Filter Nav Clicked
+    // -------------------------------------------------------------
+    function openTargetDetails(targetSelector) {
+        if (!targetSelector || targetSelector === '#') return;
+        try {
+            const targetEl = document.querySelector(targetSelector);
+            if (targetEl) {
+                const details = targetEl.closest('details') || (targetEl.tagName === 'DETAILS' ? targetEl : null);
+                if (details) {
+                    details.open = true;
+                }
+            }
+        } catch (e) {}
+    }
+
+    if (window.location.hash) {
+        openTargetDetails(window.location.hash);
+    }
+    window.addEventListener('hashchange', () => {
+        openTargetDetails(window.location.hash);
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function() {
+            const href = this.getAttribute('href');
+            openTargetDetails(href);
+        });
+    });
 });

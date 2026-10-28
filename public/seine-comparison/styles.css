@@ -2311,6 +2311,193 @@ body {
     padding-top: 0.65rem;
 }
 
+/* ==========================================================================
+   COLLAPSIBLE SECTIONS (WARNING CALLOUT & COMPARISON MATRIX)
+   ========================================================================== */
+
+/* Remove default browser marker */
+details summary::-webkit-details-marker {
+    display: none;
+}
+details summary {
+    list-style: none;
+}
+
+/* Collapsible Warning Callout */
+details.collapsible-warning {
+    background: #fffbeb;
+    border: 1.5px solid #f59e0b;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+details.collapsible-warning summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    gap: 0.75rem;
+}
+
+details.collapsible-warning summary:hover {
+    background: #fef3c7;
+}
+
+.warning-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.warning-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #92400e;
+    line-height: 1.35;
+}
+
+.warning-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.collapsible-toggle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff;
+    border: 1px solid #d97706;
+    color: #b45309;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+details.collapsible-warning[open] .collapsible-toggle-badge {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+.collapsible-content {
+    padding: 0.25rem 1.25rem 1.25rem 1.25rem;
+    border-top: 1px dashed rgba(245, 158, 11, 0.3);
+}
+
+.accordion-arrow {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.7rem;
+}
+
+details[open] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+/* Collapsible Matrix Card */
+details.collapsible-matrix-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+details.collapsible-matrix-card:hover {
+    border-color: #cbd5e1;
+}
+
+details.collapsible-matrix-card summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    gap: 1rem;
+    background: #fafafa;
+}
+
+details.collapsible-matrix-card summary:hover {
+    background: #f4f4f5;
+}
+
+.matrix-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.matrix-icon {
+    font-size: 1.7rem;
+    flex-shrink: 0;
+}
+
+.matrix-heading-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #4b5563;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.matrix-heading {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.25;
+}
+
+.matrix-subtext {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.matrix-toggle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #ffffff;
+    border: 1.5px solid #d1d5db;
+    color: #1f2937;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+details.collapsible-matrix-card[open] .matrix-toggle-badge {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #1f2937;
+}
+
+.collapsible-matrix-content {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
 /* Floating Sticky Button Responsive Text Display */
 .btn-text-short {
     display: none;
@@ -2415,6 +2602,33 @@ body {
         align-items: flex-start;
         gap: 0.35rem;
         font-size: 0.74rem;
+    }
+    details.collapsible-warning summary {
+        padding: 0.85rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .warning-heading {
+        font-size: 0.92rem;
+    }
+    details.collapsible-matrix-card summary {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
+    .matrix-heading {
+        font-size: 1.15rem;
+    }
+    .matrix-toggle-badge {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .collapsible-matrix-content {
+        padding: 1rem 0.75rem 1rem;
     }
     .qds-actions {
         grid-template-columns: 1fr;
