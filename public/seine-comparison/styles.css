@@ -1997,3 +1997,216 @@ body {
     background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%) !important;
     box-shadow: 0 8px 24px rgba(49, 46, 129, 0.38) !important;
 }
+
+/* ==========================================================================
+   INSTANT DATE SELECTOR BAR & MOBILE STICKY BUTTON OVERFLOW FIX
+   ========================================================================== */
+
+.quick-date-selector-bar {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 14px;
+    padding: 1.1rem 1.35rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.14);
+}
+
+.qds-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.qds-live-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: #92400e;
+}
+
+.qds-live-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: qdsPulse 2s infinite ease-in-out;
+    flex-shrink: 0;
+}
+
+@keyframes qdsPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.25); }
+}
+
+.qds-title {
+    font-weight: 500;
+}
+
+.qds-badge {
+    background: #d97706;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.qds-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.qds-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.6rem;
+    background: #ffffff;
+    border: 1.5px solid #d97706;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.qds-btn:hover {
+    transform: translateY(-2px);
+    background: #fffbeb;
+    border-color: #b45309;
+    box-shadow: 0 6px 14px rgba(180, 83, 9, 0.18);
+}
+
+.qds-btn.qds-today {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-color: #b45309;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
+}
+
+.qds-btn.qds-today .qds-day {
+    color: #ffffff;
+}
+
+.qds-btn.qds-today .qds-sub {
+    color: #fef3c7;
+}
+
+.qds-btn.qds-today:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    box-shadow: 0 6px 18px rgba(180, 83, 9, 0.35);
+}
+
+.qds-day {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1c1917;
+    line-height: 1.2;
+}
+
+.qds-sub {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #78716c;
+    margin-top: 3px;
+}
+
+.qds-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #78716c;
+    font-weight: 600;
+    border-top: 1px dashed rgba(217, 119, 6, 0.25);
+    padding-top: 0.65rem;
+}
+
+/* Floating Sticky Button Responsive Text Display */
+.btn-text-short {
+    display: none;
+}
+.btn-text-full {
+    display: inline;
+}
+
+@media (max-width: 680px) {
+    .btn-text-full {
+        display: none !important;
+    }
+    .btn-text-short {
+        display: inline !important;
+        font-weight: 800;
+        font-size: 0.85rem;
+    }
+    .sticky-mobile-bar {
+        padding: 0.5rem 0.75rem !important;
+    }
+    .sticky-inner {
+        gap: 0.45rem !important;
+    }
+    .sticky-boat-info {
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+        gap: 0.5rem !important;
+    }
+    .sticky-thumb-img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .sticky-text {
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+    .sticky-title-row {
+        gap: 0.35rem !important;
+    }
+    .sticky-rank-badge {
+        font-size: 0.58rem !important;
+        padding: 0.1rem 0.3rem !important;
+    }
+    .sticky-text strong {
+        font-size: 0.82rem !important;
+        max-width: 110px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .sticky-price-tag {
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+    }
+    .sticky-desc-text, .sticky-bullet {
+        display: none !important;
+    }
+    .btn-sticky-cta {
+        padding: 0.55rem 0.8rem !important;
+        font-size: 0.82rem !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        letter-spacing: -0.01em !important;
+    }
+    .qds-actions {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .qds-btn {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.65rem 1rem;
+    }
+    .qds-sub {
+        margin-top: 0;
+    }
+}

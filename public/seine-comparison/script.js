@@ -275,9 +275,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 stickyDesc.textContent = activeCard.dataset.boatDesc;
             }
             if (stickyBtn) {
-                if (activeCard.dataset.boatBtn) {
-                    stickyBtn.textContent = activeCard.dataset.boatBtn;
-                }
+                const fullText = activeCard.dataset.boatBtn || 'Book Tickets →';
+                const shortText = activeCard.dataset.boatBtnShort || 'Book →';
+                stickyBtn.innerHTML = `<span class="btn-text-full">${fullText}</span><span class="btn-text-short">${shortText}</span>`;
                 if (activeCard.dataset.boatBtnClass) {
                     stickyBtn.className = `btn-sticky-cta ${activeCard.dataset.boatBtnClass}`;
                 }
