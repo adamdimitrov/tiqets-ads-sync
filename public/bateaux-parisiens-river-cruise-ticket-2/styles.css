@@ -348,8 +348,8 @@ body {
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    border: 1.5px solid #d97706;
-    color: #92400e;
+    border: 1.5px solid #10b981;
+    color: #065f46;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 700;
@@ -360,9 +360,10 @@ body {
 }
 
 .bridge-date-pill:hover {
-    background: #fffbeb;
+    background: #ecfdf5;
+    border-color: #059669;
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
 }
 
 @keyframes cta-pulse {

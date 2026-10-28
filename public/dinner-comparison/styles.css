@@ -1992,9 +1992,9 @@ body {
 .mhc-prompt-badge {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #92400e;
-    background: #fef3c7;
-    border: 1px solid #fde68a;
+    color: #065f46;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
     letter-spacing: 0.02em;
@@ -2027,9 +2027,9 @@ body {
 }
 
 .mhc-btn-primary {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    border: 2px solid #b45309;
-    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: 2px solid #047857;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .mhc-btn-primary .mhc-day {
@@ -2040,7 +2040,7 @@ body {
 }
 
 .mhc-btn-primary .mhc-sub {
-    color: #fef3c7;
+    color: #d1fae5;
     font-size: 0.76rem;
     font-weight: 700;
     margin-top: 4px;
@@ -2048,13 +2048,13 @@ body {
 
 .mhc-btn-primary:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    box-shadow: 0 6px 22px rgba(180, 83, 9, 0.42);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
 }
 
 .mhc-btn-secondary {
     background: #ffffff;
-    border: 2px solid #d97706;
+    border: 2px solid #10b981;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -2065,7 +2065,7 @@ body {
 }
 
 .mhc-btn-secondary .mhc-sub {
-    color: #b45309;
+    color: #059669;
     font-size: 0.76rem;
     font-weight: 700;
     margin-top: 4px;
@@ -2073,9 +2073,9 @@ body {
 
 .mhc-btn-secondary:hover {
     transform: translateY(-2px);
-    background: #fffbeb;
-    border-color: #b45309;
-    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.18);
+    background: #ecfdf5;
+    border-color: #059669;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.18);
 }
 
 .mhc-arrow {
