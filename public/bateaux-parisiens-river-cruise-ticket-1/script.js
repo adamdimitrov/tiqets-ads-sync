@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Dynamic URL Decoration & Conversion Tracking
     // -------------------------------------------------------------
     const clickId = getClickId();
-    const BASE_TIQETS_URL = 'https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977';
+    const BASE_TIQETS_URL = 'https://www.tiqets.com/en/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977/';
     const PARTNER_ID = 'deals.cruisedetective.com';
 
     function getFbpCookie() {
@@ -337,17 +337,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalTickets = adultCount + childCount + infantCount;
         const fbpVal = getFbpCookie();
 
-        const targetLinks = [
-            document.getElementById('main-checkout-btn'),
-            document.getElementById('secondary-checkout-btn'),
-            document.getElementById('sticky-checkout-btn')
-        ];
+        const targetLinks = document.querySelectorAll('.wda-btn, #main-checkout-btn, #secondary-checkout-btn, #sticky-checkout-btn');
 
         targetLinks.forEach(link => {
             if (!link) return;
 
             let campaignTag = 'bateaux-parisiens-ticket-1';
-            if (link.id.includes('bottom') || link.id.includes('secondary')) {
+            if (link.href && link.href.includes('tq_campaign=')) {
+                try {
+                    const existingUrl = new URL(link.href);
+                    campaignTag = existingUrl.searchParams.get('tq_campaign') || campaignTag;
+                } catch(e) {}
+            } else if (link.id.includes('bottom') || link.id.includes('secondary')) {
                 campaignTag = 'bateaux-parisiens-ticket-1-bottom';
             } else if (link.id.includes('sticky')) {
                 campaignTag = 'bateaux-parisiens-ticket-1-sticky';
@@ -377,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         reviewLinks.forEach(link => {
             if (!link) return;
             try {
-                const u = new URL(link.href);
+                const u = new URL(link.href.includes('/en/') ? link.href : link.href.replace('tiqets.com/', 'tiqets.com/en/'));
                 let cTag = 'bateaux-parisiens-ticket-1-reviews';
                 if (clickId && clickId.value) cTag += `--${clickId.type}-${clickId.value}`;
                 if (fbpVal) cTag += `--fbp-${fbpVal}`;
@@ -394,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attach Meta Pixel InitiateCheckout + Microsoft Clarity Custom Events on CTA click
     document.addEventListener('click', (e) => {
-        const targetBtn = e.target.closest('#main-checkout-btn, #secondary-checkout-btn, #sticky-checkout-btn');
+        const targetBtn = e.target.closest('.wda-btn, #main-checkout-btn, #secondary-checkout-btn, #sticky-checkout-btn');
         if (targetBtn) {
             const total = calculateTotal();
             const totalTickets = adultCount + childCount + infantCount;
@@ -410,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (typeof window.clarity === 'function') {
                 window.clarity('event', 'tiqets_outbound_click');
-                window.clarity('set', 'checkout_button', targetBtn.id);
+                window.clarity('set', 'checkout_button', targetBtn.id || 'wda-date-btn');
                 window.clarity('set', 'basket_composition', `${adultCount}A_${childCount}C_${infantCount}I`);
                 window.clarity('set', 'basket_eur', total.toFixed(2));
             }

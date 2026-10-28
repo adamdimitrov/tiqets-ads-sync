@@ -336,6 +336,35 @@ body {
     animation: cta-pulse 2.2s infinite;
 }
 
+.bridge-sub-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.bridge-date-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1.5px solid #d97706;
+    color: #92400e;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 6px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.bridge-date-pill:hover {
+    background: #fffbeb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.15);
+}
+
 @keyframes cta-pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }

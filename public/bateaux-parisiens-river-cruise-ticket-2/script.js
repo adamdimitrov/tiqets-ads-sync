@@ -94,41 +94,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Dynamic URL Decoration & Conversion Tracking
     // -------------------------------------------------------------
     const clickId = getClickId();
-    const BASE_TIQETS_URL = 'https://www.tiqets.com/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977';
+    const BASE_TIQETS_URL = 'https://www.tiqets.com/en/things-to-do-in-paris-c66746/tickets-for-sightseeing-cruise-on-the-seine-p973977/';
     const PARTNER_ID = 'deals.cruisedetective.com';
 
     function updateCheckoutLinks() {
         const fbpVal = getFbpCookie();
-        const mainBtn = document.getElementById('main-checkout-btn');
+        const actionLinks = document.querySelectorAll('#main-checkout-btn, .bridge-date-pill');
 
-        if (!mainBtn) return;
+        actionLinks.forEach(link => {
+            if (!link) return;
 
-        let campaignTag = 'bateaux-parisiens-ticket-2';
+            let campaignTag = 'bateaux-parisiens-ticket-2';
+            if (link.href && link.href.includes('tq_campaign=')) {
+                try {
+                    const existingUrl = new URL(link.href);
+                    campaignTag = existingUrl.searchParams.get('tq_campaign') || campaignTag;
+                } catch(e) {}
+            }
 
-        if (clickId && clickId.value) {
-            campaignTag += `--${clickId.type}-${clickId.value}`;
-        }
-        if (fbpVal) {
-            campaignTag += `--fbp-${fbpVal}`;
-        }
+            if (clickId && clickId.value) {
+                campaignTag += `--${clickId.type}-${clickId.value}`;
+            }
+            if (fbpVal) {
+                campaignTag += `--fbp-${fbpVal}`;
+            }
 
-        const url = new URL(BASE_TIQETS_URL);
-        url.searchParams.set('partner', PARTNER_ID);
-        url.searchParams.set('tq_campaign', campaignTag);
+            const url = new URL(BASE_TIQETS_URL);
+            url.searchParams.set('partner', PARTNER_ID);
+            url.searchParams.set('tq_campaign', campaignTag);
 
-        if (clickId && clickId.value) {
-            url.searchParams.set(clickId.type, clickId.value);
-            url.searchParams.set('click_id', clickId.value);
-            url.searchParams.set('subid', `${clickId.type}:${clickId.value}`);
-        }
+            if (clickId && clickId.value) {
+                url.searchParams.set(clickId.type, clickId.value);
+                url.searchParams.set('click_id', clickId.value);
+                url.searchParams.set('subid', `${clickId.type}:${clickId.value}`);
+            }
 
-        mainBtn.href = url.toString();
+            link.href = url.toString();
+        });
 
         const reviewLinks = document.querySelectorAll('.tiqets-review-link');
         reviewLinks.forEach(link => {
             if (!link) return;
             try {
-                const u = new URL(link.href);
+                const u = new URL(link.href.includes('/en/') ? link.href : link.href.replace('tiqets.com/', 'tiqets.com/en/'));
                 let cTag = 'bateaux-parisiens-ticket-2-reviews';
                 if (clickId && clickId.value) cTag += `--${clickId.type}-${clickId.value}`;
                 if (fbpVal) cTag += `--fbp-${fbpVal}`;
@@ -144,9 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Track button click
-    const mainBtn = document.getElementById('main-checkout-btn');
-    if (mainBtn) {
-        mainBtn.addEventListener('click', () => {
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('#main-checkout-btn, .bridge-date-pill');
+        if (target) {
             const avgCommission = 15.08; // Estimated commission on 2 tickets (€36 * 41.9%)
             if (typeof window.fbq === 'function') {
                 window.fbq('track', 'InitiateCheckout', {
@@ -161,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.clarity('event', 'tiqets_outbound_click');
                 window.clarity('set', 'checkout_page', 'ticket-2-card');
             }
-        });
-    }
+        }
+    });
 
     // Clarity traffic tag
     if (typeof window.clarity === 'function') {
