@@ -153,14 +153,14 @@ de_headlines = [
     {"text": "Kostenlose 24h Storno"},
     {"text": "360 Grad Freideck"},
     {"text": "Flexibler Ganztagespass"},
-    {"text": "Offizieller Tiqets Partner"},
+    {"text": "Verifizierter Tiqets Partner"},
     {"text": "Direkt zu den Drehkreuzen"},
     {"text": "Blick auf Notre-Dame"},
     {"text": "Unter 4 Jahren Kostenlos"},
     {"text": "Direkt am Smartphone"}
 ]
 de_descriptions = [
-    {"text": "Offizielle Bateaux Parisiens Tickets. Umgehen Sie die 45 Min Warteschlange an Pier 3."},
+    {"text": "Bateaux Parisiens Smartphone-Tickets. Umgehen Sie die 45 Min Warteschlange an Pier 3."},
     {"text": "Direkter Einstieg am Fuß des Eiffelturms. 60-minütige Panoramarunde auf der Seine."},
     {"text": "Flexibler Ganztagespass: Abfahrten alle 30 Min. Erwachsene 18 €, Kinder 9 € (-50%)."},
     {"text": "Kostenlose Stornierung bis 24h vorher. Sofortiger QR-Code für den direkten Einlass."}
@@ -219,14 +219,14 @@ it_headlines = [
     {"text": "Cancellazione Gratis 24h"},
     {"text": "Ponte Scoperto 360 Gradi"},
     {"text": "Pass Flessibile Tutto Giorno"},
-    {"text": "Partner Ufficiale Tiqets"},
+    {"text": "Partner Verificato Tiqets"},
     {"text": "Accesso Diretto ai Tornelli"},
     {"text": "Vista su Notre-Dame"},
     {"text": "Sotto i 4 Anni Gratis"},
     {"text": "Mostra il Tuo Smartphone"}
 ]
 it_descriptions = [
-    {"text": "Prenota i biglietti ufficiali Bateaux Parisiens. Salta la coda alla cassa al Molo 3."},
+    {"text": "Biglietti Bateaux Parisiens su smartphone. Salta la coda alla cassa al Molo 3."},
     {"text": "Imbarco diretto ai piedi della Torre Eiffel. Giro panoramico di 60 minuti sulla Senna."},
     {"text": "Pass flessibile tutto il giorno: sali all'orario che vuoi. Adulti 18 €, bambini 9 €."},
     {"text": "Cancellazione gratuita fino a 24h prima. Codice QR istantaneo sul tuo smartphone."}
@@ -285,14 +285,14 @@ nl_headlines = [
     {"text": "Gratis Annuleren 24u"},
     {"text": "360 Graden Open Zonnedek"},
     {"text": "Flexibele Dagpas Parijs"},
-    {"text": "Officiële Tiqets Partner"},
+    {"text": "Erkende Tiqets Partner"},
     {"text": "Directe Toegang Poortjes"},
     {"text": "Uitzicht op Notre-Dame"},
     {"text": "Onder 4 Jaar Gratis"},
     {"text": "Scan op uw Smartphone"}
 ]
 nl_descriptions = [
-    {"text": "Officiële Bateaux Parisiens tickets. Vermijd de 45 minuten kassa-wachtrij bij Pier 3."},
+    {"text": "Bateaux Parisiens smartphone-tickets. Vermijd de 45 minuten kassa-wachtrij bij Pier 3."},
     {"text": "Direct instappen aan de voet van de Eiffeltoren. Panoramische tocht van 60 min over Seine."},
     {"text": "Flexibele dagpas: vertrek elke 30 minuten. Volwassene 18 €, kinderen 9 € (-50%)."},
     {"text": "Gratis annuleren tot 24u voor vertrek. Directe mobiele QR-code voor snelle toegang."}

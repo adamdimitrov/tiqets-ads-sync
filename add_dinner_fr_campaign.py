@@ -187,7 +187,7 @@ headlines_ad1 = [
     {"text": "Top 5 Dîners-Croisières Seine"},    # 29
     {"text": "Comparez Menus et Tarifs"},         # 24
     {"text": "Meilleur Dîner-Croisière Paris"},   # 30
-    {"text": "Billets Officiels dès 65 €"},       # 26
+    {"text": "Billets Mobiles dès 65 €"},         # 24
     {"text": "Économisez Jusqu'à 30%"},           # 22
     {"text": "Bateaux-Mouches et Parisiens"},     # 28
     {"text": "Menus Gastronomiques 3-4 Plats"},   # 30

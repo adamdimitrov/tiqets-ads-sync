@@ -181,7 +181,7 @@ HEADLINES = [
 
 DESCRIPTIONS = [
     {"text": "We boarded & tested the top 5 Paris Seine sightseeing cruises. Compare prices & views."},
-    {"text": "Official mobile QR tickets from €18 Adult & €9 Kids (50% Off). Skip box office queues."},
+    {"text": "Instant mobile QR tickets from €18 Adult & €9 Kids (50% Off). Skip box office queues."},
     {"text": "Compare Bateaux Parisiens, Bateaux-Mouches & Vedettes de Paris side by side before buying."},
     {"text": "Departures every 30 mins right under the Eiffel Tower. 360° open upper decks & audio app."}
 ]

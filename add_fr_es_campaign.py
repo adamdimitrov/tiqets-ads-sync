@@ -144,14 +144,14 @@ fr_headlines = [
     {"text": "Annulation 24h Gratuite"},        # 23
     {"text": "Pont Supérieur Ouvert 360°"},     # 27
     {"text": "Billet Journée Flexible"},        # 24
-    {"text": "Partenaire Officiel Tiqets"},     # 27
+    {"text": "Partenaire Certifié Tiqets"},     # 27
     {"text": "Accès Direct Tourniquets"},       # 24
     {"text": "Vue Panoramique Notre-Dame"},     # 27
     {"text": "Moins de 4 Ans Gratuit"},         # 23
     {"text": "Scannez Votre Smartphone"}        # 24
 ]
 fr_descriptions = [
-    {"text": "Réservez vos billets officiels Bateaux Parisiens. Évitez la file d'attente au Quai 3."}, # 87
+    {"text": "Réservez vos billets pour Bateaux Parisiens. Évitez la file d'attente au Quai 3."}, # 81
     {"text": "Embarquement direct au pied de la Tour Eiffel. Boucle complète de 60 minutes sur la Seine."}, # 90
     {"text": "Pass journée flexible : partez à votre heure. Adulte 18 €, -50% pour les enfants."}, # 81
     {"text": "Annulation gratuite 24h avant départ. QR code immédiat à scanner directement sur le quai."} # 89
@@ -210,14 +210,14 @@ es_headlines = [
     {"text": "Cancelación Gratis 24h"},         # 22
     {"text": "Cubierta Abierta 360°"},          # 22
     {"text": "Pase Flexible Todo el Día"},      # 26
-    {"text": "Socio Oficial Tiqets"},           # 20
+    {"text": "Socio Autorizado Tiqets"},        # 24
     {"text": "Acceso Directo a Tornos"},        # 24
     {"text": "Vistas a Notre-Dame"},            # 20
     {"text": "Menores de 4 Años Gratis"},       # 25
     {"text": "Escanea en tu Móvil"}             # 20
 ]
 es_descriptions = [
-    {"text": "Reserva tus entradas oficiales Bateaux Parisiens. Evita la cola en el Muelle 3."}, # 80
+    {"text": "Reserva tus entradas para Bateaux Parisiens. Evita la cola en el Muelle 3."}, # 75
     {"text": "Embarque directo al pie de la Torre Eiffel. Recorrido panorámico de 60 min por el Sena."}, # 88
     {"text": "Pase flexible todo el día: sube a la hora que quieras. Adultos 18 €, niños 9 € (-50%)."}, # 86
     {"text": "Cancelación gratuita hasta 24h antes. Código QR instantáneo en tu móvil para embarcar."} # 87

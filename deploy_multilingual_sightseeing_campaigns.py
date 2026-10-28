@@ -87,7 +87,7 @@ CONFIGS = [
         ],
         "descriptions": [
             "Nous avons testé les 5 croisières promenade à Paris. Comparez prix, terrasses et avis.",
-            "Billets officiels dès 18€ Adulte & 9€ Enfant (-50%). Évitez les files en billetterie.",
+            "Billets mobiles dès 18€ Adulte & 9€ Enfant (-50%). Évitez les files en billetterie.",
             "Bateaux Parisiens, Bateaux-Mouches et Vedettes de Paris comparés avant de réserver.",
             "Départs toutes les 30 min au pied de la Tour Eiffel. Terrasses 360° et audioguide mobile."
         ]
@@ -139,7 +139,7 @@ CONFIGS = [
         ],
         "descriptions": [
             "Probamos y comparamos los 5 mejores paseos en barco por el Sena. Compara vistas y precios.",
-            "Entradas oficiales desde 18€ Adultos y 9€ Niños (50% Dto). Sin esperas en taquillas.",
+            "Entradas móviles desde 18€ Adultos y 9€ Niños (50% Dto). Sin esperas en taquillas.",
             "Compara Bateaux Parisiens, Bateaux-Mouches y Vedettes de Paris antes de comprar.",
             "Salidas cada 30 min junto a la Torre Eiffel. Cubiertas panorámicas 360° y audioguía."
         ]
@@ -191,7 +191,7 @@ CONFIGS = [
         ],
         "descriptions": [
             "Wir haben die 5 beliebtesten Seine Rundfahrten getestet. Vergleichen Sie Boote & Preise.",
-            "Offizielle Smartphone-Tickets ab 18€ Erw. & 9€ Kinder (50% Rabatt). Keine Kassen-Schlange.",
+            "Direkte Smartphone-Tickets ab 18€ Erw. & 9€ Kinder (50% Rabatt). Keine Kassen-Schlange.",
             "Bateaux Parisiens, Bateaux-Mouches & Vedettes de Paris im direkten Vergleich vor dem Kauf.",
             "Abfahrt alle 30 Min direkt am Eiffelturm. 360° Panorama-Aussichtsdeck & Audio-App."
         ]
@@ -295,7 +295,7 @@ CONFIGS = [
         ],
         "descriptions": [
             "Abbiamo provato i 5 battelli turistici sulla Senna. Confronta terrazze, orari e prezzi.",
-            "Biglietti ufficiali da 18€ Adulti e 9€ Bambini (-50%). Salta le lunghe code alle casse.",
+            "Biglietti su smartphone da 18€ Adulti e 9€ Bambini (-50%). Salta le code alle casse.",
             "Confronta Bateaux Parisiens, Bateaux-Mouches e Vedettes de Paris prima di prenotare.",
             "Partenze ogni 30 min ai piedi della Torre Eiffel. Ponte aperto a 360° e audioguida mobile."
         ]

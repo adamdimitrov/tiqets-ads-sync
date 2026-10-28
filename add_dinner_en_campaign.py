@@ -87,7 +87,7 @@ headlines_ad1 = [
     {"text": "Top 5 Seine Dinner Cruises"},
     {"text": "Compare Menus & Prices"},
     {"text": "Best Dinner Cruise in Paris"},
-    {"text": "Official Tickets From €65"},
+    {"text": "Instant Tickets From €65"},
     {"text": "Save Up To 30% Online"},
     {"text": "Bateaux Mouches & Parisiens"},
     {"text": "Gourmet 3 & 4-Course Dinners"},
@@ -103,7 +103,7 @@ headlines_ad1 = [
 headlines_ad2 = [
     {"text": "Best Dinner Cruise in Paris", "pinnedField": "HEADLINE_1"},
     {"text": "Compare Menus & Prices", "pinnedField": "HEADLINE_2"},
-    {"text": "Official Tickets From €65"},
+    {"text": "Instant Tickets From €65"},
     {"text": "Paris Dinner Cruises 2026"},
     {"text": "Top 5 Seine Dinner Cruises"},
     {"text": "Save Up To 30% Online"},

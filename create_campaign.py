@@ -182,7 +182,7 @@ for text, match in bm_keywords:
 # 9. Responsive Search Ad for Bateaux Parisiens
 bp_headlines = [
     {"text": "Bateaux Parisiens Tickets", "pinnedField": "HEADLINE_1"},
-    {"text": "Official Pier 3 Eiffel Tower", "pinnedField": "HEADLINE_2"},
+    {"text": "Direct Pier 3 Eiffel Tower", "pinnedField": "HEADLINE_2"},
     {"text": "Instant Mobile QR Ticket"},
     {"text": "Adults €18, Kids €9 (50% Off)"},
     {"text": "Children Under 4 Free"},
@@ -195,7 +195,7 @@ bp_headlines = [
     {"text": "Audio Guide in 14 Languages"},
     {"text": "Open Upper Deck Panoramic View"},
     {"text": "Valid on Any Departure Today"},
-    {"text": "Official Digital River Pass"}
+    {"text": "Instant Digital River Pass"}
 ]
 
 bp_descriptions = [
@@ -228,7 +228,7 @@ bm_headlines = [
     {"text": "Bateaux Mouches Tickets", "pinnedField": "HEADLINE_1"},
     {"text": "Pont de l'Alma Boarding", "pinnedField": "HEADLINE_2"},
     {"text": "Instant Smartphone QR Ticket"},
-    {"text": "Official 360° Open Deck Cruise"},
+    {"text": "Iconic 360° Open Deck Cruise"},
     {"text": "Skip The Box Office Queue"},
     {"text": "Departures Every 30-45 Min"},
     {"text": "70-Minute Seine River Cruise"},
@@ -239,7 +239,7 @@ bm_headlines = [
     {"text": "Iconic Paris River Cruise"},
     {"text": "Adults €17, Kids €8"},
     {"text": "Children Under 4 Free"},
-    {"text": "Official Seine Digital Ticket"}
+    {"text": "Direct Seine Digital Ticket"}
 ]
 
 bm_descriptions = [
