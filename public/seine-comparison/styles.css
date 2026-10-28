@@ -1953,7 +1953,7 @@ body {
 .cta-btn-bpwin {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
     box-shadow: 0 4px 18px rgba(16, 185, 129, 0.38) !important;
-    border: 1px solid rgba(209, 250, 229, 0.4) !important;
+    border: none !important;
 }
 .cta-btn-bpwin:hover {
     background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
@@ -2152,15 +2152,15 @@ body {
 
 .mhc-btn-primary {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 2px solid #047857;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: none;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
 }
 
 .mhc-btn-primary .mhc-day {
     color: #ffffff;
     font-size: 1.05rem;
     font-weight: 800;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .mhc-btn-primary .mhc-sub {
@@ -2178,8 +2178,8 @@ body {
 
 .mhc-btn-secondary {
     background: #ffffff;
-    border: 2px solid #10b981;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #10b981;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .mhc-btn-secondary .mhc-day {
@@ -2319,7 +2319,7 @@ body {
 
 .qds-btn.qds-today {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border-color: #047857;
+    border-color: transparent;
     box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
 }
 

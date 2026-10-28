@@ -773,14 +773,14 @@ body {
 .fast-checkout-btn {
     display: block;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 2px solid #047857;
+    border: none;
     color: #ffffff;
     text-decoration: none;
     text-align: center;
     border-radius: var(--radius-md);
     padding: 14px 10px;
     font-weight: 800;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     cursor: pointer;
     width: 100%;
@@ -855,16 +855,16 @@ body {
 
 .wda-btn-primary {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 2px solid #047857;
-    padding: 13px 12px;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 14px 12px;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
 }
 
 .wda-btn-primary .wda-title {
     color: #ffffff;
     font-size: 16px;
     font-weight: 800;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     line-height: 1.2;
 }
 
@@ -889,7 +889,7 @@ body {
 
 .wda-btn-secondary {
     background: #ffffff;
-    border: 2px solid #10b981;
+    border: 1px solid #10b981;
     padding: 10px 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -1829,7 +1829,7 @@ body {
 
 .sticky-action-btn {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 1.5px solid #047857;
+    border: none;
     color: #fff;
     text-decoration: none;
     font-size: 13.5px;

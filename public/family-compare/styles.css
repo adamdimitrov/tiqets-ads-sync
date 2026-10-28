@@ -373,12 +373,12 @@ body {
 .btn-primary-action {
     display: block;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 2px solid #047857;
+    border: none;
     color: #ffffff;
     text-decoration: none;
     padding: 16px 20px;
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -613,7 +613,7 @@ body {
 
 .sticky-action-btn {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: 1.5px solid #047857;
+    border: none;
     color: #ffffff;
     text-decoration: none;
     font-size: 13.5px;
