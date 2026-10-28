@@ -2092,11 +2092,41 @@ body {
     margin: 0 0 1.25rem 0;
 }
 
+/* MHC CTA Micro-prompt header */
+.mhc-cta-prompt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+}
+
+.mhc-prompt-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.mhc-prompt-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #92400e;
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
 .mhc-actions {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 0.95rem;
+    gap: 0.85rem;
+    margin-bottom: 1.15rem;
 }
 
 .mhc-btn {
@@ -2104,64 +2134,84 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.85rem 0.6rem;
-    border-radius: 12px;
+    padding: 0.95rem 0.75rem;
+    border-radius: 14px;
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     text-align: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.mhc-btn:active {
+    transform: scale(0.98);
 }
 
 .mhc-btn-primary {
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    border: 1.5px solid #b45309;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
+    border: 2px solid #b45309;
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .mhc-btn-primary .mhc-day {
     color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .mhc-btn-primary .mhc-sub {
     color: #fef3c7;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-top: 4px;
 }
 
 .mhc-btn-primary:hover {
     transform: translateY(-2px);
     background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    box-shadow: 0 6px 20px rgba(180, 83, 9, 0.38);
+    box-shadow: 0 6px 22px rgba(180, 83, 9, 0.42);
 }
 
 .mhc-btn-secondary {
     background: #ffffff;
-    border: 1.5px solid #e5e7eb;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 2px solid #d97706;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .mhc-btn-secondary .mhc-day {
-    color: #1f2937;
+    color: #1c1917;
+    font-size: 1.02rem;
+    font-weight: 800;
 }
 
 .mhc-btn-secondary .mhc-sub {
-    color: #6b7280;
+    color: #b45309;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-top: 4px;
 }
 
 .mhc-btn-secondary:hover {
     transform: translateY(-2px);
-    border-color: #f59e0b;
     background: #fffbeb;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+    border-color: #b45309;
+    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.18);
+}
+
+.mhc-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-weight: 800;
+}
+
+.mhc-btn:hover .mhc-arrow {
+    transform: translateX(4px);
 }
 
 .mhc-day {
-    font-size: 1.02rem;
-    font-weight: 800;
     line-height: 1.2;
-}
-
-.mhc-sub {
-    font-size: 0.72rem;
-    font-weight: 600;
-    margin-top: 3px;
 }
 
 .mhc-footer {
@@ -2574,6 +2624,15 @@ details.collapsible-matrix-card[open] .matrix-toggle-badge {
     .mhc-name {
         font-size: 1.15rem;
     }
+    .mhc-cta-prompt {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        margin-bottom: 0.55rem;
+    }
+    .mhc-prompt-label {
+        font-size: 0.8rem;
+    }
     .mhc-actions {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
@@ -2582,20 +2641,23 @@ details.collapsible-matrix-card[open] .matrix-toggle-badge {
         grid-column: 1 / -1;
         flex-direction: row;
         justify-content: space-between;
-        padding: 0.85rem 1.1rem;
+        padding: 0.9rem 1.15rem;
+    }
+    .mhc-btn-primary .mhc-day {
+        font-size: 1.02rem;
     }
     .mhc-btn-primary .mhc-sub {
         margin-top: 0;
-        font-size: 0.78rem;
+        font-size: 0.8rem;
     }
     .mhc-btn-secondary {
-        padding: 0.7rem 0.5rem;
+        padding: 0.8rem 0.5rem;
     }
-    .mhc-day {
-        font-size: 0.92rem;
+    .mhc-btn-secondary .mhc-day {
+        font-size: 0.88rem;
     }
-    .mhc-sub {
-        font-size: 0.68rem;
+    .mhc-btn-secondary .mhc-sub {
+        font-size: 0.7rem;
     }
     .mhc-footer {
         flex-direction: column;
