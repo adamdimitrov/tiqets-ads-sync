@@ -1999,8 +1999,186 @@ body {
 }
 
 /* ==========================================================================
-   INSTANT DATE SELECTOR BAR & MOBILE STICKY BUTTON OVERFLOW FIX
+   UNIFIED MASTER WINNER HERO CARD & MOBILE STICKY BUTTON OVERFLOW FIX
    ========================================================================== */
+
+.master-hero-card {
+    background: linear-gradient(180deg, #fffcf5 0%, #ffffff 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.25rem;
+    box-shadow: 0 8px 30px rgba(180, 83, 9, 0.09);
+    position: relative;
+    overflow: hidden;
+}
+
+.mhc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.mhc-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mhc-crown {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.mhc-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.mhc-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #b45309;
+    text-transform: uppercase;
+}
+
+.mhc-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.mhc-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #065f46;
+}
+
+.mhc-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: mhcPulse 2s infinite ease-in-out;
+    flex-shrink: 0;
+}
+
+@keyframes mhcPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.25); }
+}
+
+.mhc-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+}
+
+.mhc-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.95rem;
+}
+
+.mhc-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 0.6rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+}
+
+.mhc-btn-primary {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: 1.5px solid #b45309;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
+}
+
+.mhc-btn-primary .mhc-day {
+    color: #ffffff;
+}
+
+.mhc-btn-primary .mhc-sub {
+    color: #fef3c7;
+}
+
+.mhc-btn-primary:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    box-shadow: 0 6px 20px rgba(180, 83, 9, 0.38);
+}
+
+.mhc-btn-secondary {
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.mhc-btn-secondary .mhc-day {
+    color: #1f2937;
+}
+
+.mhc-btn-secondary .mhc-sub {
+    color: #6b7280;
+}
+
+.mhc-btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: #f59e0b;
+    background: #fffbeb;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.mhc-day {
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.mhc-sub {
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.mhc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #78716c;
+    border-top: 1px dashed rgba(245, 158, 11, 0.3);
+    padding-top: 0.75rem;
+}
+
+.mhc-footer-item strong {
+    color: #1f2937;
+}
 
 .quick-date-selector-bar {
     background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
@@ -2196,6 +2374,47 @@ body {
         white-space: nowrap !important;
         flex-shrink: 0 !important;
         letter-spacing: -0.01em !important;
+    }
+    .master-hero-card {
+        padding: 1.15rem 1rem;
+        margin-bottom: 1.75rem;
+    }
+    .mhc-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .mhc-name {
+        font-size: 1.15rem;
+    }
+    .mhc-actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .mhc-btn-primary {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.85rem 1.1rem;
+    }
+    .mhc-btn-primary .mhc-sub {
+        margin-top: 0;
+        font-size: 0.78rem;
+    }
+    .mhc-btn-secondary {
+        padding: 0.7rem 0.5rem;
+    }
+    .mhc-day {
+        font-size: 0.92rem;
+    }
+    .mhc-sub {
+        font-size: 0.68rem;
+    }
+    .mhc-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        font-size: 0.74rem;
     }
     .qds-actions {
         grid-template-columns: 1fr;
