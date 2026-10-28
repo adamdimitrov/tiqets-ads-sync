@@ -31,8 +31,9 @@
 
 html, body {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
+    overflow-x: clip;
     position: relative;
 }
 
@@ -1132,6 +1133,9 @@ body {
     overflow: hidden;
     margin: 10px 0 16px;
     box-shadow: var(--shadow-sm);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .itinerary-map-header {
@@ -1197,6 +1201,8 @@ body {
     background: #ffffff;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
 }
 
 .itinerary-illustrated-map {

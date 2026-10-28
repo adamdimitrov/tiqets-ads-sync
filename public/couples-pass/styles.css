@@ -18,6 +18,14 @@
     padding: 0;
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
+}
+
 body {
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     color: var(--text-body);
