@@ -517,6 +517,30 @@
       "dest": "/public/seine-comparison/index.html"
     },
     {
+      "src": "/amsterdam-comparison/styles.css",
+      "dest": "/public/amsterdam-comparison/styles.css"
+    },
+    {
+      "src": "/amsterdam-comparison/script.js",
+      "dest": "/public/amsterdam-comparison/script.js"
+    },
+    {
+      "src": "/amsterdam-comparison/?",
+      "dest": "/public/amsterdam-comparison/index.html"
+    },
+    {
+      "src": "/amsterdam-canal-cruises/?",
+      "dest": "/public/amsterdam-comparison/index.html"
+    },
+    {
+      "src": "/amsterdam-canal-cruise/?",
+      "dest": "/public/amsterdam-comparison/index.html"
+    },
+    {
+      "src": "/best-amsterdam-canal-cruises/?",
+      "dest": "/public/amsterdam-comparison/index.html"
+    },
+    {
       "src": "/fr/croisiere-seine-paris/script.js",
       "dest": "/public/fr/croisiere-seine-paris/script.js"
     },
