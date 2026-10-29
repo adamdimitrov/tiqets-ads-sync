@@ -2028,6 +2028,719 @@ body {
     background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
     box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38) !important;
 }
+/* ==========================================================================
+   UNIFIED MASTER WINNER HERO CARD & MOBILE STICKY BUTTON OVERFLOW FIX
+   ========================================================================== */
+
+.master-hero-card {
+    background: linear-gradient(180deg, #fffcf5 0%, #ffffff 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.25rem;
+    box-shadow: 0 8px 30px rgba(180, 83, 9, 0.09);
+    position: relative;
+    overflow: hidden;
+}
+
+.mhc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.mhc-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mhc-crown {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.mhc-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.mhc-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #b45309;
+    text-transform: uppercase;
+}
+
+.mhc-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.mhc-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #065f46;
+}
+
+.mhc-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: mhcPulse 2s infinite ease-in-out;
+    flex-shrink: 0;
+}
+
+@keyframes mhcPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.25); }
+}
+
+.mhc-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+}
+
+/* MHC CTA Micro-prompt header */
+.mhc-cta-prompt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+}
+
+.mhc-prompt-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.mhc-prompt-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #065f46;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
+.mhc-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 1.15rem;
+}
+
+.mhc-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 0.75rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.mhc-btn:active {
+    transform: scale(0.98);
+}
+
+.mhc-btn-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+}
+
+.mhc-btn-primary .mhc-day {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.mhc-btn-primary .mhc-sub {
+    color: #d1fae5;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.mhc-btn-primary:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
+}
+
+.mhc-btn-secondary {
+    background: #ffffff;
+    border: 1px solid #10b981;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mhc-btn-secondary .mhc-day {
+    color: #1c1917;
+    font-size: 1.02rem;
+    font-weight: 800;
+}
+
+.mhc-btn-secondary .mhc-sub {
+    color: #059669;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.mhc-btn-secondary:hover {
+    transform: translateY(-2px);
+    background: #ecfdf5;
+    border-color: #059669;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.18);
+}
+
+.mhc-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-weight: 800;
+}
+
+.mhc-btn:hover .mhc-arrow {
+    transform: translateX(4px);
+}
+
+.mhc-day {
+    line-height: 1.2;
+}
+
+.mhc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #78716c;
+    border-top: 1px dashed rgba(245, 158, 11, 0.3);
+    padding-top: 0.75rem;
+}
+
+.mhc-footer-item strong {
+    color: #1f2937;
+}
+
+.quick-date-selector-bar {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 14px;
+    padding: 1.1rem 1.35rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.14);
+}
+
+.qds-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.qds-live-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: #92400e;
+}
+
+.qds-live-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: qdsPulse 2s infinite ease-in-out;
+    flex-shrink: 0;
+}
+
+@keyframes qdsPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.25); }
+}
+
+.qds-title {
+    font-weight: 500;
+}
+
+.qds-badge {
+    background: #059669;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.qds-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.qds-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.6rem;
+    background: #ffffff;
+    border: 1.5px solid #d97706;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.qds-btn:hover {
+    transform: translateY(-2px);
+    background: #fffbeb;
+    border-color: #b45309;
+    box-shadow: 0 6px 14px rgba(180, 83, 9, 0.18);
+}
+
+.qds-btn.qds-today {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+}
+
+.qds-btn.qds-today .qds-day {
+    color: #ffffff;
+}
+
+.qds-btn.qds-today .qds-sub {
+    color: #d1fae5;
+}
+
+.qds-btn.qds-today:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+}
+
+.qds-day {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1c1917;
+    line-height: 1.2;
+}
+
+.qds-sub {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #78716c;
+    margin-top: 3px;
+}
+
+.qds-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #78716c;
+    font-weight: 600;
+    border-top: 1px dashed rgba(217, 119, 6, 0.25);
+    padding-top: 0.65rem;
+}
+
+/* ==========================================================================
+   COLLAPSIBLE SECTIONS (WARNING CALLOUT & COMPARISON MATRIX)
+   ========================================================================== */
+
+/* Remove default browser marker */
+details summary::-webkit-details-marker {
+    display: none;
+}
+details summary {
+    list-style: none;
+}
+
+/* Collapsible Warning Callout */
+details.collapsible-warning {
+    background: #fffbeb;
+    border: 1.5px solid #f59e0b;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+details.collapsible-warning summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    gap: 0.75rem;
+}
+
+details.collapsible-warning summary:hover {
+    background: #fef3c7;
+}
+
+.warning-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.warning-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #92400e;
+    line-height: 1.35;
+}
+
+.warning-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.collapsible-toggle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff;
+    border: 1px solid #d97706;
+    color: #b45309;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+details.collapsible-warning[open] .collapsible-toggle-badge {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+.collapsible-content {
+    padding: 0.25rem 1.25rem 1.25rem 1.25rem;
+    border-top: 1px dashed rgba(245, 158, 11, 0.3);
+}
+
+.accordion-arrow {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.7rem;
+}
+
+details[open] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+/* Collapsible Matrix Card */
+details.collapsible-matrix-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    transition: border-color 0.2s ease;
+}
+
+details.collapsible-matrix-card:hover {
+    border-color: #cbd5e1;
+}
+
+details.collapsible-matrix-card summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    gap: 1rem;
+    background: #fafafa;
+}
+
+details.collapsible-matrix-card summary:hover {
+    background: #f4f4f5;
+}
+
+.matrix-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.matrix-icon {
+    font-size: 1.7rem;
+    flex-shrink: 0;
+}
+
+.matrix-heading-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #4b5563;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.matrix-heading {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.25;
+}
+
+.matrix-subtext {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.matrix-toggle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #ffffff;
+    border: 1.5px solid #d1d5db;
+    color: #1f2937;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+details.collapsible-matrix-card[open] .matrix-toggle-badge {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #1f2937;
+}
+
+.collapsible-matrix-content {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+/* Floating Sticky Button Responsive Text Display */
+.btn-text-short {
+    display: none;
+}
+.btn-text-full {
+    display: inline;
+}
+
+@media (max-width: 680px) {
+    .btn-text-full {
+        display: none !important;
+    }
+    .btn-text-short {
+        display: inline !important;
+        font-weight: 800;
+        font-size: 0.85rem;
+    }
+    .sticky-mobile-bar {
+        padding: 0.5rem 0.75rem !important;
+    }
+    .sticky-inner {
+        gap: 0.45rem !important;
+    }
+    .sticky-boat-info {
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+        gap: 0.5rem !important;
+    }
+    .sticky-thumb-img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .sticky-text {
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+    .sticky-title-row {
+        gap: 0.35rem !important;
+    }
+    .sticky-rank-badge {
+        font-size: 0.58rem !important;
+        padding: 0.1rem 0.3rem !important;
+    }
+    .sticky-text strong {
+        font-size: 0.82rem !important;
+        max-width: 110px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .sticky-price-tag {
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+    }
+    .sticky-desc-text, .sticky-bullet {
+        display: none !important;
+    }
+    .btn-sticky-cta {
+        padding: 0.55rem 0.8rem !important;
+        font-size: 0.82rem !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        letter-spacing: -0.01em !important;
+    }
+    .master-hero-card {
+        padding: 1.15rem 1rem;
+        margin-bottom: 1.75rem;
+    }
+    .mhc-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .mhc-name {
+        font-size: 1.15rem;
+    }
+    .mhc-cta-prompt {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        margin-bottom: 0.55rem;
+    }
+    .mhc-prompt-label {
+        font-size: 0.8rem;
+    }
+    .mhc-actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .mhc-btn-primary {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.9rem 1.15rem;
+    }
+    .mhc-btn-primary .mhc-day {
+        font-size: 1.02rem;
+    }
+    .mhc-btn-primary .mhc-sub {
+        margin-top: 0;
+        font-size: 0.8rem;
+    }
+    .mhc-btn-secondary {
+        padding: 0.8rem 0.5rem;
+    }
+    .mhc-btn-secondary .mhc-day {
+        font-size: 0.88rem;
+    }
+    .mhc-btn-secondary .mhc-sub {
+        font-size: 0.7rem;
+    }
+    .mhc-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+        font-size: 0.74rem;
+    }
+    details.collapsible-warning summary {
+        padding: 0.85rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .warning-heading {
+        font-size: 0.92rem;
+    }
+    details.collapsible-matrix-card summary {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
+    .matrix-heading {
+        font-size: 1.15rem;
+    }
+    .matrix-toggle-badge {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .collapsible-matrix-content {
+        padding: 1rem 0.75rem 1rem;
+    }
+    .qds-actions {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .qds-btn {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.65rem 1rem;
+    }
+    .qds-sub {
+        margin-top: 0;
+    }
+}
 
 </style>
 
@@ -2064,10 +2777,56 @@ body {
             <p class="subtitle">Every major boat company in Amsterdam advertises 5-star perfection—so we boarded and tested the city's top 5 canal tours in person. Compare panoramic glass roofs, boutique open-air sloops, 19-language audio guides vs. live skippers, Central Station boarding piers, unlimited drinks packages, and 2026 ticket prices.</p>
 
             <div class="author-meta-box">
-                <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/652d0405192ba076b04f792e_Adam-dimitrov-portrait-75x75.webp" alt="Adam Dimitrov" class="author-avatar">
+                <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/652d0405192ba076b04f74a3/652d0405192ba076b04f792e_Adam-dimitrov-portrait-75x75.webp" alt="Adam Dimitrov" class="author-avatar">
                 <div class="author-details">
                     <p class="author-name">Written by <strong>Adam Dimitrov</strong>, Amsterdam Cruise Specialist</p>
                     <p class="author-date">Updated: <span id="dynamic-date">October 2026</span> • 12 min read • Tested in Person</p>
+                </div>
+            </div>
+
+            <!-- Unified #1 Recommendation & Live Booking Hero Card -->
+            <div class="master-hero-card">
+                <div class="mhc-header">
+                    <div class="mhc-brand">
+                        <span class="mhc-crown">👑</span>
+                        <div class="mhc-titles">
+                            <span class="mhc-eyebrow">OUR #1 TESTED RECOMMENDATION</span>
+                            <h3 class="mhc-name">Lovers Canal Cruises (Central Station)</h3>
+                        </div>
+                    </div>
+                    <div class="mhc-status-pill">
+                        <span class="mhc-pulse-dot"></span>
+                        <span class="mhc-status-text">Departing every 15–30m • Central Station Pier</span>
+                    </div>
+                </div>
+
+                <p class="mhc-desc">
+                    The gold-standard 1-hour Amsterdam canal cruise: modern all-weather glass saloon with sliding roof, individual GPS audio headsets in 19 languages with free earphones, and 100% flexible open-time tickets. Board any departure today whenever you arrive.
+                </p>
+
+                <div class="mhc-cta-prompt">
+                    <span class="mhc-prompt-label">👇 Select a date to book official Central Station passes:</span>
+                    <span class="mhc-prompt-badge">⚡ Instant Smartphone Barcode</span>
+                </div>
+
+                <div class="mhc-actions">
+                    <a href="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-hero-today" class="mhc-btn mhc-btn-primary" target="_blank" rel="noopener">
+                        <span class="mhc-day">⚡ Book Today (€16)</span>
+                        <span class="mhc-sub">Instant Boarding Pass <span class="mhc-arrow">→</span></span>
+                    </a>
+                    <a href="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-hero-tomorrow" class="mhc-btn mhc-btn-secondary" target="_blank" rel="noopener">
+                        <span class="mhc-day">🌅 Book Tomorrow</span>
+                        <span class="mhc-sub">Reserve Any Slot (€16) <span class="mhc-arrow">→</span></span>
+                    </a>
+                    <a href="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-hero-calendar" class="mhc-btn mhc-btn-secondary" target="_blank" rel="noopener">
+                        <span class="mhc-day">📅 Pick Any Date</span>
+                        <span class="mhc-sub">Open 2026 Calendar <span class="mhc-arrow">→</span></span>
+                    </a>
+                </div>
+
+                <div class="mhc-footer">
+                    <span class="mhc-footer-item">🎟️ <strong>€16 Adults</strong> • €8 Kids (50% OFF, ages 4–13) • Under 4 FREE</span>
+                    <span class="mhc-footer-item">⚡ <strong>Instant QR Ticket</strong> • Skip 45-Min Station Ticket Line</span>
                 </div>
             </div>
 
@@ -2085,47 +2844,45 @@ body {
                 <a href="#faq-section" class="filter-pill">💡 Pro Tips & FAQs</a>
             </div>
 
-            <!-- Hero Image -->
-            <div class="hero-image-wrapper">
-                <img src="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/656b5237222689efacce475b_best-amsterdam-canal-cruises-featured-image.webp" alt="Sightseeing canal boat cruising past 17th century merchant houses in Amsterdam" class="hero-image">
-                <p class="caption">Gliding through the 400-year-old UNESCO World Heritage Canal Ring is Amsterdam's essential experience—provided you pick the right boat layout and skip the station ticket queues.</p>
-            </div>
-
-            <!-- The Honest Insider Breakdown -->
-            <div class="warning-callout">
-                <h3>⚠️ Is an Amsterdam Canal Cruise Worth It—And What Are the 4 Costly Rookie Traps?</h3>
-                <p><strong>The Honest Insider Answer:</strong> At €16 to €42 for a 60–90 minute voyage through 100+ kilometers of UNESCO-listed waterways and under iconic arched stone bridges, an Amsterdam canal cruise is unquestionably the best way to understand the city's 17th-century Golden Age heritage. However, our field testing uncovered 4 recurring rookie mistakes:</p>
-                <ul>
-                    <li><strong>The Stationsplein Ticket Booth Trap:</strong> Walking up to the canal docks outside Amsterdam Central Station without an online ticket means getting stuck in a 45–60 minute physical queue during peak hours (10:30 AM – 3:30 PM). An instant smartphone QR ticket costs the exact same (€16), guarantees priority boarding access, and lets you walk straight to the turnstile.</li>
-                    <li><strong>The "Freezing Plastic Sloop" Trap:</strong> Smaller open-air sloops (Captain Jack, Flagship, Friendship) are delightful in July sunshine. But in autumn, winter, or rainy Dutch weather, their makeshift clear plastic canopies mist up completely, leak around the edges, and lack real heating. For cold or rainy days, stick to modern climate-controlled glass boats with radiators (Lovers #1 or Blue Boat #4).</li>
-                    <li><strong>19-Language GPS Audio Headsets vs. Live English Skipper:</strong> If you or your travel companions are not fluent in English, booking a boutique sloop with a live English skipper means missing the entire historical narrative. Traditional cruisers (Lovers #1 and Blue Boat #4) provide personal GPS headsets in 19 languages (including free earphones) with tailored storylines for kids.</li>
-                    <li><strong>The "Party Booze Cruise" Confusion:</strong> Amsterdam canal tours range from peaceful historical sightseeing to wild bachelor party booze cruises. If you want cultural sightseeing with relaxed drink service, pick Lovers (#1) or Captain Jack (#2). Avoid generic "booze boats" unless you specifically want deafening pop music and unruly stag groups.</li>
-                </ul>
-            </div>
-
-            <!-- TL;DR Winner Box -->
-            <div class="tldr-winner-box">
-                <div class="tldr-header">
-                    <span class="crown-icon">👑</span>
-                    <div>
-                        <span class="tldr-badge">THE QUICK ANSWER</span>
-                        <h3>Our #1 Overall Recommendation: Lovers Canal Cruises</h3>
+            <!-- The Honest Insider Breakdown (Collapsible) -->
+            <details class="collapsible-warning warning-callout" id="insider-warning-traps">
+                <summary class="warning-summary">
+                    <div class="warning-summary-title">
+                        <span class="warning-icon">⚠️</span>
+                        <span class="warning-heading">Is an Amsterdam Canal Cruise Worth It—And What Are the 4 Costly Rookie Traps?</span>
                     </div>
+                    <span class="collapsible-toggle-badge">Read 4 Traps <span class="accordion-arrow">▼</span></span>
+                </summary>
+                <div class="collapsible-content">
+                    <p><strong>The Honest Insider Answer:</strong> At €16 to €42 for a 60–90 minute voyage through 100+ kilometers of UNESCO-listed waterways and under iconic arched stone bridges, an Amsterdam canal cruise is unquestionably the best way to understand the city's 17th-century Golden Age heritage. However, our field testing uncovered 4 recurring rookie mistakes:</p>
+                    <ul>
+                        <li><strong>The Stationsplein Ticket Booth Trap:</strong> Walking up to the canal docks outside Amsterdam Central Station without an online ticket means getting stuck in a 45–60 minute physical queue during peak hours (10:30 AM – 3:30 PM). An instant smartphone QR ticket costs the exact same (€16), guarantees priority boarding access, and lets you walk straight to the turnstile.</li>
+                        <li><strong>The "Freezing Plastic Sloop" Trap:</strong> Smaller open-air sloops (Captain Jack, Flagship, Friendship) are delightful in July sunshine. But in autumn, winter, or rainy Dutch weather, their makeshift clear plastic canopies mist up completely, leak around the edges, and lack real heating. For cold or rainy days, stick to modern climate-controlled glass boats with radiators (Lovers #1 or Blue Boat #4).</li>
+                        <li><strong>19-Language GPS Audio Headsets vs. Live English Skipper:</strong> If you or your travel companions are not fluent in English, booking a boutique sloop with a live English skipper means missing the entire historical narrative. Traditional cruisers (Lovers #1 and Blue Boat #4) provide personal GPS headsets in 19 languages (including free earphones) with tailored storylines for kids.</li>
+                        <li><strong>The "Party Booze Cruise" Confusion:</strong> Amsterdam canal tours range from peaceful historical sightseeing to wild bachelor party booze cruises. If you want cultural sightseeing with relaxed drink service, pick Lovers (#1) or Captain Jack (#2). Avoid generic "booze boats" unless you specifically want deafening pop music and unruly stag groups.</li>
+                    </ul>
                 </div>
-                <p>If you want the most convenient, reliable, best-equipped 1-hour canal cruise right at Amsterdam Central Station: <strong>Lovers Canal Cruises</strong> is our undisputed #1 tested winner. You board directly across from Central Station (Prins Hendrikkade 25), enjoy panoramic all-weather glass saloons with sliding windows and an open rear deck, receive a crystal-clear <strong>19-language personal GPS audio guide</strong> with complimentary earphones, and get unbeatable pricing (€16 Adults • €8 Kids ages 4–13 • Under 4 FREE).</p>
-                <a href="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-tldr" class="cta-button cta-btn-lovers pulse-effect" target="_blank" rel="noopener">
-                    Check Lovers Canal Cruise Tickets (€16) →
-                </a>
-                <span class="subtext-note">🔒 Official Tiqets Instant Smartphone QR Ticket • Departs Every 15–30 Mins • Kids 50% OFF (€8)</span>
-            </div>
+            </details>
 
-            <!-- Head-to-Head Comparison Table -->
-            <h2 class="section-title" id="comparison-matrix">Head-to-Head Comparison Matrix</h2>
-            <p class="section-desc">Here is how the top 5 personally tested Amsterdam canal cruises compare across vessel type, commentary, departure location, drinks options, and 2026 ticket prices:</p>
+            <!-- Head-to-Head Comparison Table (Collapsible) -->
+            <details class="collapsible-matrix-card" id="comparison-matrix">
+                <summary class="matrix-summary">
+                    <div class="matrix-summary-title">
+                        <span class="matrix-icon">📊</span>
+                        <div class="matrix-heading-wrap">
+                            <span class="matrix-tag">SIDE-BY-SIDE SPECS</span>
+                            <h2 class="matrix-heading">Head-to-Head Comparison Matrix</h2>
+                            <span class="matrix-subtext">Compare vessel type, audio commentary, boarding location &amp; prices across all 5 boats</span>
+                        </div>
+                    </div>
+                    <span class="matrix-toggle-badge">View 5-Boat Matrix <span class="accordion-arrow">▼</span></span>
+                </summary>
+                <div class="collapsible-matrix-content">
+                    <p class="section-desc">Here is how the top 5 personally tested Amsterdam canal cruises compare across vessel type, commentary, departure location, drinks options, and 2026 ticket prices:</p>
 
-            <div class="table-scroll-hint">👉 Swipe horizontally to compare all 5 boats & specs</div>
-            <div class="table-responsive">
-                <table class="comparison-table">
+                    <div class="table-scroll-hint">👉 Swipe horizontally to compare all 5 boats & specs</div>
+                    <div class="table-responsive">
+                        <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>Criteria</th>
@@ -2269,6 +3026,8 @@ body {
                     </tbody>
                 </table>
             </div>
+        </div>
+    </details>
 
             <!-- Deep Dive #1: Lovers Canal Cruises -->
             <div class="boat-card winner-card" id="boat-lovers-canal"
@@ -2278,6 +3037,7 @@ body {
                  data-boat-price="€16 Adult • €8 Kid"
                  data-boat-desc="Central Station Pier • 19 Audio Languages"
                  data-boat-btn="Get Lovers Canal Tickets →"
+                 data-boat-btn-short="Book (€16) →"
                  data-boat-btn-class="cta-btn-lovers"
                  data-boat-url="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-sticky"
                  data-boat-thumb="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/659072ab015470c887bdb2a6_amsterdam-canal-cruise-lovers-canal%20(20).webp">
@@ -2482,6 +3242,7 @@ body {
                  data-boat-price="€27.50–€42.50"
                  data-boat-desc="Max 20 Pax • Unlimited Beer, Wine & Gouda"
                  data-boat-btn="Check Captain Jack Tickets →"
+                 data-boat-btn-short="Book (€42) →"
                  data-boat-btn-class="cta-btn-cjack"
                  data-boat-url="https://www.getyourguide.com/amsterdam-l36/amsterdam-all-inclusive-family-friendly-sightseeing-cruise-t412862/?partner_id=YS414AJ&utm_medium=online_publisher&cmp=ams-comparison-cjack-sticky&mkt_cmp=true"
                  data-boat-thumb="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/658f0ecbd7d409840b9ead59_amsterdam-canal-cruise-captain-jack%20(2).webp">
@@ -2592,6 +3353,7 @@ body {
                  data-boat-price="€16.50–€35"
                  data-boat-desc="Anne Frank & Central Docks • Live Guide"
                  data-boat-btn="Check Flagship Amsterdam Tickets →"
+                 data-boat-btn-short="Book (€20) →"
                  data-boat-btn-class="cta-btn-flagship"
                  data-boat-url="https://www.getyourguide.com/amsterdam-l36/amsterdam-90-minute-boat-cruise-with-drinks-and-snacks-t313498/?partner_id=YS414AJ&utm_medium=online_publisher&cmp=ams-comparison-flagship-sticky&mkt_cmp=true"
                  data-boat-thumb="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/659073740382270a544ddd40_amsterdam-canal-cruise-flagship%20(5).webp">
@@ -2701,6 +3463,7 @@ body {
                  data-boat-price="€15.00–€18.50"
                  data-boat-desc="Museum Quarter Dock • Onboard Restrooms"
                  data-boat-btn="Check Blue Boat Tickets →"
+                 data-boat-btn-short="Book (€18) →"
                  data-boat-btn-class="cta-btn-blueboat"
                  data-boat-url="https://www.getyourguide.com/amsterdam-l36/city-canal-cruise-t8271/?partner_id=YS414AJ&utm_medium=online_publisher&cmp=ams-comparison-blueboat-sticky&mkt_cmp=true"
                  data-boat-thumb="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/659074e3eadc405562bff51f_amsterdam-canal-cruise-blue-boat%20(3).webp">
@@ -2810,6 +3573,7 @@ body {
                  data-boat-price="€24.00–€43.00"
                  data-boat-desc="Historic Center Pier • Cocktail Bar Onboard"
                  data-boat-btn="Check Friendship Tickets →"
+                 data-boat-btn-short="Book (€24) →"
                  data-boat-btn-class="cta-btn-friendship"
                  data-boat-url="https://www.getyourguide.com/amsterdam-l36/amsterdam-1-hour-gin-tonic-canal-sightseeing-cruise-t420957/?partner_id=YS414AJ&utm_medium=online_publisher&cmp=ams-comparison-friendship-sticky&mkt_cmp=true"
                  data-boat-thumb="https://cdn.prod.website-files.com/652d0405192ba076b04f74a3/659075fa8f4163a153f33119_amsterdam-canal-cruise-friendship%20(15).webp">
@@ -3085,7 +3849,8 @@ body {
                 </div>
             </div>
             <a id="sticky-cta-btn" href="https://www.tiqets.com/en/amsterdam-attractions-c75061/tickets-for-amsterdam-lovers-canal-cruise-from-central-station-p973666/?partner=deals.cruisedetective.com&tq_campaign=ams-comparison-lovers-sticky" class="btn-sticky-cta cta-btn-lovers" target="_blank" rel="noopener">
-                Get Lovers Canal Tickets →
+                <span class="btn-text-full">Get Lovers Canal Tickets →</span>
+                <span class="btn-text-short">Book (€16) →</span>
             </a>
         </div>
     </aside>
@@ -3384,7 +4149,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (stickyDesc && desc) stickyDesc.textContent = desc;
 
                 if (stickyBtn) {
-                    if (btnText) stickyBtn.textContent = btnText;
+                    const fullText = activeCard.getAttribute('data-boat-btn') || 'Book Tickets →';
+                    const shortText = activeCard.getAttribute('data-boat-btn-short') || 'Book →';
+                    stickyBtn.innerHTML = `<span class="btn-text-full">${fullText}</span><span class="btn-text-short">${shortText}</span>`;
                     if (url) {
                         stickyBtn.href = url;
                         const activeClickId = getClickId();

@@ -287,7 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (stickyDesc && desc) stickyDesc.textContent = desc;
 
                 if (stickyBtn) {
-                    if (btnText) stickyBtn.textContent = btnText;
+                    const fullText = activeCard.getAttribute('data-boat-btn') || 'Book Tickets →';
+                    const shortText = activeCard.getAttribute('data-boat-btn-short') || 'Book →';
+                    stickyBtn.innerHTML = `<span class="btn-text-full">${fullText}</span><span class="btn-text-short">${shortText}</span>`;
                     if (url) {
                         stickyBtn.href = url;
                         const activeClickId = getClickId();
