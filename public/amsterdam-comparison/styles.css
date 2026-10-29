@@ -1932,99 +1932,60 @@ body {
     border: 1px solid #e9d5ff !important;
 }
 
-.table-btn-lovers, .table-btn-bpwin {
-    background: linear-gradient(135deg, #ea580c, #c2410c) !important;
-    box-shadow: 0 2px 8px rgba(194, 65, 12, 0.35);
-}
-.table-btn-cjack, .table-btn-bmrun {
-    background: linear-gradient(135deg, #0284c7, #0f172a) !important;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
-    border: 1px solid #0369a1;
-}
-.table-btn-flagship, .table-btn-vdp {
-    background: linear-gradient(135deg, #991b1b, #7f1d1d) !important;
-    box-shadow: 0 2px 8px rgba(153, 27, 27, 0.25);
-    border: 1px solid #b91c1c;
-}
-.table-btn-blueboat, .table-btn-pcan {
-    background: linear-gradient(135deg, #2563eb, #1e3a8a) !important;
-    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
-    border: 1px solid #1d4ed8;
-}
-.table-btn-friendship, .table-btn-bato {
-    background: linear-gradient(135deg, #16a34a, #14532d) !important;
-    box-shadow: 0 2px 8px rgba(20, 83, 45, 0.25);
-    border: 1px solid #15803d;
-}
-.table-btn-special {
-    background: linear-gradient(135deg, #7c3aed, #4c1d95) !important;
-    box-shadow: 0 2px 8px rgba(76, 29, 149, 0.25);
-    border: 1px solid #6d28d9;
+/* ========================================================
+   UNIFIED VIBRANT ORANGE CTA BUTTON DESIGN SYSTEM
+   ======================================================== */
+.table-btn-lovers,
+.table-btn-cjack,
+.table-btn-flagship,
+.table-btn-blueboat,
+.table-btn-friendship,
+.table-btn-special,
+.table-cta-btn {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #c2410c 100%) !important;
+    box-shadow: 0 2px 10px rgba(234, 88, 12, 0.35) !important;
+    border: none !important;
+    color: #ffffff !important;
 }
 
-.cta-btn-lovers, .cta-btn-bpwin {
+.table-btn-lovers:hover,
+.table-btn-cjack:hover,
+.table-btn-flagship:hover,
+.table-btn-blueboat:hover,
+.table-btn-friendship:hover,
+.table-btn-special:hover,
+.table-cta-btn:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    box-shadow: 0 4px 16px rgba(234, 88, 12, 0.5) !important;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+}
+
+.cta-button,
+.cta-btn-lovers,
+.cta-btn-cjack,
+.cta-btn-flagship,
+.cta-btn-blueboat,
+.cta-btn-friendship,
+.cta-btn-special,
+.btn-sticky-cta {
     background: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #c2410c 100%) !important;
     box-shadow: 0 4px 18px rgba(234, 88, 12, 0.38) !important;
     border: 1px solid rgba(254, 215, 170, 0.4) !important;
     color: #ffffff !important;
 }
-.cta-btn-lovers:hover, .cta-btn-bpwin:hover {
+
+.cta-button:hover,
+.cta-btn-lovers:hover,
+.cta-btn-cjack:hover,
+.cta-btn-flagship:hover,
+.cta-btn-blueboat:hover,
+.cta-btn-friendship:hover,
+.cta-btn-special:hover,
+.btn-sticky-cta:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
     box-shadow: 0 8px 24px rgba(234, 88, 12, 0.5) !important;
-}
-
-.cta-btn-cjack, .cta-btn-bmrun {
-    background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%) !important;
-    border: 1px solid #38bdf8 !important;
-    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.28) !important;
     color: #ffffff !important;
-}
-.cta-btn-cjack:hover, .cta-btn-bmrun:hover {
-    background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%) !important;
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.38) !important;
-}
-
-.cta-btn-flagship, .cta-btn-vdp {
-    background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%) !important;
-    border: 1px solid #b91c1c !important;
-    box-shadow: 0 4px 18px rgba(153, 27, 27, 0.28) !important;
-    color: #ffffff !important;
-}
-.cta-btn-flagship:hover, .cta-btn-vdp:hover {
-    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
-    box-shadow: 0 8px 24px rgba(153, 27, 27, 0.38) !important;
-}
-
-.cta-btn-blueboat, .cta-btn-pcan {
-    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%) !important;
-    border: 1px solid #3b82f6 !important;
-    box-shadow: 0 4px 18px rgba(30, 58, 138, 0.28) !important;
-    color: #ffffff !important;
-}
-.cta-btn-blueboat:hover, .cta-btn-pcan:hover {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38) !important;
-}
-
-.cta-btn-friendship, .cta-btn-bato {
-    background: linear-gradient(135deg, #16a34a 0%, #14532d 100%) !important;
-    border: 1px solid #22c55e !important;
-    box-shadow: 0 4px 18px rgba(20, 83, 45, 0.28) !important;
-    color: #ffffff !important;
-}
-.cta-btn-friendship:hover, .cta-btn-bato:hover {
-    background: linear-gradient(135deg, #22c55e 0%, #15803d 100%) !important;
-    box-shadow: 0 6px 20px rgba(22, 101, 52, 0.38) !important;
-}
-
-.cta-btn-special {
-    background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%) !important;
-    border: 1px solid #a855f7 !important;
-    box-shadow: 0 4px 18px rgba(76, 29, 149, 0.28) !important;
-    color: #ffffff !important;
-}
-.cta-btn-special:hover {
-    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38) !important;
 }
 /* ==========================================================================
    UNIFIED MASTER WINNER HERO CARD & MOBILE STICKY BUTTON OVERFLOW FIX
@@ -2177,20 +2138,20 @@ body {
 }
 
 .mhc-btn-primary {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border: none;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #c2410c 100%) !important;
+    border: none !important;
+    box-shadow: 0 4px 18px rgba(234, 88, 12, 0.38) !important;
 }
 
 .mhc-btn-primary .mhc-day {
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 1.05rem;
     font-weight: 800;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .mhc-btn-primary .mhc-sub {
-    color: #d1fae5;
+    color: #ffedd5 !important;
     font-size: 0.76rem;
     font-weight: 700;
     margin-top: 4px;
@@ -2198,24 +2159,24 @@ body {
 
 .mhc-btn-primary:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.5) !important;
 }
 
 .mhc-btn-secondary {
-    background: #ffffff;
-    border: 1px solid #10b981;
+    background: #ffffff !important;
+    border: 1.5px solid #ea580c !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .mhc-btn-secondary .mhc-day {
-    color: #1c1917;
+    color: #1c1917 !important;
     font-size: 1.02rem;
     font-weight: 800;
 }
 
 .mhc-btn-secondary .mhc-sub {
-    color: #059669;
+    color: #ea580c !important;
     font-size: 0.76rem;
     font-weight: 700;
     margin-top: 4px;
@@ -2223,9 +2184,9 @@ body {
 
 .mhc-btn-secondary:hover {
     transform: translateY(-2px);
-    background: #ecfdf5;
-    border-color: #059669;
-    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.18);
+    background: #fff7ed !important;
+    border-color: #c2410c !important;
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.18) !important;
 }
 
 .mhc-arrow {

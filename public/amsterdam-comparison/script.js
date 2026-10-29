@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const activeClickId = getClickId();
                         if (activeClickId) decorateLink(stickyBtn, activeClickId);
                     }
-                    stickyBtn.className = `btn-sticky-cta ${btnClass}`;
+                    stickyBtn.className = 'btn-sticky-cta cta-btn-lovers';
                 }
             }
             stickyBar.classList.add('visible');
