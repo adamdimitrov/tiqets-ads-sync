@@ -145,28 +145,17 @@ ops.append({
     }
 })
 
-# 7. Exact Match Keywords (100% Non-Branded Generic BOF - Tiqets TOS Compliant)
+# 7. Exact Match Keywords (Tight, Non-Redundant Core BOF Roots - Tiqets TOS Compliant)
 KEYWORDS = [
     "amsterdam canal cruise",
-    "amsterdam canal cruises",
-    "canal cruise amsterdam",
-    "canal cruises amsterdam",
     "amsterdam canal cruise tickets",
-    "canal cruise amsterdam tickets",
-    "best amsterdam canal cruise",
-    "best canal cruise amsterdam",
-    "best canal cruise in amsterdam",
-    "amsterdam boat tour",
-    "amsterdam boat tours",
-    "amsterdam boat tour tickets",
-    "amsterdam canal tour",
-    "amsterdam canal tours",
-    "amsterdam sightseeing cruise",
     "amsterdam canal cruise prices",
     "amsterdam canal cruise booking",
-    "amsterdam canal boat tour",
-    "amsterdam canal boat tours",
-    "best boat tour amsterdam"
+    "best amsterdam canal cruise",
+    "amsterdam boat tour",
+    "amsterdam boat tour tickets",
+    "best boat tour amsterdam",
+    "amsterdam sightseeing cruise"
 ]
 
 for kw in KEYWORDS:
