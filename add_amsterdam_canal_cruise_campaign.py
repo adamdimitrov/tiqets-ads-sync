@@ -145,7 +145,7 @@ ops.append({
     }
 })
 
-# 7. Exact Match Keywords
+# 7. Exact Match Keywords (100% Non-Branded Generic BOF - Tiqets TOS Compliant)
 KEYWORDS = [
     "amsterdam canal cruise",
     "amsterdam canal cruises",
@@ -162,11 +162,11 @@ KEYWORDS = [
     "amsterdam canal tour",
     "amsterdam canal tours",
     "amsterdam sightseeing cruise",
-    "lovers canal cruise amsterdam",
-    "lovers canal cruise",
-    "amsterdam lovers canal cruise",
-    "flagship amsterdam cruise",
-    "blue boat amsterdam"
+    "amsterdam canal cruise prices",
+    "amsterdam canal cruise booking",
+    "amsterdam canal boat tour",
+    "amsterdam canal boat tours",
+    "best boat tour amsterdam"
 ]
 
 for kw in KEYWORDS:
@@ -193,7 +193,7 @@ HEADLINES = [
     {"text": "Top 5 Amsterdam Boat Tours"},
     {"text": "Instant Mobile QR Tickets"},
     {"text": "Central Station Boarding"},
-    {"text": "Lovers, Flagship & Blue Boat"},
+    {"text": "Top 5 Canal Cruises Compared"},
     {"text": "Skip The Box Office Line"},
     {"text": "Audio Guide In 19 Languages"},
     {"text": "Heated Boats & Open Sloops"},
@@ -205,7 +205,7 @@ HEADLINES = [
 DESCRIPTIONS = [
     {"text": "We tested & ranked the top 5 Amsterdam canal cruises. Compare prices, piers & boat types."},
     {"text": "Official mobile QR tickets from €16. Skip the long box office queues at Central Station."},
-    {"text": "Compare Lovers, Flagship, Blue Boat & Captain Jack side by side before booking online."},
+    {"text": "Compare Amsterdam top 5 canal cruises side by side before booking online."},
     {"text": "Frequent departures outside Central Station. Heated panoramic boats & GPS audio guides."}
 ]
 
