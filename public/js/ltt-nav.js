@@ -197,6 +197,18 @@
     }
   }
 
+  // Global Expand / Collapse All Detailed Reviews controller
+  window.toggleAllDetails = function(open) {
+    var cards = document.querySelectorAll('details.bpa-details-card');
+    cards.forEach(function(c) {
+      if (open) {
+        c.setAttribute('open', '');
+      } else {
+        c.removeAttribute('open');
+      }
+    });
+  };
+
   // Initialize on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
