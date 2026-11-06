@@ -135,7 +135,7 @@
 
     if (!stickyBar) return;
 
-    // Populate TOC from Cards or Details
+    // Populate Mobile Bottom Sheet TOC from Cards or Details
     if (tocList && tocList.children.length === 0) {
       var cards = document.querySelectorAll('#ltt-cards-deck .bpa-card');
       cards.forEach(function(card) {
@@ -155,6 +155,77 @@
           tocList.appendChild(a);
         }
       });
+    }
+
+    // Populate Desktop Sticky TOC (#toc)
+    var desktopToc = document.getElementById('toc');
+    if (desktopToc && desktopToc.children.length === 0) {
+      var deckElem = document.getElementById('ltt-cards-deck') || document.querySelector('.comparison-table');
+      if (deckElem) {
+        var deckJump = document.createElement('a');
+        deckJump.className = 'tocitem';
+        deckJump.href = '#ltt-cards-deck';
+        deckJump.textContent = '⚡ Comparison Deck';
+        desktopToc.appendChild(deckJump);
+      }
+
+      var detailsCards = document.querySelectorAll('details.bpa-details-card');
+      if (detailsCards.length > 0) {
+        var bdHeader = document.getElementById('breakdown-header');
+        if (bdHeader) {
+          var bdJump = document.createElement('a');
+          bdJump.className = 'tocitem';
+          bdJump.href = '#breakdown-header';
+          bdJump.textContent = '📋 Detailed Breakdown';
+          desktopToc.appendChild(bdJump);
+        }
+
+        detailsCards.forEach(function(card) {
+          var titleEl = card.querySelector('.bpa-details-title');
+          var id = card.getAttribute('id');
+          if (titleEl && id) {
+            var item = document.createElement('a');
+            item.className = 'tocitem';
+            item.href = '#' + id;
+            item.textContent = titleEl.textContent.trim();
+            desktopToc.appendChild(item);
+          }
+        });
+      }
+
+      var buyingGuide = document.getElementById('buying-guide') || document.querySelector('.ltt-post-guide') || document.getElementById('faq-section');
+      if (buyingGuide) {
+        var bgJump = document.createElement('a');
+        bgJump.className = 'tocitem';
+        bgJump.href = '#' + (buyingGuide.id || 'buying-guide');
+        bgJump.textContent = '💡 Field Advice & FAQs';
+        desktopToc.appendChild(bgJump);
+      }
+    }
+
+    // Scrollspy for Desktop TOC items
+    if (desktopToc) {
+      var tocItems = desktopToc.querySelectorAll('.tocitem');
+      window.addEventListener('scroll', function() {
+        var fromTop = window.scrollY + 140;
+        var cur = null;
+        tocItems.forEach(function(item) {
+          var hash = item.getAttribute('href');
+          if (hash && hash.startsWith('#')) {
+            var target = document.querySelector(hash);
+            if (target && target.offsetTop <= fromTop) {
+              cur = item;
+            }
+          }
+        });
+        tocItems.forEach(function(item) {
+          if (item === cur) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }, { passive: true });
     }
 
     // Show/hide sticky bar based on scroll position
