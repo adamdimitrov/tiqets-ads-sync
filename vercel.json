@@ -21,8 +21,42 @@
     },
     {
       "src": "/(.*)",
-      "methods": ["POST"],
+      "methods": [
+        "POST"
+      ],
       "dest": "api/index.py"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/"
+    },
+    {
+      "src": "/staging/assets/(.*)",
+      "dest": "/public/assets/"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/"
+    },
+    {
+      "src": "/staging/css/(.*)",
+      "dest": "/public/css/"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/"
+    },
+    {
+      "src": "/staging/js/(.*)",
+      "dest": "/public/js/"
+    },
+    {
+      "src": "/staging/about/?",
+      "dest": "/public/staging/about/index.html"
+    },
+    {
+      "src": "/about/?",
+      "dest": "/public/about/index.html"
     },
     {
       "src": "/staging/seine-river-cruises-paris/?",
