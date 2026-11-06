@@ -160,30 +160,30 @@ for kw in KEYWORDS:
         }
     })
 
-# 7. Single Unpinned Responsive Search Ad (15 headlines w/ high keyword inclusion + 4 descriptions)
+# 7. Comparison Responsive Search Ad (Headline 1 pinned to comparison hooks)
 HEADLINES = [
-    {"text": "Seine River Cruise Paris"},
-    {"text": "Best Seine River Cruise 2026"},
-    {"text": "Paris River Cruise Tickets"},
-    {"text": "Top 5 Paris Boat Tours Ranked"},
-    {"text": "Compare 5 Seine Cruises Live"},
-    {"text": "Paris Sightseeing Cruise €18"},
-    {"text": "Kids 50% Off (€9 Ages 4-11)"},
-    {"text": "Board At The Eiffel Tower"},
-    {"text": "Bateaux Parisiens & Mouches"},
-    {"text": "360° Open-Air Rooftop Decks"},
-    {"text": "Instant Mobile QR Tickets"},
-    {"text": "Skip The 60-Min Ticket Line"},
-    {"text": "1-Hour Guided Seine Boat Tour"},
-    {"text": "Audio Guide In 14 Languages"},
-    {"text": "Verified 2026 Cruise Rankings"}
+    {"text": "Top 5 Seine Cruises Ranked", "pinnedField": "HEADLINE_1"},
+    {"text": "Which Seine Cruise Is Best?", "pinnedField": "HEADLINE_1"},
+    {"text": "5 Best Paris River Cruises", "pinnedField": "HEADLINE_1"},
+    {"text": "Compare Prices & Views 2026"},
+    {"text": "Bateaux Mouches vs Parisiens"},
+    {"text": "Don't Book The Wrong Boat"},
+    {"text": "Rooftop Decks vs Glass Boats"},
+    {"text": "Tested In Person: Top 5 Boats"},
+    {"text": "Official Tickets From €17"},
+    {"text": "Skip 60-Min Box Office Lines"},
+    {"text": "Direct Mobile QR Boarding"},
+    {"text": "Adults €17-€18, Kids €8-€9"},
+    {"text": "Pier 3 Eiffel Tower & Alma"},
+    {"text": "Departures Every 30 Minutes"},
+    {"text": "Free Onboard Audio Guide App"}
 ]
 
 DESCRIPTIONS = [
-    {"text": "We boarded & tested the top 5 Paris Seine sightseeing cruises. Compare prices & views."},
-    {"text": "Instant mobile QR tickets from €18 Adult & €9 Kids (50% Off). Skip box office queues."},
-    {"text": "Compare Bateaux Parisiens, Bateaux-Mouches & Vedettes de Paris side by side before buying."},
-    {"text": "Departures every 30 mins right under the Eiffel Tower. 360° open upper decks & audio app."}
+    {"text": "We tested top 5 Seine cruises for rooftop views & crowds. Compare & pick #1."},
+    {"text": "Bateaux Parisiens or Bateaux Mouches? Compare prices (€17 vs €18) & piers before booking."},
+    {"text": "Skip 60-min box office queues at the Eiffel Tower. Instant mobile QR passes from €17."},
+    {"text": "Adults from €17, kids 50% off (€8-€9), under 4 free. Boats depart every 30m from Pier 3."}
 ]
 
 for h in HEADLINES:

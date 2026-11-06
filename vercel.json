@@ -27,52 +27,32 @@
       "dest": "api/index.py"
     },
     {
-      "src": "/assets/cruise_detective_logo.png",
-      "dest": "/public/assets/cruise_detective_logo.png"
-    },
-    {
-      "src": "/staging/assets/cruise_detective_logo.png",
-      "dest": "/public/staging/assets/cruise_detective_logo.png"
-    },
-    {
-      "src": "/css/editorial-luxury.css",
-      "dest": "/public/css/editorial-luxury.css"
-    },
-    {
-      "src": "/staging/css/editorial-luxury.css",
-      "dest": "/public/staging/css/editorial-luxury.css"
-    },
-    {
-      "src": "/js/ltt-nav.js",
-      "dest": "/public/js/ltt-nav.js"
-    },
-    {
-      "src": "/staging/js/ltt-nav.js",
-      "dest": "/public/staging/js/ltt-nav.js"
-    },
-    {
       "src": "/assets/(.*)",
-      "dest": "/public/assets/"
+      "dest": "/public/assets/$1"
     },
     {
       "src": "/staging/assets/(.*)",
-      "dest": "/public/assets/"
+      "dest": "/public/staging/assets/$1"
     },
     {
       "src": "/css/(.*)",
-      "dest": "/public/css/"
+      "dest": "/public/css/$1"
     },
     {
       "src": "/staging/css/(.*)",
-      "dest": "/public/css/"
+      "dest": "/public/staging/css/$1"
     },
     {
       "src": "/js/(.*)",
-      "dest": "/public/js/"
+      "dest": "/public/js/$1"
     },
     {
       "src": "/staging/js/(.*)",
-      "dest": "/public/js/"
+      "dest": "/public/staging/js/$1"
+    },
+    {
+      "src": "/staging/?$",
+      "dest": "/public/staging/index.html"
     },
     {
       "src": "/staging/about/?",
@@ -83,24 +63,44 @@
       "dest": "/public/about/index.html"
     },
     {
+      "src": "/staging/dinner-cruises-paris/?",
+      "dest": "/public/staging/dinner-cruises-paris/index.html"
+    },
+    {
+      "src": "/dinner-cruises-paris/?",
+      "dest": "/public/dinner-cruises-paris/index.html"
+    },
+    {
       "src": "/staging/seine-river-cruises-paris/?",
       "dest": "/public/staging/seine-river-cruises-paris/index.html"
     },
     {
-      "src": "/staging/dinner-cruises-paris/?",
-      "dest": "/public/staging/dinner-cruises-paris/index.html"
+      "src": "/seine-river-cruises-paris/?",
+      "dest": "/public/seine-river-cruises-paris/index.html"
     },
     {
       "src": "/staging/canal-cruises-amsterdam/?",
       "dest": "/public/staging/canal-cruises-amsterdam/index.html"
     },
     {
+      "src": "/canal-cruises-amsterdam/?",
+      "dest": "/public/canal-cruises-amsterdam/index.html"
+    },
+    {
       "src": "/staging/thames-river-cruises-london/?",
       "dest": "/public/staging/thames-river-cruises-london/index.html"
     },
     {
+      "src": "/thames-river-cruises-london/?",
+      "dest": "/public/thames-river-cruises-london/index.html"
+    },
+    {
       "src": "/staging/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/?",
       "dest": "/public/staging/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/index.html"
+    },
+    {
+      "src": "/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/?",
+      "dest": "/public/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/index.html"
     },
     {
       "src": "/staging/(.*)/styles.css",
@@ -592,10 +592,6 @@
     },
     {
       "src": "/seine-comparison/?",
-      "dest": "/public/seine-comparison/index.html"
-    },
-    {
-      "src": "/seine-river-cruises-paris/?",
       "dest": "/public/seine-comparison/index.html"
     },
     {

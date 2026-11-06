@@ -83,7 +83,7 @@ ops.append({
                 "targetPartnerSearchNetwork": False
             },
             "geoTargetTypeSetting": {
-                "positiveGeoTargetType": "PRESENCE_OR_INTEREST",
+                "positiveGeoTargetType": "PRESENCE",
                 "negativeGeoTargetType": "PRESENCE"
             },
             "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
