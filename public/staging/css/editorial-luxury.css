@@ -675,15 +675,35 @@ a:hover {
 }
 
 /* Clickable Rating Pills */
+.bpa-proof {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.bpa-verified {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+  border: 1px solid #bbf7d0 !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  letter-spacing: 0.02em !important;
+}
+
 .bpa-channels {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
-  padding: 7px 12px !important;
+  gap: 8px !important;
+  padding: 8px 12px !important;
   background: var(--slate-50) !important;
   border: 1px solid var(--slate-200) !important;
-  border-radius: 8px !important;
-  margin-bottom: 12px !important;
+  border-radius: 10px !important;
+  margin-bottom: 14px !important;
   flex-wrap: wrap !important;
 }
 
@@ -691,9 +711,20 @@ a:hover {
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
-  font-size: 12px !important;
-  color: var(--slate-700) !important;
+  padding: 4px 8px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--slate-200) !important;
+  border-radius: 6px !important;
   text-decoration: none !important;
+  font-size: 12px !important;
+  color: var(--slate-800) !important;
+  transition: all 0.15s ease !important;
+}
+
+.bpa-ci:hover {
+  background: #fffbeb !important;
+  border-color: var(--gold-primary) !important;
+  color: var(--slate-950) !important;
 }
 
 .bpa-ci svg, .bpa-ci img {
@@ -705,12 +736,50 @@ a:hover {
 
 .bpa-ci strong {
   color: var(--slate-900) !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
 }
 
-.bpa-ci span {
-  color: var(--slate-500) !important;
+.bpa-rev-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 4px 10px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--slate-200) !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  color: var(--slate-700) !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.bpa-rev-badge:hover {
+  border-color: var(--gold-primary) !important;
+  background: #fffbeb !important;
+  color: var(--slate-950) !important;
+}
+
+.bpa-rev-icon {
+  width: 15px !important;
+  height: 15px !important;
+  object-fit: contain !important;
+}
+
+.bpa-rev-score {
+  font-weight: 800 !important;
+  color: var(--slate-900) !important;
+}
+
+.bpa-rev-stars {
+  color: #f59e0b !important;
   font-size: 11px !important;
+}
+
+.bpa-rev-count {
+  font-size: 11px !important;
+  color: #64748b !important;
+  font-weight: 600 !important;
+  margin-left: 2px !important;
 }
 
 /* 2-Column Structured Specs Grid */
@@ -1192,16 +1261,17 @@ a:hover {
   justify-content: center !important;
   background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   font-size: 13.5px !important;
   font-weight: 800 !important;
   letter-spacing: 0.01em !important;
-  padding: 10px 20px !important;
+  padding: 10px 22px !important;
   border-radius: 999px !important;
   text-decoration: none !important;
   white-space: nowrap !important;
-  box-shadow: 0 3px 12px rgba(217, 119, 6, 0.45) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.5) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   transition: all 0.15s ease !important;
 }
 
@@ -1209,8 +1279,9 @@ a:hover {
 .hybrid-cta-btn:focus {
   background: linear-gradient(135deg, #b45309 0%, #78350f 100%) !important;
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 5px 18px rgba(217, 119, 6, 0.6) !important;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.7) !important;
 }
 
 @media (max-width: 768px) {
