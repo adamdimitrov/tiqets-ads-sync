@@ -27,6 +27,30 @@
       "dest": "api/index.py"
     },
     {
+      "src": "/assets/cruise_detective_logo.png",
+      "dest": "/public/assets/cruise_detective_logo.png"
+    },
+    {
+      "src": "/staging/assets/cruise_detective_logo.png",
+      "dest": "/public/staging/assets/cruise_detective_logo.png"
+    },
+    {
+      "src": "/css/editorial-luxury.css",
+      "dest": "/public/css/editorial-luxury.css"
+    },
+    {
+      "src": "/staging/css/editorial-luxury.css",
+      "dest": "/public/staging/css/editorial-luxury.css"
+    },
+    {
+      "src": "/js/ltt-nav.js",
+      "dest": "/public/js/ltt-nav.js"
+    },
+    {
+      "src": "/staging/js/ltt-nav.js",
+      "dest": "/public/staging/js/ltt-nav.js"
+    },
+    {
       "src": "/assets/(.*)",
       "dest": "/public/assets/"
     },
