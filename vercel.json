@@ -25,6 +25,38 @@
       "dest": "api/index.py"
     },
     {
+      "src": "/staging/seine-river-cruises-paris/?",
+      "dest": "/public/staging/seine-river-cruises-paris/index.html"
+    },
+    {
+      "src": "/staging/dinner-cruises-paris/?",
+      "dest": "/public/staging/dinner-cruises-paris/index.html"
+    },
+    {
+      "src": "/staging/canal-cruises-amsterdam/?",
+      "dest": "/public/staging/canal-cruises-amsterdam/index.html"
+    },
+    {
+      "src": "/staging/thames-river-cruises-london/?",
+      "dest": "/public/staging/thames-river-cruises-london/index.html"
+    },
+    {
+      "src": "/staging/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/?",
+      "dest": "/public/staging/bateaux-mouches-vs-bateaux-parisiens-dinner-cruise-side-by-side-comparison/index.html"
+    },
+    {
+      "src": "/staging/(.*)/styles.css",
+      "dest": "/public/staging/$1/styles.css"
+    },
+    {
+      "src": "/staging/(.*)/script.js",
+      "dest": "/public/staging/$1/script.js"
+    },
+    {
+      "src": "/webflow-sync.js",
+      "dest": "/public/staging/webflow-sync.js"
+    },
+    {
       "src": "/itinerary-route-map.png",
       "dest": "/public/itinerary-route-map.png"
     },
