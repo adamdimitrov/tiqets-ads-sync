@@ -12,6 +12,13 @@
   ],
   "routes": [
     {
+      "src": "/(.*)",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      },
+      "continue": true
+    },
+    {
       "src": "/api/cron",
       "dest": "api/cron.py"
     },
