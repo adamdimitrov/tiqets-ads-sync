@@ -133,7 +133,6 @@ def cron_handler(path):
     skipped_old = 0
     now_ts = int(time.time())
     
-    cached_google_access_token = None
 
     for order in orders:
         fbclid, fbp, gclid, gclid_type = extract_click_ids(order)
@@ -209,51 +208,10 @@ def cron_handler(path):
             except requests.exceptions.RequestException as e:
                 print(f"Error sending Meta CAPI event for order {order_id}: {e}")
                 
-        if gclid and GOOGLE_CLIENT_ID and GOOGLE_CUSTOMER_ID and GOOGLE_CONVERSION_ACTION_ID:
-            if not cached_google_access_token:
-                cached_google_access_token = get_google_access_token()
-            
-            if cached_google_access_token:
-                from datetime import datetime, timezone
-                conversion_time_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-                currency = order.get("currency", "EUR")
-                
-                dm_url = "https://datamanager.googleapis.com/v1/events:ingest"
-                dm_headers = {
-                    "Authorization": f"Bearer {cached_google_access_token}",
-                    "Content-Type": "application/json"
-                }
-                dm_payload = {
-                    "destinations": [
-                        {
-                            "operatingAccount": {
-                                "accountType": "GOOGLE_ADS",
-                                "accountId": str(GOOGLE_CUSTOMER_ID)
-                            },
-                            "productDestinationId": str(GOOGLE_CONVERSION_ACTION_ID)
-                        }
-                    ],
-                    "events": [
-                        {
-                            "eventSource": "WEB",
-                            "eventTimestamp": conversion_time_iso,
-                            "transactionId": str(order_id) if order_id else f"TQ-{int(time.time())}",
-                            "conversionValue": val,
-                            "currency": currency,
-                            "adIdentifiers": {
-                                gclid_type: gclid
-                            }
-                        }
-                    ]
-                }
-                try:
-                    g_res = requests.post(dm_url, headers=dm_headers, json=dm_payload)
-                    g_res.raise_for_status()
-                except requests.exceptions.RequestException as e:
-                    print(f"Error sending Google Ads conversion for order {order.get('order_reference_id')}: {e}")
-                    if e.response is not None:
-                        print(e.response.text)
-                    
+        # Google Ads uploads are handled by sync_tiqets_conversions.py in the
+        # cruisedetective repo (GitHub Actions, every 15 min). This job only
+        # sends Meta CAPI events, so each sale reaches Google Ads once.
+
     return jsonify({"status": "success", "processed_orders": processed_orders}), 200
 
 if __name__ == '__main__':
